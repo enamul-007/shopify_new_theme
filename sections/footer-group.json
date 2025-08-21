@@ -7,21 +7,18 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{ 
-    "name": "Header Group",
-    "type": "header",
-    "sections": {
-        "announcementbar":{
-            "type": "announcementbar",
-            "settings": {}
-        },
-        "header":{
-            "type": "header",
-            "settings": {}
-        }
+{
+  "name": "Footer Group",
+  "type": "footer",
+  "sections": {
+    "sub-footer": {
+      "type": "sub-footer",
+      "settings": {}
     },
-    "order": [
-        "announcementbar",
-        "header"
-    ]
+    "footer": {
+      "type": "footer",
+      "settings": {}
+    }
+  },
+  "order": ["sub-footer", "footer"]
 }
