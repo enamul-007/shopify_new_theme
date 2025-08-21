@@ -2,6 +2,15 @@ html {
   margin: 0;
 }
 
+/* header style sart */
+
 .announcementbar {
   background-color: #facc15;
+  
 }
+p.announce-text.text-center {
+  padding: 5px;
+  margin-bottom: 0;
+}
+
+/* header style end */
