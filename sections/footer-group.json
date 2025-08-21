@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "Footer Group",
   "type": "footer",
@@ -13,3 +14,29 @@
   },
   "order": ["sub-footer", "footer"]
 }
+=======
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "Footer Group",
+  "type": "footer",
+  "sections": {
+    "sub-footer": {
+      "type": "sub-footer",
+      "settings": {}
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {}
+    }
+  },
+  "order": ["sub-footer", "footer"]
+}
+>>>>>>> 9d434078cc80f63aba2f86f7259e55cdcdb8d528

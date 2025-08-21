@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="announcementbar">
   <div class="container">
     <p class="announce-text text-center">
@@ -20,4 +21,28 @@
 
 ]
 }
+=======
+<div class="announcementbar">
+  <div class="container">
+    <p class="announce-text text-center">
+       {{section.settings.message}}
+    </p>
+  </div>
+</div>
+
+
+{% schema %}
+{
+"name": "Announcementbar",
+"settings": [
+{
+  "type": "text",
+  "id": "message",
+  "label": "Announcement text",
+  "default": "25% OFF!"
+}
+
+]
+}
+>>>>>>> 9d434078cc80f63aba2f86f7259e55cdcdb8d528
 {% endschema %}
