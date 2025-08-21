@@ -7,21 +7,25 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{ 
-    "name": "Header Group",
-    "type": "header",
-    "sections": {
-        "announcementbar":{
-            "type": "announcementbar",
-            "settings": {}
-        },
-        "header":{
-            "type": "header",
-            "settings": {}
-        }
+{
+  "name": "Header Group",
+  "type": "header",
+  "sections": {
+    "announcementbar": {
+      "type": "announcementbar",
+      "settings": {
+        "message": "25% OFF!"
+      }
     },
-    "order": [
-        "announcementbar",
-        "header"
-    ]
+    "header": {
+      "type": "header",
+      "settings": {
+        "menu": "main-menu"
+      }
+    }
+  },
+  "order": [
+    "announcementbar",
+    "header"
+  ]
 }
