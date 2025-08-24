@@ -8,19 +8,13 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "settings": {
-        "heading": "Our Best Collection",
-        "sub-heading": "<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat officia similique laboriosam porro perspiciatis exercitationem, sequi nostrum amet ab voluptatum at molestiae reprehenderit consectetur itaque excepturi natus quos est, repellat nihil pariatur sunt, adipisci impedit. Neque cum, quibusdam ut cupiditate suscipit voluptatem dolorem optio, eveniet voluptates quidem quisquam autem perferendis iusto nobis, ratione ex debitis temporibus praesentium ad! Architecto itaque ducimus eligendi molestiae vitae. Provident veritatis eius ea recusandae animi perspiciatis earum error, quos suscipit, unde maiores distinctio sequi consectetur fuga! Quibusdam, nostrum culpa quod autem voluptatibus accusamus ex repudiandae ducimus itaque nulla atque excepturi eaque omnis rerum voluptates reiciendis?<br/><br/></p>",
-        "lable_1": "Buy Now",
-        "url_1": "",
-        "content_width": 100
-      }
-    }
-  },
-  "order": [
-    "image_banner"
-  ]
+    "sections": {
+        "image_banner": {
+            "type": "image-banner",
+            "settings": {}
+        }
+    },
+    "order":[
+        "image_banner"
+    ]
 }

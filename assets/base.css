@@ -23,7 +23,7 @@ p.announce-text.text-center {
 .banner_content {
   position: absolute;
   bottom: 200px;
-  max-width: 90%; 
+  max-width: 50%; 
   text-align: left;
   word-wrap: break-word;
 }
