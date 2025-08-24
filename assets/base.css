@@ -12,6 +12,10 @@ p.announce-text.text-center {
   margin-bottom: 0;
 }
 
+.navbar{
+  --bs-navbar-padding-y: 0;
+}
+
 /* header style end */
 
 /* banner section */
@@ -42,7 +46,7 @@ p.announce-text.text-center {
 
 /* banner section */
 
-.card-body svg{
+.card-body svg, .card-body img{
   width: 100%;
   height: auto;
 }
