@@ -15,21 +15,19 @@ p.announce-text.text-center {
 /* header style end */
 
 /* banner section */
-.banner_image{
+.image-banner-main{
   position: relative;
 }
 
 .banner_main{
   position: absolute;
   top: 50%;
+  left: 50px;
 }
 
-.banner_container{
-  position: relative;
-}
+
 
 .banner_content {
-  position: absolute;
   max-width: 50%; 
   text-align: left;
   word-wrap: break-word;
