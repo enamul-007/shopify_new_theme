@@ -8,13 +8,29 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "image_banner": {
-            "type": "image-banner",
-            "settings": {}
-        }
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "heading": "Our Best Collection",
+        "sub-heading": "",
+        "lable_1": "Buy Now",
+        "url_1": "",
+        "content_width": 60
+      }
     },
-    "order":[
-        "image_banner"
-    ]
+    "featured_collection_kVaCd7": {
+      "type": "featured-collection",
+      "name": "Featured Collection",
+      "settings": {
+        "heading": "Featured collection",
+        "sub_heading": "",
+        "collection": ""
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection_kVaCd7"
+  ]
 }
