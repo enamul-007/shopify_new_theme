@@ -1,3 +1,10 @@
+{% style %}
+    .content_width{
+        max-width:{{section.settings.content_width}}%;
+    }
+{% endstyle %}
+
+
 <div class="image-banner-{{section.id}}">
   <div class="image-banner-main">
     {% if section.settings.image != blank %}
