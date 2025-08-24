@@ -15,6 +15,13 @@ p.announce-text.text-center {
 /* header style end */
 
 /* banner section */
+
+.image-banner-main .banner-img {
+  width: 100%;
+  height: auto;
+  display: block; 
+}
+
 .image-banner-main{
   position: relative;
 }
