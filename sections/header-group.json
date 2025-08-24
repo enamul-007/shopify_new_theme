@@ -1,23 +1,4 @@
-<<<<<<< HEAD
-{ 
-    "name": "Header Group",
-    "type": "header",
-    "sections": {
-        "announcementbar":{
-            "type": "announcementbar",
-            "settings": {}
-        },
-        "header":{
-            "type": "header",
-            "settings": {}
-        }
-    },
-    "order": [
-        "announcementbar",
-        "header"
-    ]
-}
-=======
+
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
@@ -49,4 +30,4 @@
     "header"
   ]
 }
->>>>>>> 9d434078cc80f63aba2f86f7259e55cdcdb8d528
+
