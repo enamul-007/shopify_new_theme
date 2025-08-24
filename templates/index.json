@@ -8,20 +8,13 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "settings": {
-        "image": "shopify://shop_images/woman-gossiping-with-colleagues-found-out-shocking-revelation-speechless-concerned-young-redhead_1258-127734.avif",
-        "heading": "Our Best Collection",
-        "sub-heading": "<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat officia similique laboriosam porro perspiciatis exercitationem, sequi nostrum amet ab voluptatum at molestiae reprehenderit consectetur itaque excepturi natus quos </p>",
-        "lable_1": "Buy Now",
-        "url_1": "",
-        "content_width": 61
-      }
-    }
-  },
-  "order": [
-    "image_banner"
-  ]
+    "sections": {
+        "image_banner": {
+            "type": "image-banner",
+            "settings": {}
+        }
+    },
+    "order":[
+        "image_banner"
+    ]
 }
