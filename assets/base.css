@@ -24,7 +24,7 @@ p.announce-text.text-center {
   position: absolute;
   bottom: 200px;
   max-width: 90%; 
-  text-align: center;
+  text-align: left;
   word-wrap: break-word;
 }
 
