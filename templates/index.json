@@ -8,13 +8,66 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "image_banner": {
-            "type": "image-banner",
-            "settings": {}
-        }
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "heading": "Our Best Collection",
+        "sub-heading": "",
+        "lable_1": "Buy Now",
+        "url_1": "",
+        "content_width": 60
+      }
     },
-    "order":[
-        "image_banner"
-    ]
+    "multicolumn_zbPbqw": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_XMpTDe": {
+          "type": "column",
+          "settings": {
+            "title": "column title",
+            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
+          }
+        },
+        "column_HaKFLB": {
+          "type": "column",
+          "settings": {
+            "title": "column title",
+            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
+          }
+        },
+        "column_UpxpFE": {
+          "type": "column",
+          "settings": {
+            "title": "column title",
+            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "column_XMpTDe",
+        "column_HaKFLB",
+        "column_UpxpFE"
+      ],
+      "name": "Multicolumn",
+      "settings": {
+        "heading": "Multicolumn",
+        "sub_heading": ""
+      }
+    },
+    "featured_collection_m444BH": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "Featured collection",
+        "sub_heading": "",
+        "collection": ""
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection_m444BH",
+    "multicolumn_zbPbqw"
+  ]
 }
