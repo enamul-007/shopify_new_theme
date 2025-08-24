@@ -1,7 +1,7 @@
 {% style %}
-    .banner_content{
-        max-width:{{section.settings.content_width}}%;
-    }
+  .banner_content {
+    max-width: {{ section.settings.content_width }}%;
+  }
 {% endstyle %}
 
 
@@ -16,16 +16,18 @@
     {% else %}
       {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
     {% endif %}
-    <div class="container banner_container">
-      <div class="banner_content">
-        <h1>{{ section.settings.heading }}</h1>
-        {% if section.settings.sub-heading != blank %}
-          <p>{{ section.settings.sub-heading }}</p>
-        {% endif %}
-        <div class="cta-action">
-          <a href="{{section.settings.url_1}}" class="btn btn-primary">{{ section.settings.lable_1 }}</a>
+    <div class="container banner_main ">
+      <div class="banner_container">
+        <div class="banner_content">
+          <h1>{{ section.settings.heading }}</h1>
+          {% if section.settings.sub-heading != blank %}
+            <p>{{ section.settings.sub-heading }}</p>
+          {% endif %}
+          <div class="cta-action">
+            <a href="{{section.settings.url_1}}" class="btn btn-primary">{{ section.settings.lable_1 }}</a>
+          </div>
         </div>
-      </div>
+      </div>    
     </div>
 
   </div>
@@ -62,8 +64,7 @@
         "type": "url",
         "id": "url_1",
         "label": "Button URL"
-      },
-      {
+      }, {
         "type": "range",
         "id": "content_width",
         "label": "Content Width",
@@ -71,7 +72,7 @@
         "max": 100,
         "step": 1,
         "unit": "%",
-        "default":60
+        "default": 60
       }
 
     ]
