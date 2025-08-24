@@ -33,6 +33,7 @@ p.announce-text.text-center {
 }
 
 .banner_content {
+  width: 50%;
   text-align: left;
   word-wrap: break-word;
 }
