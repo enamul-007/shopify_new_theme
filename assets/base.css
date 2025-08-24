@@ -41,3 +41,8 @@ p.announce-text.text-center {
 }
 
 /* banner section */
+
+.card-body svg{
+  width: 100%;
+  height: auto;
+}
