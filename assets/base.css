@@ -19,21 +19,23 @@ p.announce-text.text-center {
 .image-banner-main .banner-img {
   width: 100%;
   height: auto;
-  display: block;
+  display: block; 
 }
 
-.image-banner-main {
+.image-banner-main{
   position: relative;
 }
 
-.banner_container{
+.banner_main{
   position: absolute;
   top: 40%;
   left: 50px;
 }
 
+
+
 .banner_content {
-  width: 50%;
+  max-width: 50%; 
   text-align: left;
   word-wrap: break-word;
 }
