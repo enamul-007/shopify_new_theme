@@ -68,9 +68,11 @@
                       >
                         Add To Cart
                       </button>
-                    {% if block.settings.enable_dynamic_button %}
-                      {{form | payment_button}}
-                    {% endif %}
+                      {% if block.settings.enable_dynamic_button %}
+                        <div class="custom-payment-button btn btn-primary w-100">
+                          {{ form | payment_button }}
+                        </div>
+                      {% endif %}
                     </div>
                 {% endcase %}
               {% endfor %}
@@ -88,7 +90,6 @@
   "class": "product-template",
   "settings": [],
   "blocks": [
-    
     {
       "type": "@app"
     },
