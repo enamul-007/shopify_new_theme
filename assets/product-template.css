@@ -8,3 +8,6 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded 
     height: 20px;
     background: #0D6AF4;
 }
+button.shopify-payment-button__button.shopify-payment-button__button--unbranded:hover {
+    background: #0a4ed1;
+}
