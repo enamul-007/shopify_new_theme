@@ -25,10 +25,8 @@
 
               {% for block in section.blocks %}
                 {% case block.type %}
-                    {% comment %}
-                      {% when '@app' %}
-                      {% render block %}
-                    {% endcomment %}
+                  {% when '@app' %}
+                    {% render block %}
 
                   {% when 'text' %}
                     <p>{{ block.settings.text }}</p>
@@ -88,6 +86,10 @@
   "class": "product-template",
   "settings": [],
   "blocks": [
+    
+    {
+      "type": "@app"
+    },
     {
       "type": "text",
       "name": "Text",
