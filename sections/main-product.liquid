@@ -7,7 +7,7 @@
         <div class="col-md-6">
           <div class="product-media">
             {% for image in product.images %}
-              {{ image.src | image_url: "master"  | img_tag }}
+              {{ image.src | image_url: width: 1200 | img_tag }}
             {% endfor %}
           </div>
         </div>
