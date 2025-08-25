@@ -19,9 +19,56 @@
         "label_1": "Buy Now",
         "url_1": ""
       }
+    },
+    "featured_collection_Qg3MPX": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "Featured collection",
+        "sub_heading": "",
+        "collection": ""
+      }
+    },
+    "multicolumn_DVWKcQ": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_cqTbBR": {
+          "type": "column",
+          "settings": {
+            "title": "column title",
+            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
+          }
+        },
+        "column_Pr8wBL": {
+          "type": "column",
+          "settings": {
+            "title": "column title",
+            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
+          }
+        },
+        "column_gAVQRH": {
+          "type": "column",
+          "settings": {
+            "title": "column title",
+            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "column_cqTbBR",
+        "column_Pr8wBL",
+        "column_gAVQRH"
+      ],
+      "name": "Multicolumn",
+      "settings": {
+        "heading": "Multicolumn",
+        "sub_heading": ""
+      }
     }
   },
   "order": [
-    "image_banner"
+    "image_banner",
+    "featured_collection_Qg3MPX",
+    "multicolumn_DVWKcQ"
   ]
 }
