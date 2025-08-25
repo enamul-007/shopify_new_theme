@@ -53,7 +53,9 @@
                         min="1"
                       >
                     </div>
-
+                    {% when 'variants' %}
+                      {% assign variants_type = block.settings.variant_type %}
+                    {% render 'variants' , product:product , type:variants_type%}
                   {% when 'description' %}
                     <div class="rte">
                       {{ product.description }}
@@ -123,6 +125,28 @@
       "type": "quantity",
       "name": "Quantity",
       "limit": 1
+    },
+    {
+      "type": "variants",
+      "name": "Variants",
+      "settings": [
+        {
+          "type": "select",
+          "id": "variant_type",
+          "label": "Variant type",
+          "options": [
+            {
+              "label": "pills",
+              "value": "pills"
+            },
+            {
+              "label": "slector",
+              "value": "selector"
+            }
+          ],
+          "default": "pills"
+        }
+      ]
     },
     {
       "type": "description",

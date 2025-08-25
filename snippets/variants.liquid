@@ -1,0 +1,7 @@
+    <div class="product-variants">
+        <select name="variant" >
+            {% for variants in product.variants %}
+                <option value="{{variant.id}}">{{variant.title}}</option>
+            {% endfor %}
+        </select>
+    </div>
