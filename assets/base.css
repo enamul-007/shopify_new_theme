@@ -29,6 +29,12 @@ p.announce-text.text-center {
   max-width: 60%;  
 }
 
+.image-banner-main img.banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* banner section */
 
 .card-body svg, .card-body img{
