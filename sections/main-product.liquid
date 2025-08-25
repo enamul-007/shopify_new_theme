@@ -60,15 +60,17 @@
                     </div>
 
                   {% when 'buy_buttons' %}
-                    <div class="cart-button">
+                    <div class="cart-button my-4">
                       <button
                         type="submit"
-                        class="btn btn-primary"
+                        class="btn btn-primary w-100 mb-2"
                         name="add"
                       >
                         Add To Cart
                       </button>
-                      <button type="button" class="btn btn-primary">Buy Now</button>
+                    {% if block.settings.enable_dynamic_button %}
+                      {{form | payment_button}}
+                    {% endif %}
                     </div>
                 {% endcase %}
               {% endfor %}
