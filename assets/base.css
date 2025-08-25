@@ -29,7 +29,7 @@ p.announce-text.text-center {
   max-width: 60%;  
 }
 
-.image-banner-main img.banner-img {
+.image-banner-main img  {
   width: 100%;
   height: auto;
   display: block;
