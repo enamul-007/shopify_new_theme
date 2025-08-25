@@ -48,7 +48,7 @@
         "title",
         "price",
         "quantity_selector",
-        "buy_buttons"
+        "buy_buttons"   
       ],
       "settings": { }
     }
