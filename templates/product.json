@@ -41,6 +41,10 @@
           "settings": {
             "variant_type": "pills"
           }
+        },
+        "description_nXUyjK": {
+          "type": "description",
+          "settings": {}
         }
       },
       "block_order": [
@@ -49,7 +53,8 @@
         "price",
         "quantity_selector",
         "buy_buttons",
-        "variants_GBcrGP"
+        "variants_GBcrGP",
+        "description_nXUyjK"
       ],
       "settings": {}
     }
