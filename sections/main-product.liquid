@@ -70,23 +70,7 @@
                       </button>
                       {% if block.settings.enable_dynamic_button %}
                         <div class="custom-payment-button">
-                          {{ form | payment_button }}
-                          <style>
-                            .shopify-payment-button  {
-                              content: 'Buy Now'; 
-                              background: #0D6AF4;
-                              font-size: inherit;
-                              color: #0D6AF4;
-                              height: 20px;
-                              width: 100%;
-                              display: flex;
-                              justify-content: center;
-                              align-items: center;
-                              position: absolute;
-                              top: 0;
-                              left: 0;
-                            }
-                          </style>
+                          {{ form| payment_button }}
                         </div>
                       {% endif %}
                     </div>
