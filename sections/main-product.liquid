@@ -2,7 +2,13 @@
   <div class="product-main">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">image part</div>
+        <div class="col-md-6">
+          <div class="product-media">
+              {% for image in product.images %}
+                {{image.src | img_url: width:300  | img_tag: width:300, height:300 }}
+              {% endfor %}
+          </div>
+        </div>
         <div class="col-md-6">Deails part
         </div>
       </div>
