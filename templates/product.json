@@ -8,15 +8,52 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "main-product": {
-            "type": "main-product",
-            "settings": {
-                
-            }
+  "sections": {
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "vendor": "{{ product.vendor }}"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+           
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+           
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity",
+          "settings": {
+           
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+           "enable_dynamic_button": true        
+          }
         }
-    },
-    "order": [
-        "main-product"
-    ]
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "settings": { }
+    }
+  },
+  "order": [
+    "main-product"
+  ]
 }
