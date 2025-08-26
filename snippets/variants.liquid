@@ -13,9 +13,9 @@
               <label class="variants_pill">
                 <input
                   type="radio"
-                  id="{{ color.name | downcase | replace: ' ', '_' }}"
+                  id="{{ color | downcase | replace: ' ', '_' }}"
                   name="{{ option.name | downcase | replace: ' ', '_' }}"
-                  value="{{ color.name }}"
+                  value="{{ color }}"
                   {% if option.selected_value == value %}
                     checked
                   {% endif %}
