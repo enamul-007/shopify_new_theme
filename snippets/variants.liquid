@@ -2,7 +2,6 @@
 {% assign colorString = settings.color_defination %}
 {% assign colorCodeArry = colorString  |  split: ', ' %}
 
-{{colorString}}
 
 <div class="product-variants">
   {% unless product.has_only_default_variant %}
@@ -12,6 +11,15 @@
         {% if type == 'pills' %}
           {% if option.name == 'color' and settings.color_swatch_enabled %}
             {% for color in option.values %}
+                {% assign colorValue = color | downcase %}
+                {% assign coloCodeValue = colorValue %}
+                {% for colorCode in colorCodeArry %}
+                    {% assign colorCodePir = colorCode |  split: " | " %}
+                    {% if coloCodeValue = colorCodePir[0] %}
+                            {% assign coloCodeValue = colorCodePir[1] %}
+                    {% endif %}
+                    
+                {% endfor %}
                <label class="variants_pill">
                 <input
                   type="radio"
@@ -22,7 +30,7 @@
                     checked
                   {% endif %}
                 >
-                <span class="variant_button">{{ color }}</span>
+                <span class="variant_button" style="background-color:{{coloCodeValue}}"></span>
               </label>
             {% endfor %}
           {% else %}
