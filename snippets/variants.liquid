@@ -2,7 +2,7 @@
   <div class="product-options my-4">
     {% for option in product.options_with_values %}
       <strong class="py-3">{{ option.name }}</strong> <br>
-
+        {% if variant_type == 'pills' %}
       {% for value in option.values %}
         <label class="variants_pill">
           <input
@@ -14,6 +14,15 @@
           <span class="variant_button">{{ value }}</span>
         </label>
       {% endfor %}
+        {% else %}
+        <div class="variant-selector">
+          <select class="variant_selector" id="">
+            {% for value in option.values %}
+                <option value="{{ value.name }}">{{ value.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      {% endif %}
 
       <br>
     {% endfor %}
