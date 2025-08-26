@@ -53,9 +53,9 @@
                         min="1"
                       >
                     </div>
-                    {% when 'variants' %}
-                      {% assign variants_type = block.settings.variant_type %}
-                    {% render 'variants' , product:product , type:variants_type%}
+                  {% when 'variants' %}
+                    {% assign variants_type = block.settings.variant_type %}
+                    {% render 'variants', product: product, type: variants_type %}
                   {% when 'description' %}
                     <div class="rte">
                       {{ product.description }}
@@ -72,7 +72,7 @@
                       </button>
                       {% if block.settings.enable_dynamic_button %}
                         <div class="custom-payment-button">
-                          {{ form| payment_button }}
+                          {{ form | payment_button }}
                         </div>
                       {% endif %}
                     </div>
