@@ -39,7 +39,7 @@
         "variants_4qBFxr": {
           "type": "variants",
           "settings": {
-            "variant_type": "selector"
+            "variant_type": "pills"
           }
         }
       },
