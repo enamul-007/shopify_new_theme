@@ -15,10 +15,10 @@
           </label>
         {% endfor %}
       {% else %}
-        <div class="variant-selctor">
+        <div class="variant-selector">
           <select class="variant_selector" id="">
             {% for value in option.values %}
-                <option value="{{value.name}}">{{value.name}}</option>
+                <option value="{{ value }}">{{ value }}</option>
             {% endfor %}
           </select>
         </div>
