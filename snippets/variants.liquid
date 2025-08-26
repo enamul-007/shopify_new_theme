@@ -15,7 +15,7 @@
                 {% assign coloCodeValue = colorValue %}
                 {% for colorCode in colorCodeArry %}
                     {% assign colorCodePir = colorCode |  split: " | " %}
-                    {% if coloCodeValue = colorCodePir[0] %}
+                    {% if coloCodeValue == colorCodePir[0] %}
                             {% assign coloCodeValue = colorCodePir[1] %}
                     {% endif %}
                     
