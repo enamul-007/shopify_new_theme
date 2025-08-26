@@ -1,11 +1,12 @@
 <div class="product-variants">
   <div class="product-options">
     {% for option in product.options_with_values %}
-      <label>{{ option.name }}</label>
+      <label>{{ option.name }}</label> <br
       {% for value in option.values %}
         <input type="radio" id="{{value.name |  downcase |  replace: ' ','_' }}" name="{{option.name |  downcase |  replace: ' ', '_' }}" value="{{value.name}} ">
         <label for="{{value.name |  downcase |  replace: ' ','_' }}">{{value.name}}</label>
       {% endfor %}
+        <br>
     {% endfor %}
   </div>
   <select name="variant">
