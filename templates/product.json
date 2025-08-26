@@ -18,40 +18,39 @@
             "vendor": "{{ product.vendor }}"
           }
         },
-        "description_w4heNH": {
-          "type": "description",
-          "settings": {}
+        "title": {
+          "type": "title",
+          "settings": {
+           
+          }
         },
         "price": {
           "type": "price",
-          "settings": {}
+          "settings": {
+           
+          }
         },
         "quantity_selector": {
           "type": "quantity",
-          "settings": {}
+          "settings": {
+           
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "enable_dynamic_button": true
-          }
-        },
-        "variants_4qBFxr": {
-          "type": "variants",
-          "settings": {
-            "variant_type": "pills"
+           "enable_dynamic_button": true        
           }
         }
       },
       "block_order": [
         "vendor",
-        "description_w4heNH",
+        "title",
         "price",
         "quantity_selector",
-        "buy_buttons",
-        "variants_4qBFxr"
+        "buy_buttons"   
       ],
-      "settings": {}
+      "settings": { }
     }
   },
   "order": [
