@@ -1,5 +1,8 @@
+
 {% assign colorString = settings.color_defination %}
-{% assign colorCodeArray = colorString | split: ', ' %}
+{% assign colorCodeArry = colorString  |  split: ', ' %}
+
+{{colorString}}
 
 <div class="product-variants">
   {% unless product.has_only_default_variant %}
@@ -9,25 +12,26 @@
         {% if type == 'pills' %}
           {% if option.name == 'color' and settings.color_swatch_enabled %}
             {% for color in option.values %}
-              {% assign colorValue = color | downcase %}
-              {% assign colorCodeValue = colorValue %}
-              {% for colorCode in colorCodeArray %}
-                {% assign colorCodePair = colorCode | split: ' | ' %}
-                {% if colorValue == colorCodePair[0] %}
-                  {% assign colorCodeValue = colorCodePair[1] %}
-                {% endif %}
-              {% endfor %}
-              <label class="variants_pill">
+                {% assign colorValue = color | downcase %}
+                {% assign coloCodeValue = colorValue %}
+                {% for colorCode in colorCodeArry %}
+                    {% assign colorCodePir = colorCode |  split: " | " %}
+                    {% if coloCodeValue = colorCodePir[0] %}
+                            {% assign coloCodeValue = colorCodePir[1] %}
+                    {% endif %}
+                    
+                {% endfor %}
+               <label class="variants_pill">
                 <input
                   type="radio"
                   id="{{ color | downcase | replace: ' ', '_' }}"
                   name="{{ option.name | downcase | replace: ' ', '_' }}"
                   value="{{ color }}"
-                  {% if option.selected_value == color %}
+                  {% if option.selected_value == value %}
                     checked
                   {% endif %}
                 >
-                <span class="variant_button" style="background-color:{{ coloCodeValue }}"></span>
+                <span class="variant_button" style="background-color:{{coloCodeValue}}"></span>
               </label>
             {% endfor %}
           {% else %}
