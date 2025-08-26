@@ -18,19 +18,19 @@ button.btn.btn-primary.w-75.mb-2.fw-semibold {
 }
 
 
-/* variant style  */
-.variants_pill{
-    display: inline-block;
-    margin-right: 10px;
+    /* variant style  */
+    .variants_pill{
+        display: inline-block;
+        margin-right: 10px;
 
-}
+    }
 
-.variants_pill input[type="radio"] {
-    display: none;
+    .variants_pill input[type="radio"] {
+        display: none;
 
-}
+    }
 
-.variants_pill .varitant_button{
+  .variants_pill .variant_button {
     display: inline-block;
     padding: 8px 10px; 
     background: #DDDDDD;
@@ -39,8 +39,9 @@ button.btn.btn-primary.w-75.mb-2.fw-semibold {
     cursor: pointer;
 }
 
-.variants_pill input[type="radio"]:checked + .varitant_button {
+.variants_pill input[type="radio"]:checked + .variant_button {
     background: #000000; 
     color: #ffffff; 
 }
-/* variant style  */
+
+    /* variant style  */
