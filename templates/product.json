@@ -20,26 +20,26 @@
         },
         "title": {
           "type": "title",
-          "settings": {}
+          "settings": {
+           
+          }
         },
         "price": {
           "type": "price",
-          "settings": {}
+          "settings": {
+           
+          }
         },
         "quantity_selector": {
           "type": "quantity",
-          "settings": {}
+          "settings": {
+           
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "enable_dynamic_button": true
-          }
-        },
-        "variants_4qBFxr": {
-          "type": "variants",
-          "settings": {
-            "variant_type": "pills"
+           "enable_dynamic_button": true        
           }
         }
       },
@@ -48,10 +48,9 @@
         "title",
         "price",
         "quantity_selector",
-        "buy_buttons",
-        "variants_4qBFxr"
+        "buy_buttons"   
       ],
-      "settings": {}
+      "settings": { }
     }
   },
   "order": [
