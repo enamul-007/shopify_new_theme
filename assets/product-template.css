@@ -40,7 +40,7 @@ button.btn.btn-primary.w-75.mb-2.fw-semibold {
 }
 
 .variants_pill input[type="radio"]:checked + .varitant_button {
-    background: #00ff0dc9; 
+    background: #000000; 
     color: #ffffff; 
 }
 /* variant style  */
