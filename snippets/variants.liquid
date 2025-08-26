@@ -1,7 +1,7 @@
 <div class="product-variants">
   <div class="product-options">
     {% for option in product.options_with_values %}
-      <label>{{ option.name }}</label> <br>
+      <strong class="py-3">{{ option.name }}</strong> <br>
       {% for value in option.values %}
         <input type="radio" 
                id="{{ value | downcase | replace: ' ', '_' }}" 
