@@ -1,7 +1,16 @@
-    <div class="product-variants">
-        <select name="variant" >
-            {% for variants in product.variants %}
-                <option value="{{variant.id}}">{{variants.title}}</option>
-            {% endfor %}
-        </select>
-    </div>
+<div class="product-variants">
+  <div class="product-options">
+    {% for option in product.options_with_values %}
+      <label>{{ option.name }}</label>
+      {% for value in option.values %}
+        <input type="radio" id="{{value.name |  downcase |  replace: ' ','_' }}" name="{{option.name |  downcase |  replace: ' ', '_' }}" value="{{value.name}} ">
+        <label for="{{value.name |  downcase |  replace: ' ','_' }}">{{value.name}}</label>
+      {% endfor %}
+    {% endfor %}
+  </div>
+  <select name="variant">
+    {% for variants in product.variants %}
+      <option value="{{variant.id}}">{{ variants.title }}</option>
+    {% endfor %}
+  </select>
+</div>
