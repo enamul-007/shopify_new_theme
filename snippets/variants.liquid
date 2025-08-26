@@ -1,3 +1,9 @@
+
+{% assign colorString = settings.color_defination %}
+{% assign colorCodeArry = colorString  |  split: ', ' %}
+
+{{colorString}}
+
 <div class="product-variants">
   {% unless product.has_only_default_variant %}
     <div class="product-options my-4">
@@ -5,24 +11,23 @@
         <strong class="py-3">{{ option.name }}</strong> <br>
         {% if type == 'pills' %}
           {% if option.name == 'color' and settings.color_swatch_enabled %}
-            {% for value in option.values %}
-              <label class="variants_pill">
+            {% for color in option.values %}
+               <label class="variants_pill">
                 <input
                   type="radio"
-                  id="{{ value | downcase | replace: ' ', '_' }}"
+                  id="{{ color | downcase | replace: ' ', '_' }}"
                   name="{{ option.name | downcase | replace: ' ', '_' }}"
-                  value="{{ value }}"
+                  value="{{ color }}"
                   {% if option.selected_value == value %}
                     checked
                   {% endif %}
                 >
-                <span class="variant_button">{{ value }}</span>
+                <span class="variant_button">{{ color }}</span>
               </label>
             {% endfor %}
           {% else %}
             {% for value in option.values %}
               <label class="variants_pill">
-                hello
                 <input
                   type="radio"
                   id="{{ value | downcase | replace: ' ', '_' }}"
