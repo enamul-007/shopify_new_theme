@@ -2,27 +2,19 @@
   <div class="product-options my-4">
     {% for option in product.options_with_values %}
       <strong class="py-3">{{ option.name }}</strong> <br>
-      {% if section.settings.variant_type == 'pills' %}
-        {% for value in option.values %}
-          <label class="variants_pill">
-            <input
-              type="radio"
-              id="{{ value | downcase | replace: ' ', '_' }}"
-              name="{{ option.name | downcase | replace: ' ', '_' }}"
-              value="{{ value }}"
-            >
-            <span class="varitant_button">{{ value }}</span>
-          </label>
-        {% endfor %}
-      {% else %}
-        <div class="variant-selector">
-          <select class="variant_selector" id="">
-            {% for value in option.values %}
-                <option value="{{ value }}">{{ value }}</option>
-            {% endfor %}
-          </select>
-        </div>
-      {% endif %}
+
+      {% for value in option.values %}
+        <label class="variants_pill">
+          <input
+            type="radio"
+            id="{{ value | downcase | replace: ' ', '_' }}"
+            name="{{ option.name | downcase | replace: ' ', '_' }}"
+            value="{{ value }}"
+          >
+          <span class="varitant_button">{{ value }}</span>
+        </label>
+      {% endfor %}
+
       <br>
     {% endfor %}
   </div>
