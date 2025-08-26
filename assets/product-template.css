@@ -16,3 +16,26 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded:
 button.btn.btn-primary.w-75.mb-2.fw-semibold {
     height: 43px;
 }
+
+
+/* variant style  */
+.variants_pill{
+    display: inline-block;
+    margin-right: 10px;
+
+}
+
+.variants_pill input[type="radio"] {
+    display: none;
+
+}
+
+.variants_pill .varitant_button{
+    display: inline-block;
+    padding: 10px 10px; 
+    background: #DDDDDD;
+    color: #000000;
+    border-radius: 5px; 
+    cursor: pointer;
+}
+/* variant style  */
