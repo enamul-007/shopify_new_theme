@@ -20,43 +20,37 @@
         },
         "title": {
           "type": "title",
-          "settings": {}
-        },
-        "description_JXzaTW": {
-          "type": "description",
-          "settings": {}
+          "settings": {
+           
+          }
         },
         "price": {
           "type": "price",
-          "settings": {}
-        },
-        "variants_rfmF98": {
-          "type": "variants",
           "settings": {
-            "variant_type": "selector"
+           
           }
         },
         "quantity_selector": {
           "type": "quantity",
-          "settings": {}
+          "settings": {
+           
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "enable_dynamic_button": true
+           "enable_dynamic_button": true        
           }
         }
       },
       "block_order": [
         "vendor",
         "title",
-        "description_JXzaTW",
         "price",
-        "variants_rfmF98",
         "quantity_selector",
-        "buy_buttons"
+        "buy_buttons"   
       ],
-      "settings": {}
+      "settings": { }
     }
   },
   "order": [
