@@ -1,5 +1,5 @@
 {% assign colorString = settings.color_defination %}
-{% assign colorCodeArry = colorString | split: ', ' %}
+{% assign colorCodeArray = colorString | split: ', ' %}
 
 <div class="product-variants">
   {% unless product.has_only_default_variant %}
@@ -10,11 +10,11 @@
           {% if option.name == 'color' and settings.color_swatch_enabled %}
             {% for color in option.values %}
               {% assign colorValue = color | downcase %}
-              {% assign coloCodeValue = colorValue %}
-              {% for colorCode in colorCodeArry %}
-                {% assign colorCodePir = colorCode | split: ' | ' %}
-                {% if colorValue == colorCodePir[0] %}
-                  {% assign coloCodeValue = colorCodePir[1] %}
+              {% assign colorCodeValue = colorValue %}
+              {% for colorCode in colorCodeArray %}
+                {% assign colorCodePair = colorCode | split: ' | ' %}
+                {% if colorValue == colorCodePair[0] %}
+                  {% assign colorCodeValue = colorCodePair[1] %}
                 {% endif %}
               {% endfor %}
               <label class="variants_pill">
