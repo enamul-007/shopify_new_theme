@@ -9,28 +9,34 @@
 
         {% if settings.variant_display_type == 'pills' %}
           {% if option.name == 'color' and settings.color_swatch_enabled %}
+            
             {% for color in option.values %}
-              {% assign colorValue = color | downcase %}
+              {% assign colorValue = color | strip | downcase %}
               {% assign coloCodeValue = colorValue %}
+              
               {% for colorCode in colorCodeArry %}
-                {% assign colorCodePir = colorCode | strip | split: ' | ' %}
-                {% if coloCodeValue == colorCodePir[0] %}
-                  {% assign coloCodeValue = colorCodePir[1] %}
+                {% assign colorCode = colorCode | strip %}
+                {% assign colorCodePir = colorCode | split: ' | ' %}
+                {% assign colorCodeName = colorCodePir[0] | strip | downcase %}
+                {% assign colorCodeHex  = colorCodePir[1] | strip %}
+                
+                {% if colorValue == colorCodeName %}
+                  {% assign coloCodeValue = colorCodeHex %}
                 {% endif %}
               {% endfor %}
+              
               <label class="variants_pill">
                 <input
                   type="radio"
                   id="{{ color | downcase | replace: ' ', '_' }}"
                   name="{{ option.name | downcase | replace: ' ', '_' }}"
                   value="{{ color }}"
-                  {% if option.selected_value == color %}
-                    checked
-                  {% endif %}
+                  {% if option.selected_value == color %} checked {% endif %}
                 >
-                <span class="variant_button" style="background-color:{{coloCodeValue}}">{{ color }}</span>
+                <span class="variant_button" style="background-color: {{ coloCodeValue }}">{{ color }}</span>
               </label>
             {% endfor %}
+            
           {% else %}
             {% for value in option.values %}
               <label class="variants_pill">
@@ -39,14 +45,13 @@
                   id="{{ value | downcase | replace: ' ', '_' }}"
                   name="{{ option.name | downcase | replace: ' ', '_' }}"
                   value="{{ value }}"
-                  {% if option.selected_value == value %}
-                    checked
-                  {% endif %}
+                  {% if option.selected_value == value %} checked {% endif %}
                 >
                 <span class="variant_button">{{ value }}</span>
               </label>
             {% endfor %}
           {% endif %}
+          
         {% else %}
           <div class="variant-selector">
             <select class="variant_selector form-control">
@@ -56,6 +61,7 @@
             </select>
           </div>
         {% endif %}
+        
         <br>
       {% endfor %}
     </div>
