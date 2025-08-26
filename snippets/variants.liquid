@@ -1,18 +1,19 @@
 {% assign colorString = settings.color_defination %}
-{% assign colorCodeArry = colorString | split: ', ' %}
+{% assign colorCodeArry = colorString | split: ',' %}
 
 <div class="product-variants">
   {% unless product.has_only_default_variant %}
     <div class="product-options my-4">
       {% for option in product.options_with_values %}
         <strong class="py-3">{{ option.name }}</strong> <br>
-        {% if type == 'pills' %}
+
+        {% if settings.variant_display_type == 'pills' %}
           {% if option.name == 'color' and settings.color_swatch_enabled %}
             {% for color in option.values %}
               {% assign colorValue = color | downcase %}
               {% assign coloCodeValue = colorValue %}
               {% for colorCode in colorCodeArry %}
-                {% assign colorCodePir = colorCode | split: ' | ' %}
+                {% assign colorCodePir = colorCode | strip | split: ' | ' %}
                 {% if coloCodeValue == colorCodePir[0] %}
                   {% assign coloCodeValue = colorCodePir[1] %}
                 {% endif %}
@@ -23,11 +24,11 @@
                   id="{{ color | downcase | replace: ' ', '_' }}"
                   name="{{ option.name | downcase | replace: ' ', '_' }}"
                   value="{{ color }}"
-                  {% if option.selected_value == value %}
+                  {% if option.selected_value == color %}
                     checked
                   {% endif %}
                 >
-                <span class="variant_button" style="background-color:{{coloCodeValue}}">{{color}}</span>
+                <span class="variant_button" style="background-color:{{coloCodeValue}}">{{ color }}</span>
               </label>
             {% endfor %}
           {% else %}
@@ -46,24 +47,25 @@
               </label>
             {% endfor %}
           {% endif %}
-
         {% else %}
           <div class="variant-selector">
-            <select class="variant_selector form-control ">
+            <select class="variant_selector form-control">
               {% for value in option.values %}
-                <option value="{{ value.name }}">{{ value.name }}</option>
+                <option value="{{ value }}">{{ value }}</option>
               {% endfor %}
             </select>
           </div>
         {% endif %}
-
         <br>
       {% endfor %}
     </div>
 
     <select name="variant">
       {% for variant in product.variants %}
-        <option value="{{ variant.id }}" data-img="{{variant.image}}" data-available="{{variant.available}}">
+        <option 
+          value="{{ variant.id }}" 
+          data-img="{{ variant.featured_image | img_url: '100x100' }}" 
+          data-available="{{ variant.available }}">
           {{ variant.title }}
         </option>
       {% endfor %}
