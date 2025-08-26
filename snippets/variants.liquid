@@ -10,6 +10,7 @@
           {% if option.name == 'color' and settings.color_swatch_enabled %}
             {% for color in option.values %}
               <label class="variants_pill">
+                hello
                 <input
                   type="radio"
                   id="{{ color | downcase | replace: ' ', '_' }}"
