@@ -1,4 +1,11 @@
 $(document).ready(function() {
+
+    function selectedVariant(param, value) {
+        var url = new URL (window.location.href);
+        url.searchParams.set(param, value); 
+        window.history.replaceState({}, '', url);
+                 
+    }
   function updateSelection() {
     var selectedValues = "";
 
@@ -17,7 +24,12 @@ $(document).ready(function() {
   }
 
   // Run when radios change
-  $('.product-options input[type="radio"]').change(updateSelection);
+  $('.product-options input[type="radio"]').change(function() {
+    updateSelection();
+      var currentVariant = $('variants').val();  
+       console.log(currentVariant);
+    selectedVariant( 'variant', currentVariant );
+  });
 
   // Run on page load
   updateSelection();
