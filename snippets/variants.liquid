@@ -4,20 +4,38 @@
       {% for option in product.options_with_values %}
         <strong class="py-3">{{ option.name }}</strong> <br>
         {% if type == 'pills' %}
-          {% for value in option.values %}
-            <label class="variants_pill">
-              <input
-                type="radio"
-                id="{{ value | downcase | replace: ' ', '_' }}"
-                name="{{ option.name | downcase | replace: ' ', '_' }}"
-                value="{{ value }}"
-                {% if option.selected_value == value %}
-                  checked
-                {% endif %}
-              >
-              <span class="variant_button">{{ value }}</span>
-            </label>
-          {% endfor %}
+          {% if option.name == 'color' and settings.color_swatch_enabled %}
+            {% for value in option.values %}
+              <label class="variants_pill">
+                <input
+                  type="radio"
+                  id="{{ value | downcase | replace: ' ', '_' }}"
+                  name="{{ option.name | downcase | replace: ' ', '_' }}"
+                  value="{{ value }}"
+                  {% if option.selected_value == value %}
+                    checked
+                  {% endif %}
+                >
+                <span class="variant_button">{{ value }}</span>
+              </label>
+            {% endfor %}
+          {% else %}
+            {% for value in option.values %}
+              <label class="variants_pill">
+                <input
+                  type="radio"
+                  id="{{ value | downcase | replace: ' ', '_' }}"
+                  name="{{ option.name | downcase | replace: ' ', '_' }}"
+                  value="{{ value }}"
+                  {% if option.selected_value == value %}
+                    checked
+                  {% endif %}
+                >
+                <span class="variant_button">{{ value }}</span>
+              </label>
+            {% endfor %}
+          {% endif %}
+
         {% else %}
           <div class="variant-selector">
             <select class="variant_selector form-control ">
@@ -34,8 +52,10 @@
 
     <select name="variant">
       {% for variant in product.variants %}
-        <option value="{{ variant.id }}" data-img="{{variant.image}}" data-available="{{variant.available}}">{{ variant.title }}</option>
+        <option value="{{ variant.id }}" data-img="{{variant.image}}" data-available="{{variant.available}}">
+          {{ variant.title }}
+        </option>
       {% endfor %}
-    </select>       
+    </select>
   {% endunless %}
 </div>
