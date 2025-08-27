@@ -17,11 +17,10 @@
               {% for colorCode in color_code_array %}
                 <pre>{{colorCode | json}}</pre>
                 {% assign color_code_pair = colorCode | split: '|' %}
-                <pre>{{color_code_pair | json}}</pre>
-                <pre>{{color_code_pair}}</pre>
-                {% if color_value == color_code_pair[0] | strip | downcase %}
-                  <p>Color value: {{ color_value }}</p>
-                  {% assign color_code_value = color_code_pair[1] | strip %}
+                {% assign color_name = color_code_pair[0] | strip | downcase %}
+                {% assign color_hex  = color_code_pair[1] | strip %}
+                {% if color_value == color_name %}
+                  {% assign color_code_value = color_hex %}
                 {% endif %}
               {% endfor %}
               <label class="variants_pill">
@@ -34,7 +33,7 @@
                     checked
                   {% endif %}
                 >
-                <span class="variant_button" style="background-color:{{color_code_value}}">{{ color }}</span>
+                <span class="variant_button" style="background-color:{{color_code_value}}">{{ color }} {{color_code_value}}</span>
               </label>
             {% endfor %}
           {% else %}
