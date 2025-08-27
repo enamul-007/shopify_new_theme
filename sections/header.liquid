@@ -3,79 +3,52 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="{{ shop.url }}">
         {% if settings.logo != blank %}
-          <img
-            src="{{ settings.logo | img_url: 'small' }}"
-            width="50"
-            height="50"
-            alt="{{ shop.name }}"
-          >
+        <img src="{{ settings.logo | img_url: 'small' }}" width="50" height="50" alt="{{ shop.name }}">
         {% else %}
-          {{ shop.name }}
+        {{ shop.name }}
         {% endif %}
       </a>
 
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           {% for link in section.settings.menu.links %}
-            {% if link.links.size > 0 %}
-              <!-- Dropdown Menu -->
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="{{ link.url }}"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  {{ link.title }}
-                </a>
-                <ul class="dropdown-menu">
-                  {% for child in link.links %}
-                    <li>
-                      <a class="dropdown-item" href="{{ child.url }}">{{ child.title }}</a>
-                    </li>
-                  {% endfor %}
-                </ul>
+          {% if link.links.size > 0 %}
+          <!-- Dropdown Menu -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="{{ link.url }}" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              {{ link.title }}
+            </a>
+            <ul class="dropdown-menu">
+              {% for child in link.links %}
+              <li>
+                <a class="dropdown-item" href="{{ child.url }}">{{ child.title }}</a>
               </li>
-            {% else %}
-              <!-- Normal Link -->
-              <li class="nav-item">
-                <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
-              </li>
-            {% endif %}
+              {% endfor %}
+            </ul>
+          </li>
+          {% else %}
+          <!-- Normal Link -->
+          <li class="nav-item">
+            <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+          {% endif %}
           {% endfor %}
         </ul>
 
         <!-- Search Form -->
         <form class="d-flex" role="search">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          >
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         <div class="header-cart-count">
-          <a
-            href="{% if settings.cart_type == 'drawer' %}#offcanvasRight{% else %}{{ routes.cart_url }}{% endif %}"
-            class="cart_link"
-            type="button"
-            data-bs-toggle="offcanvas"
-            aria-controls="offcanvasRight"
-          >
+          <a href="{% if settings.cart_type == 'drawer' %}#offcanvasRight{% else %}{{ routes.cart_url }}{% endif %}"
+            class="cart_link" type="button" data-bs-toggle="offcanvas" aria-controls="offcanvasRight">
             <div class="cart_icon">
               {% render 'icon', icons: 'bag' %}
               <span>{{ cart.item_count }}</span>
@@ -89,13 +62,13 @@
 
 {% schema %}
 {
-  "name": "Header",
-  "settings": [
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "Menu"
-    }
-  ]
+"name": "Header",
+"settings": [
+{
+"type": "link_list",
+"id": "menu",
+"label": "Menu"
+}
+]
 }
 {% endschema %}
