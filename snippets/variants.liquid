@@ -1,8 +1,6 @@
 {% assign color_string = settings.color_defination %}
 {% assign color_code_array = color_string | split: ',' %}
 
-
-
 <div class="product-variants">
   {% unless product.has_only_default_variant %}
     <div class="product-options my-4">
@@ -14,11 +12,11 @@
             {% for color in option.values %}
               {% assign color_value = color | downcase %}
               {% assign color_code_value = color_value %}
+              <pre>{{color_code_array|json}}</pre>
               {% for colorCode in color_code_array %}
-                 <pre>{{color_code_array|json}}</pre>
                 {% assign color_code_pair = colorCode | split: '|' %}
                 {% assign color_name = color_code_pair[0] | strip | downcase %}
-                {% assign color_hex  = color_code_pair[1] | strip %}
+                {% assign color_hex = color_code_pair[1] | strip %}
                 <pre>{{color_name|json}}</pre>
                 <pre>{{color_hex|json}}</pre>
                 {% if color_value == color_name %}
@@ -35,7 +33,10 @@
                     checked
                   {% endif %}
                 >
-                <span class="variant_button" style="background-color:{{color_code_value}}">{{ color }} {{color_code_value}}</span>
+                <span class="variant_button" style="background-color:{{color_code_value}}">
+                  {{- color }}
+                  {{ color_code_value -}}
+                </span>
               </label>
             {% endfor %}
           {% else %}
