@@ -21,13 +21,13 @@
             {% endunless %}
             {% endfor %}
             {% endunless %}
-            <div class="quantity">
+            <div class="quantity mt-2 ">
               <label>Quantity</label>
               <input type="number" name="quantity" value="{{ item.quantity }}" class="w-25">
             </div>
           </td>
-          <td class="item-quantity">
-
+          <td class="item-action">
+            <a href="#" >{% render 'icon', icons:'delete' %}</a>
           </td>
         </tr>
         {% endfor %}
