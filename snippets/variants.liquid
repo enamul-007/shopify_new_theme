@@ -8,8 +8,8 @@
         <strong class="py-3">{{ option.name }}</strong> <br>
         {% if type == 'pills' %}
           {% if option.name == 'color' %}
-            <pre>{{option.values | json }}</pre>
             {% for color in option.values %}
+              <H1>{{ color }}</H1>
               {% assign color_value = color | downcase %}
               {% assign color_code_value = color_value %}
               <pre>{{color_code_array | json}}</pre>
