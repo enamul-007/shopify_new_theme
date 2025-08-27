@@ -73,7 +73,7 @@
             href="{% if settings.cart_type == 'drawer' %}#offcanvasRight{% else %}{{ routes.cart_url }}{% endif %}"
             class="cart_link"
             {% if settings.cart_type == 'drawer' %}
-              data-bs-toggle="offcanvas" aria-controls="offcanvasRight"
+              type="button" data-bs-toggle="offcanvas" aria-controls="offcanvasRight"
             {% endif %}
           >
             <div class="cart_icon">
