@@ -19,9 +19,9 @@
                 {% assign color_code_pair = colorCode | split: '|' %}
                 <pre>{{color_code_pair | json}}</pre>
                 <pre>{{color_code_pair}}</pre>
-                {% if color_value == color_code_pair[0] %}
+                {% if color_value == color_code_pair[0] | strip | downcase %}
                   <p>Color value: {{ color_value }}</p>
-                  {% assign color_code_value = color_code_pair[1] %}
+                  {% assign color_code_value = color_code_pair[1] | strip %}
                 {% endif %}
               {% endfor %}
               <label class="variants_pill">
