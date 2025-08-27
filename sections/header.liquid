@@ -65,7 +65,7 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         <div class="header-cart-count">
-          <a href="{{routes.cart_url}}" class="cart_link">
+          <a href="#offcanvasRight" class="cart_link" type="button" data-bs-toggle="offcanvas" aria-controls="offcanvasRight">
             <div class="cart_icon">
               {% render 'icon' , icons: 'bag' %}
               <span>{{cart.item_count}}</span>
