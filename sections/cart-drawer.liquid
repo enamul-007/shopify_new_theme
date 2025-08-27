@@ -21,10 +21,13 @@
             {% endunless %}
             {% endfor %}
             {% endunless %}
+            <div class="quantity">
+              <label>Quantity</label>
+              <input type="number" name="quantity" value="{{ item.quantity }}" class="w-25">
+            </div>
           </td>
           <td class="item-quantity">
-            <label >Quantity</label>
-            <input type="number" name="quantity"  value="{{ item.quantity }}" class="w-25">
+
           </td>
         </tr>
         {% endfor %}
