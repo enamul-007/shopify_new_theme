@@ -7,7 +7,8 @@
             src="{{ settings.logo | img_url: 'small' }}"
             width="50"
             height="50"
-            alt="{{ shop.name }}">
+            alt="{{ shop.name }}"
+          >
         {% else %}
           {{ shop.name }}
         {% endif %}
@@ -20,7 +21,8 @@
         data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
-        aria-label="Toggle navigation">
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -35,7 +37,8 @@
                   href="{{ link.url }}"
                   role="button"
                   data-bs-toggle="dropdown"
-                  aria-expanded="false">
+                  aria-expanded="false"
+                >
                   {{ link.title }}
                 </a>
                 <ul class="dropdown-menu">
@@ -61,14 +64,21 @@
             class="form-control me-2"
             type="search"
             placeholder="Search"
-            aria-label="Search">
+            aria-label="Search"
+          >
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         <div class="header-cart-count">
-          <a href="#offcanvasRight" class="cart_link" type="button" data-bs-toggle="offcanvas" aria-controls="offcanvasRight">
+          <a
+            href="{% if settings.cart_type == 'drawer' %}#offcanvasRight{% else %}{{ routes.cart_url }}{% endif %}"
+            class="cart_link"
+            {% if settings.cart_type == 'drawer' %}
+              type="button" data-bs-toggle="offcanvas" aria-controls="offcanvasRight"
+            {% endif %}
+          >
             <div class="cart_icon">
-              {% render 'icon' , icons: 'bag' %}
-              <span>{{cart.item_count}}</span>
+              {% render 'icon', icons: 'bag' %}
+              <span>{{ cart.item_count }}</span>
             </div>
           </a>
         </div>
