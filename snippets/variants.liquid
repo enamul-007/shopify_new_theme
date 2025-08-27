@@ -12,9 +12,11 @@
               {% assign colorValue = color | downcase %}
               {% assign coloCodeValue = colorValue %}
               {% for colorCode in colorCodeArry %}
-                {% assign colorCodePair = colorCode | split: " | " %}
-               {% if colorValue == colorCodePair[0] %}  
-                  {% assign coloCodeValue = colorCodePir[1] %}
+                {% assign colorCodePair = colorCode | split: '|' %}
+                {% assign codeName = colorCodePair[0] | strip | downcase %}
+                {% assign codeHex = colorCodePair[1] | strip %}
+                {% if colorValue == codeName %}
+                  {% assign coloCodeValue = codeHex %}
                 {% endif %}
               {% endfor %}
               <label class="variants_pill">
@@ -23,13 +25,14 @@
                   id="{{ color | downcase | replace: ' ', '_' }}"
                   name="{{ option.name | downcase | replace: ' ', '_' }}"
                   value="{{ color }}"
-                  {% if option.selected_value == value %}
+                  {% if option.selected_value == color %}
                     checked
                   {% endif %}
                 >
-                <span class="variant_button" style="background-color:{{coloCodeValue}}">{{color}}</span>
+                <span class="variant_button" style="background-color:{{ coloCodeValue }}">{{ color }}</span>
               </label>
             {% endfor %}
+
           {% else %}
             {% for value in option.values %}
               <label class="variants_pill">
