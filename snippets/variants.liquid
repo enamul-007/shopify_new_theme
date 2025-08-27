@@ -16,7 +16,7 @@
               {% assign color_code_value = color_value %}
               {% for colorCode in color_code_array %}
                 <pre>{{colorCode | json}}</pre>
-                {% assign color_code_pair = colorCode | split: ' | ' %}
+                {% assign color_code_pair = colorCode | split: '|' %}
                 <pre>{{color_code_pair | json}}</pre>
                 <pre>{{color_code_pair}}</pre>
                 {% if color_value == color_code_pair[0] %}
