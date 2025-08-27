@@ -1,11 +1,10 @@
 {% assign color_string = settings.color_defination %}
 {% assign color_code_array = color_string | split: ',' %}
-
+<pre>{{color_code_array | json}}</pre>
 <div class="product-variants">
   {% unless product.has_only_default_variant %}
     <div class="product-options my-4">
       {% for option in product.options_with_values %}
-        <pre>{{ product.options_with_values | json }}</pre>
         <strong class="py-3">{{ option.name }}</strong> <br>
         {% if type == 'pills' %}
           {% if option.name == 'color' and settings.color_swatch_enabled %}
