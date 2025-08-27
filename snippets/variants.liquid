@@ -27,7 +27,14 @@
                     checked
                   {% endif %}
                 >
-                <span class="variant_button" style="background-color:{{color_code_value}}"></span>
+                <span
+                  class="variant_button"
+                  style="
+                    background-color:{{color_code_value}};  width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                  cursor: pointer;"
+                ></span>
               </label>
             {% endfor %}
           {% else %}
