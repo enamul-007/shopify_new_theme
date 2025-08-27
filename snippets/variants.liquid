@@ -7,7 +7,7 @@
       {% for option in product.options_with_values %}
         <strong class="py-3">{{ option.name }}</strong> <br>
         {% if type == 'pills' %}
-          {% if option.name == 'color' and settings.color_swatch_enabled %}
+          {% if option.name == 'color' %}
             {% for color in option.values %}
               {% assign color_value = color | downcase %}
               {% assign color_code_value = color_value %}
