@@ -1,5 +1,6 @@
 {% assign colorString = settings.color_defination %}
 {% assign colorCodeArry = colorString | split: ', ' %}
+{{colorString}}
 
 <div class="product-variants">
   {% unless product.has_only_default_variant %}
