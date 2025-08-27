@@ -27,10 +27,20 @@
         "sub_heading": "",
         "collection": "best-selling"
       }
+    },
+    "featured_collection_x6Xdh9": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "Featured collection",
+        "sub_heading": "",
+        "collection": "best-selling"
+      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection_mr3kHg"
+    "featured_collection_mr3kHg",
+    "featured_collection_x6Xdh9"
   ]
 }
