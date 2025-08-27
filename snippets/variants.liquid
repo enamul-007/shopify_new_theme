@@ -1,61 +1,33 @@
-{% assign color_string = settings.color_defination %}
-{% assign color_code_array = color_string | split: ', ' %}
-<pre>{{color_code_array | json}}</pre>
+{% assign colorString = settings.color_defination %}
+{% assign colorCodeArry = colorString | split: ', ' %}
 
-{% for colorCode in color_code_array %}
-  {% comment %}
-    {% assign color_code_pair = colorCode | split: '|' %}
-    {% assign color_name = color_code_pair[0] | strip | downcase %}
-    {% assign color_hex = color_code_pair[1] | strip %}
-    <pre>{{color_name | json}}</pre>
-    <pre>{{color_hex | json}}</pre>
-    {% if color_value == color_name %}
-      {% assign color_code_value = color_hex %}
-    {% endif %}
-  {% endcomment %}
-  <H1>{{ colorCode }}</H1>
-{% endfor %}
 <div class="product-variants">
   {% unless product.has_only_default_variant %}
     <div class="product-options my-4">
       {% for option in product.options_with_values %}
         <strong class="py-3">{{ option.name }}</strong> <br>
         {% if type == 'pills' %}
-          {% if option.name == 'Color' %}
+          {% if option.name == 'Color' and settings.color_swatch_enabled %}
             {% for color in option.values %}
-              <H1>{{ color }}</H1>
-              {% assign color_value = color | downcase %}
-              {% assign color_code_value = color_value %}
-              <pre>{{color_code_array | json}}</pre>
-              <h1>{{ color_value }}</h1>
-              <h1>{{ color_code_value }}</h1>
-              {% for colorCode in color_code_array %}
-                {% comment %}
-                  {% assign color_code_pair = colorCode | split: '|' %}
-                  {% assign color_name = color_code_pair[0] | strip | downcase %}
-                  {% assign color_hex = color_code_pair[1] | strip %}
-                  <pre>{{color_name | json}}</pre>
-                  <pre>{{color_hex | json}}</pre>
-                  {% if color_value == color_name %}
-                    {% assign color_code_value = color_hex %}
-                  {% endif %}
-                {% endcomment %}
-                <H1>{{ colorCode }}</H1>
+              {% assign colorValue = color | downcase %}
+              {% assign coloCodeValue = colorValue %}
+              {% for colorCode in colorCodeArry %}
+                {% assign colorCodePir = colorCode | split: ' | ' %}
+                {% if coloCodeValue == colorCodePir[0] %}
+                  {% assign coloCodeValue = colorCodePir[1] %}
+                {% endif %}
               {% endfor %}
               <label class="variants_pill">
                 <input
                   type="radio"
-                  id="{{ color.name | downcase | replace: ' ', '_' }}"
+                  id="{{ color | downcase | replace: ' ', '_' }}"
                   name="{{ option.name | downcase | replace: ' ', '_' }}"
-                  value="{{ color.name }}"
+                  value="{{ color }}"
                   {% if option.selected_value == value %}
                     checked
                   {% endif %}
                 >
-                <span class="variant_button" style="background-color:{{color_hex}}">
-                  {{- color_name }}
-                  {{ color_code_value -}}
-                </span>
+                <span class="variant_button" style="background-color:{{coloCodeValue}}">{{ color }}</span>
               </label>
             {% endfor %}
           {% else %}
