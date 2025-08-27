@@ -1,5 +1,5 @@
 {% assign color_string = settings.color_defination %}
-{% assign color_code_array = color_string | split: ',' %}
+{% assign color_code_array = color_string | split: ', ' %}
 <pre>{{color_code_array | json}}</pre>
 
 {% for colorCode in color_code_array %}
@@ -21,7 +21,7 @@
       {% for option in product.options_with_values %}
         <strong class="py-3">{{ option.name }}</strong> <br>
         {% if type == 'pills' %}
-          {% if option.name == 'color' %}
+          {% if option.name == 'Color' %}
             {% for color in option.values %}
               <H1>{{ color }}</H1>
               {% assign color_value = color | downcase %}
