@@ -1,5 +1,5 @@
 {% assign color_string = settings.color_defination %}
-{% assign color_code_array = color_string | split: ', ' %}
+{% assign color_code_array = color_string | split: ',' %}
 
 <pre>{{color_code_array|json}}</pre>
 
