@@ -11,14 +11,15 @@
           <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.product.title }}">
         </td>
         <td class="item-info">
-          <h4 class="item-title">{{item.product.title}}</h4>
-          {% unless item.options_with_values %}
-            {% for option in item.options_with_values  %}
-              <span class="item_option">{{  option.value  }}</span>
-            {% endfor %}
-          {% endunless %}
+          <h4 class="item-title">{{ item.product.title }}</h4>
+          {% if item.options_with_values %}
+          {% for option in item.options_with_values %}
+          <span class="item_option">{{ option.value }}</span>
+          {% endfor %}
+          {% endif %}
         </td>
       </tr>
+
       {% endfor %}
     </div>
   </div>
