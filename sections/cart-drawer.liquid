@@ -8,7 +8,7 @@
       {% for item in cart.items %}
       <tr class="item">
         <td class="product-image">
-          <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.title }}" width="{{ item.image.width }}" height="{{ item.image.height }}">
+          <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.product.title }}">
         </td>
         <td class="item-info">
           <h4 class="item-title">{{item.product.title}}</h4>
