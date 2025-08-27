@@ -26,15 +26,10 @@
               <input type="number" name="quantity" value="{{ item.quantity }}" class="w-25">
             </div>
           </td>
-          <td class="item-action" style="min-width:160px; white-space:nowrap;">
-            <a href="#" data-line="{{ forloop.index }}">
-              {% render 'icon', icons:'delete' %}
-            </a>
-            <p class="item_price" style="display:inline-block; margin-left:8px;">
-              {{ item.line_price | money }}
-            </p>
-          </td>
-
+            <td class="item-action">
+              <a href="#" data-line="{{forloop.index}}" >{% render 'icon', icons:'delete' %}</a>
+              <p class="item_price" style="display:inline-block; margin-left:8px;">{{item.line_price | money}}</p>
+            </td>
         </tr>
         {% endfor %}
       </table>
