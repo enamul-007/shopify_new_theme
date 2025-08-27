@@ -23,30 +23,8 @@
             {% endunless %}
           </td>
           <td class="item-quantity">
-            <label>Quantity</label>
-            <div class="input-group quantity-group" style="max-width: 120px;">
-              <button class="btn btn-outline-secondary" type="button" aria-label="Decrease quantity"
-              style="border-radius: 4px 0 0 4px;"
-              onclick="updateCartQuantity({{ item.key | json }}, {{ item.quantity | minus: 1 }})">-</button>
-              <input type="number" name="updates[]" value="{{ item.quantity }}" min="1" class="form-control text-center"
-              style="border-radius: 0; box-shadow: none;"
-              onchange="updateCartQuantity({{ item.key | json }}, this.value)">
-              <button class="btn btn-outline-secondary" type="button" aria-label="Increase quantity"
-              style="border-radius: 0 4px 4px 0;"
-              onclick="updateCartQuantity({{ item.key | json }}, {{ item.quantity | plus: 1 }})">+</button>
-            </div>
-            <script>
-              function updateCartQuantity(key, quantity) {
-              fetch('/cart/change.js', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id: key, quantity: Number(quantity) })
-              })
-              .then(response => response.json())
-              .then(() => location.reload());
-              }
-            </script>
-
+            <label >Quantity</label>
+            <input type="number" name="quantity"  value="{{ item.quantity }}" class="w-25">
           </td>
         </tr>
         {% endfor %}
