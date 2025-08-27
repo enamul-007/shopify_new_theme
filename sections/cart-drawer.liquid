@@ -31,13 +31,21 @@
             align-items: center;
             flex-direction: column;">
             <a href="#" data-line="{{forloop.index}}">{% render 'icon', icons:'delete' %}</a>
-            <p class="item_price" style="display:inline-block; margin-left:8px; white-space:nowrap;">
+            <p class="item_price mt-2" style="display:inline-block; margin-left:8px; white-space:nowrap;">
               {{ item.line_price | money }}
             </p>
           </td>
         </tr>
         {% endfor %}
       </table>
+    </div>
+  </div>
+  <div class="offcanves_footer">
+    <div class="cart_footer">
+      <div class="cart_sub_total d-flex justify-content-between">
+        <h2 class="subtotal_title">Subtotal : </h2>
+        <h2 class="subtotal">{{cart.total_price |  money}}</h2>
+      </div> 
     </div>
   </div>
 </div>
