@@ -12,6 +12,8 @@
               {% assign color_value = color | downcase %}
               {% assign color_code_value = color_value %}
               <pre>{{color_code_array | json}}</pre>
+              <h1>{{ color_value }}</h1>
+              <h1>{{ color_code_value }}</h1>
               {% for colorCode in color_code_array %}
                 {% assign color_code_pair = colorCode | split: '|' %}
                 {% assign color_name = color_code_pair[0] | strip | downcase %}
