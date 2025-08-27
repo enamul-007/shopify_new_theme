@@ -8,16 +8,16 @@
         <strong class="py-3">{{ option.name }}</strong> <br>
         {% if type == 'pills' %}
           {% if option.name == 'color' and settings.color_swatch_enabled %}
-            <pre>option: {{option.name}}, {{ option.values}}</pre>
+            <p>option: {{option.name}}, {{ option.values}}</p>
             {% for color in option.values %}
-              <pre>Color Color pair: {{color}}</pre>
+              <p>Color Color pair: {{color}}</p>
               {% assign color_value = color | downcase %}
               {% assign color_code_value = color_value %}
               {% for colorCode in color_code_array %}
                 {% assign color_code_pair = colorCode | split: ' | ' %}
                 <pre>Color Color pair: {{color_code_pair}}</pre>
                 {% if color_value == color_code_pair[0] %}
-                  <pre>Color value: {{color_value}}</pre>
+                  <p>Color value: {{color_value}}</p>
                   {% assign color_code_value = color_code_pair[1] %}
                 {% endif %}
               {% endfor %}
