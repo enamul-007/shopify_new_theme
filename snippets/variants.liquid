@@ -4,7 +4,8 @@
 <div class="product-variants">
   {% unless product.has_only_default_variant %}
     <div class="product-options my-4">
-      <pre>{{product}}</pre>
+     
+    
       {% for option in product.options_with_values %}
         <strong class="py-3">{{ option.name }}</strong> <br>
         {% if type == 'pills' %}
@@ -14,7 +15,9 @@
               {% assign color_code_value = color_value %}
               {% for colorCode in color_code_array %}
                 {% assign color_code_pair = colorCode | split: " | " %}
+                 <pre>Color Color pair: {{color_code_pair}}</pre>
                {% if color_value == color_code_pair[0] %}
+                <pre>Color value: {{color_value}}</pre>
                   {% assign color_code_value = color_code_pair[1] %}
                 {% endif %}
               {% endfor %}
