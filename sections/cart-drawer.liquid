@@ -27,14 +27,11 @@
             </div>
           </td>
           <td class="item-action" style="
-      display: flex;
-      align-items: center;
-      white-space: nowrap;
-    ">
-            <a href="#" data-line="{{ forloop.index }}">
-              {% render 'icon', icons:'delete' %}
-            </a>
-            <p class="item_price" style="margin-left:8px; white-space: nowrap;">
+            display: flex;
+            align-items: center;
+            flex-direction: column;">
+            <a href="#" data-line="{{forloop.index}}">{% render 'icon', icons:'delete' %}</a>
+            <p class="item_price" style="display:inline-block; margin-left:8px; white-space:nowrap;">
               {{ item.line_price | money }}
             </p>
           </td>
