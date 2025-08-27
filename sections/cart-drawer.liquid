@@ -1,11 +1,25 @@
-
-
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
     <h5 id="offcanvasRightLabel" id="cart_drawer_count">Cart Item &bull;{{cart.item_count}}</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    ...
+    <div class="card_info">
+      {% for item in cart.items %}
+      <tr class="item">
+        <td class="product-image">
+          <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.title }}" width="{{ item.image.width }}" height="{{ item.image.height }}">
+        </td>
+        <td class="item-info">
+          <h4 class="item-title">{{item.product.title}}</h4>
+          {% unless item.options_with_values %}
+            {% for option in item.options_with_values  %}
+              <span class="item_option">{{  option.value  }}</span>
+            {% endfor %}
+          {% endunless %}
+        </td>
+      </tr>
+      {% endfor %}
+    </div>
   </div>
 </div>
