@@ -8,38 +8,28 @@
         <strong class="py-3">{{ option.name }}</strong> <br>
         {% if type == 'pills' %}
           {% if option.name == 'color' and settings.color_swatch_enabled %}
-            {% assign colorString = settings.color_defination %}
-            {% assign colorCodeArry = colorString | split: ', ' %}
-
             {% for color in option.values %}
-              {% assign colorValue = color | downcase | strip %}
-              {% assign coloCodeValue = '#cccccc' %} {# default fallback if not found #}
-
+              {% assign colorValue = color | downcase %}
+              {% assign colorCodeValue = colorValue %}
               {% for colorCode in colorCodeArry %}
-                {% assign colorCodePair = colorCode | split: ' | ' %}
-                {% assign codeName = colorCodePair[0] | strip | downcase %}
-                {% assign codeHex = colorCodePair[1] | strip %}
-                {% if colorValue == codeName %}
-                  {% assign coloCodeValue = codeHex %}
+                {% assign colorCodePair = colorCode | split: " | " %}
+               {% if colorValue == colorCodePair[0] %}
+                  {% assign colorCodeValue = colorCodePair[1] %}
                 {% endif %}
               {% endfor %}
-
               <label class="variants_pill">
                 <input
                   type="radio"
-                  id="{{ color | downcase | replace: ' ', '_' }}"
+                  id="{{ color.name | downcase | replace: ' ', '_' }}"
                   name="{{ option.name | downcase | replace: ' ', '_' }}"
-                  value="{{ color }}"
-                  {% if option.selected_value == color %}
+                  value="{{ color.name }}"
+                  {% if option.selected_value == value %}
                     checked
                   {% endif %}
                 >
-                <span class="variant_button" style="background-color:{{ coloCodeValue }}">
-                  {{ color }}
-                </span>
+                <span class="variant_button" style="background-color:{{colorCodeValue}}">{{color}}</span>
               </label>
             {% endfor %}
-
           {% else %}
             {% for value in option.values %}
               <label class="variants_pill">
