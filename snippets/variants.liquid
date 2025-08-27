@@ -8,7 +8,7 @@
         <strong class="py-3">{{ option.name }}</strong> <br>
         {% if type == 'pills' %}
           {% if option.name == 'color' and settings.color_swatch_enabled %}
-            <pre>option: {{option.name , option.values}}</pre>
+            <pre>option: {{option.name}}, {{ option.values}}</pre>
             {% for color in option.values %}
               <pre>Color Color pair: {{color}}</pre>
               {% assign color_value = color | downcase %}
