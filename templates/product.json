@@ -33,7 +33,7 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "enable_dynamic_button": true
+            "enable_dynamic_button": false
           }
         },
         "variants_9JMxUT": {
