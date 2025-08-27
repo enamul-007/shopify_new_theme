@@ -13,7 +13,7 @@
               {% assign coloCodeValue = colorValue %}
               {% for colorCode in colorCodeArry %}
                 {% assign colorCodePair = colorCode | split: " | " %}
-               {% if   == colorCodePair[0] %}
+               {% if colorValue == colorCodePair[0] %}
                   {% assign coloCodeValue = colorCodePair[1] %}
                 {% endif %}
               {% endfor %}
