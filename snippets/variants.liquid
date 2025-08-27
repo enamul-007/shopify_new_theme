@@ -1,6 +1,5 @@
 {% assign colorString = settings.color_defination %}
 {% assign colorCodeArry = colorString | split: ', ' %}
-{{colorString}}
 
 <div class="product-variants">
   {% unless product.has_only_default_variant %}
@@ -13,11 +12,9 @@
               {% assign colorValue = color | downcase %}
               {% assign coloCodeValue = colorValue %}
               {% for colorCode in colorCodeArry %}
-                {% assign colorCodePair = colorCode | split: '|' %}
-                {% assign codeName = colorCodePair[0] | strip | downcase %}
-                {% assign codeHex = colorCodePair[1] | strip %}
-                {% if colorValue == codeName %}
-                  {% assign coloCodeValue = codeHex %}
+                {% assign colorCodePair = colorCode | split: " | " %}
+               {% if   == colorCodePair[0] %}
+                  {% assign coloCodeValue = colorCodePair[1] %}
                 {% endif %}
               {% endfor %}
               <label class="variants_pill">
@@ -26,14 +23,13 @@
                   id="{{ color | downcase | replace: ' ', '_' }}"
                   name="{{ option.name | downcase | replace: ' ', '_' }}"
                   value="{{ color }}"
-                  {% if option.selected_value == color %}
+                  {% if option.selected_value == value %}
                     checked
                   {% endif %}
                 >
-                <span class="variant_button" style="background-color:{{ coloCodeValue }}">{{ color }}</span>
+                <span class="variant_button" style="background-color:{{coloCodeValue}}">{{color}}</span>
               </label>
             {% endfor %}
-
           {% else %}
             {% for value in option.values %}
               <label class="variants_pill">
