@@ -1,6 +1,20 @@
 {% assign color_string = settings.color_defination %}
 {% assign color_code_array = color_string | split: ',' %}
 <pre>{{color_code_array | json}}</pre>
+
+{% for colorCode in color_code_array %}
+  {% comment %}
+    {% assign color_code_pair = colorCode | split: '|' %}
+    {% assign color_name = color_code_pair[0] | strip | downcase %}
+    {% assign color_hex = color_code_pair[1] | strip %}
+    <pre>{{color_name | json}}</pre>
+    <pre>{{color_hex | json}}</pre>
+    {% if color_value == color_name %}
+      {% assign color_code_value = color_hex %}
+    {% endif %}
+  {% endcomment %}
+  <H1>{{ colorCode }}</H1>
+{% endfor %}
 <div class="product-variants">
   {% unless product.has_only_default_variant %}
     <div class="product-options my-4">
