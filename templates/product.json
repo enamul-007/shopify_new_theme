@@ -46,7 +46,7 @@
       ],
       "settings": {}
     },
-    "recomendations_product_4Lyrmd": {
+    "recomendations_product_YMYaCT": {
       "type": "recomendations-product",
       "name": "Product Recomendations",
       "settings": {}
@@ -54,6 +54,6 @@
   },
   "order": [
     "main-product",
-    "recomendations_product_4Lyrmd"
+    "recomendations_product_YMYaCT"
   ]
 }
