@@ -49,35 +49,36 @@ function updateQuantity($input) {
         type: 'POST',
         url: '/cart/change.js',
         data: {
-            'line': line,
-            'quantity': quantity
+            line: line,
+            quantity: quantity
         },
         dataType: 'json',
         success: function (res) {
-            getCartDetails(); 
+            getCartDetails();
         },
         error: function (error) {
-            console.log('error', error);
+            console.error('updateQuantity error', error);
         }
     });
 }
 
-function removeItem(e , el ) {
+function removeItem(e, el) {
     e.preventDefault();
     var line = $(el).attr('data-line');
-  jQuery.ajax({
-    type : 'POST',
-    url : '/cart/change.js',
-    data : {
-        'line': line,
-        'quantity': 0
-    },
-    dataType : 'json',
-    success : function(res) {
-        getCartDetails(); 
-    },
-    error: function (error) {
-        console.log('error', error);
-    }
-  })
+
+    $.ajax({
+        type: 'POST',
+        url: '/cart/change.js',
+        data: {
+            line: line,
+            quantity: 0
+        },
+        dataType: 'json',
+        success: function (res) {
+            getCartDetails();
+        },
+        error: function (error) {
+            console.error('removeItem error', error);
+        }
+    });
 }
