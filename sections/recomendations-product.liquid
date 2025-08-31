@@ -1,5 +1,5 @@
 <div class="product_recomendation_section"
-    data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4&intent=related">
+    data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{- section.settings.product_limite -}}&intent=related">
     <div class="container">
         <div class="section_header">
             <h2 class="section_title py-5">You may also like</h2>
@@ -34,7 +34,12 @@
 {
 "name": "product recomendations",
 "settings": [
-
+{
+    "type": "number",
+    "id": "product_limite",
+    "label": "Number of products to show",
+    "default": 4
+}
 ],
 "presets": [
 {
