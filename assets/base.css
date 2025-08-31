@@ -81,18 +81,20 @@ p.announce-text.text-center {
   font-size: 18px;
   font-weight: bold;
   user-select: none;
+  cursor: pointer;
 }
 
 /* Plus button */
 .quantity_increses {
   position: absolute;
-  right: 75px;
+  right: 85px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
   font-size: 18px;
   font-weight: bold;
   user-select: none;
+  cursor: pointer;
 }
 
 

@@ -20,11 +20,43 @@ function getCartDetails(params) {
         })
 }
 
-function increaseItem (el){
-    console.log('Increases!');
-    
+function increaseItem(el) {
+    var $input = el.previousElementSibling;
+    var value = parseInt($input.value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    $input.value = value;
+    updateQuantity($input);
+
 }
-function decreaseItem (el){
-    console.log('Decreases!');
-    
+function decreaseItem(el) {
+    $input = el.nextElementSibling;
+    var value = parseInt($input.value, 10);
+    if (value > 1) {
+        value = isNaN(value) ? 0 : value;
+        value < 1 ? value = 1 : '';
+        value--;
+        $input.value = value;
+        updateQuantity($input);
+    }
+}
+function updateQuantity($input) {
+    var line = $($input).attr('data-line');
+    var quantity = $($input).val();
+
+    jquery.ajax({
+        type: 'POST',
+        url: '/cart/change.js',
+        data: {
+            'line': line,
+            'quantity': quantity
+        },
+        dataType: 'json',
+        success: function (res) {
+            getCartDetails
+        },
+        error: function (error) {
+            console.log('error', error);
+        }
+    })
 }
