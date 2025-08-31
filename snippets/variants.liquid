@@ -70,7 +70,7 @@
       {% endfor %}
     </div>
 
-    <select name="variant ">
+    <select name="variant d-none">
       {% for variant in product.variants %}
         <option value="{{ variant.id }}" data-img="{{variant.image}}" data-available="{{variant.available}}">
           {{ variant.title }}
