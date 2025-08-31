@@ -37,7 +37,7 @@
             display: flex;
             align-items: center;
             flex-direction: column;">
-                <a href="/cart/change?line={{ forloop.index }}&quantity=0" data-line="{{forloop.index}}">{% render
+                <a href="/cart/change?line={{ forloop.index }}&quantity=0" data-line="{{forloop.index}}" onclick="removeItem(event,this)">{% render
                   'icon', icons:'delete' %}</a>
                 <p class="item_price mt-2" style="display:inline-block; margin-left:8px; white-space:nowrap;">
                   {{ item.line_price | money }}
