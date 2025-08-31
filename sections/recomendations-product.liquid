@@ -1,34 +1,32 @@
 <div class="product_recomendation_section"
-    data-url="{{routes.product_recommendations_url}}?section_id={{section.id}}&product_id={{product.id}}&limit=4&intent=related">
+    data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4&intent=related">
     <div class="container">
         <div class="section_header">
-            <h2 class="section_title">You may also like</h2>
+            <h2 class="section_title py-5">You may also like</h2>
         </div>
         <div class="recomendation_product" id="recomendation_product">
             {% if recommendations.performed? and recommendations.products_count %}
             <div class="row">
                 {% for product in recommendations.products %}
-                {% render 'card-product', product:product %}
+                {% render 'card-product', product: product %}
                 {% endfor %}
             </div>
             {% endif %}
         </div>
     </div>
-
 </div>
 
 <script>
-    function recomendedProduct() {
-        var url = $('.product_recomendation_section').data('url');
-    }
     $(document).ready(function () {
-        recomendedProduct();
+        var url = $('.product_recomendation_section').data('url');
+
         fetch(url)
             .then(response => response.text())
             .then(data => {
-                var recData = $('#recomendation_product', recData);
-                $('#recomendation_product').replaceWith(items);
-            });
+                var recData = $(data).find('#recomendation_product');
+                $('#recomendation_product').replaceWith(recData);
+            })
+            .catch(err => console.error("Recommendation fetch error:", err));
     });
 </script>
 
