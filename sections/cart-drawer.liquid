@@ -24,19 +24,24 @@
               {% endfor %}
               {% endunless %}
               <div class="quantity mt-2 ">
-                <label>Quantity</label>
-                <input type="number" name="quantity" value="{{ item.quantity }}" class="w-25"
-                  data-line="{{forloop.index}}">
+                <div class=" d-flex">
+                  <span class="quantity_decreses" onclick="decreaseItem(this)">-</span>
+                  <input type="number" name="quantity" value="{{ item.quantity }}" class="w-25 cart_quantity_input"
+                    data-line="{{forloop.index}}">
+                  <span class="quantity_increses" onclick="increaseItem(this)">+</span>
+                </div>
               </div>
             </td>
-            <td class="item-action" style="
+            <td class="item-action">
+              <div style="
             display: flex;
             align-items: center;
             flex-direction: column;">
-              <a href="#" data-line="{{forloop.index}}">{% render 'icon', icons:'delete' %}</a>
-              <p class="item_price mt-2" style="display:inline-block; margin-left:8px; white-space:nowrap;">
-                {{ item.line_price | money }}
-              </p>
+                <a href="#" data-line="{{forloop.index}}">{% render 'icon', icons:'delete' %}</a>
+                <p class="item_price mt-2" style="display:inline-block; margin-left:8px; white-space:nowrap;">
+                  {{ item.line_price | money }}
+                </p>
+              </div>
             </td>
           </tr>
           {% endfor %}
