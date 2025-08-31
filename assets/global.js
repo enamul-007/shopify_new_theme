@@ -61,3 +61,23 @@ function updateQuantity($input) {
         }
     });
 }
+
+function removeItem(e , el ) {
+    e.preventDefault();
+    var line = $(el).attr('data-line');
+  jQuery.ajax({
+    type : 'POST',
+    url : '/cart/change.js',
+    data : {
+        'line': line,
+        'quantity': 0
+    },
+    dataType : 'json',
+    success : function(res) {
+        getCartDetails(); 
+    },
+    error: function (error) {
+        console.log('error', error);
+    }
+  })
+}
