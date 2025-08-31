@@ -86,7 +86,7 @@ p.announce-text.text-center {
 /* Plus button */
 .quantity_increses {
   position: absolute;
-  right: 10px;
+  right: 75px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
