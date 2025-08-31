@@ -41,3 +41,23 @@ p.announce-text.text-center {
   width: 100%;
   height: auto;
 }
+
+/* cart drawer */
+
+.offcanves_footer {
+    padding: 1.5rem;
+}
+
+
+.cart_quantity_input::-webkit-inner-spin-button,
+.cart_quantity_input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.cart_quantity_input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* cart drawer */
