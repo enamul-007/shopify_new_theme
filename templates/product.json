@@ -45,19 +45,9 @@
         "buy_buttons"
       ],
       "settings": {}
-    },
-    "featured_collection_9bfyM6": {
-      "type": "featured-collection",
-      "name": "Featured collection",
-      "settings": {
-        "heading": "Featured collection",
-        "sub_heading": "",
-        "collection": "best-selling"
-      }
     }
   },
   "order": [
-    "main-product",
-    "featured_collection_9bfyM6"
+    "main-product"
   ]
 }
