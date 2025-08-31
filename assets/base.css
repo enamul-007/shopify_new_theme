@@ -60,4 +60,40 @@ p.announce-text.text-center {
   -moz-appearance: textfield;
 }
 
+.quantity {
+  position: relative;
+  display: inline-block;
+}
+
+.cart_quantity_input {
+  width: 80px; /* চাইলে ছোট/বড় করতে পারো */
+  text-align: center;
+  padding: 8px 30px; /* ডানে-বামে space দিলাম যাতে + / - বসানো যায় */
+}
+
+/* Minus button */
+.quantity_decreses {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* Plus button */
+.quantity_increses {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  user-select: none;
+}
+
+
 /* cart drawer */
