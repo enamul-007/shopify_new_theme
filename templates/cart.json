@@ -9,12 +9,12 @@
  */
 {
     "sections": {
-        "image_banner": {
-            "type": "image-banner",
+        "main-cart": {
+            "type": "main-cart-template",
             "settings": {}
         }
     },
-    "order":[
-        "image_banner"
+    "order": [
+        "main-cart"
     ]
 }
