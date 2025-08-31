@@ -62,23 +62,22 @@ function updateQuantity($input) {
     });
 }
 
-function removeItem(e, el) {
+function itemRemove(e,el){
     e.preventDefault();
     var line = $(el).attr('data-line');
-
-    $.ajax({
+    jQuery.ajax({
         type: 'POST',
         url: '/cart/change.js',
         data: {
-            line: line,
-            quantity: 0
+            'line': line,
+            'quantity': 0
         },
         dataType: 'json',
-        success: function (res) {
+        success: function(res){
             getCartDetails();
         },
-        error: function (error) {
-            console.error('removeItem error', error);
+        error: function(err){
+            console.log(err);
         }
-    });
+    })
 }
