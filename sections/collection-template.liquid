@@ -53,15 +53,15 @@
                                 {% endfor %}
                             </ul>
                             {% when 'price_range' %}
-                            <div class="row g-2 align-items-end">
+                            <div class="row g-3 align-items-end">
                                 <!-- From -->
-                                <div class="col-md-3">
+                                <div class="col-md-6">
                                     <label for="Filter-{{ filter.min_value.param_name }}"
-                                        class="form-label fw-bold text-muted small">From</label>
-                                    <div class="input-group input-group-sm">
+                                        class="form-label fw-bold text-muted">From</label>
+                                    <div class="input-group">
                                         <span class="input-group-text bg-light border-end-0">{{ cart.currency.symbol
                                             }}</span>
-                                        <input type="number" class="form-control form-control-sm border-start-0"
+                                        <input type="number" class="form-control border-start-0"
                                             name="{{ filter.min_value.param_name }}"
                                             id="Filter-{{ filter.min_value.param_name }}" {% if filter.min_value.value
                                             %}
@@ -72,13 +72,13 @@
                                 </div>
 
                                 <!-- To -->
-                                <div class="col-md-3">
+                                <div class="col-md-6">
                                     <label for="Filter-{{ filter.max_value.param_name }}"
-                                        class="form-label fw-bold text-muted small">To</label>
-                                    <div class="input-group input-group-sm">
+                                        class="form-label fw-bold text-muted">To</label>
+                                    <div class="input-group">
                                         <span class="input-group-text bg-light border-end-0">{{ cart.currency.symbol
                                             }}</span>
-                                        <input type="number" class="form-control form-control-md border-start-0"
+                                        <input type="number" class="form-control border-start-0"
                                             name="{{ filter.max_value.param_name }}"
                                             id="Filter-{{ filter.max_value.param_name }}" {% if filter.max_value.value
                                             %}
