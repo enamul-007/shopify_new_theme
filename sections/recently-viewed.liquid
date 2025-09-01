@@ -9,38 +9,37 @@
 
 
 <script>
+    $(document).ready(function () {
+        function updateRecentlyViewedProducts() {
+            const currentProductData = {
+                productId: "{{ product.id }}",
+                productTitle: "{{ product.title }}",
+                productImage: "{{ product.featured_image | image_url: width: 400 }}",
+                price: "{{ product.price | money }}",
+                productUrl: "{{ product.url}}"
+            }
 
-$(document).ready(function (){
-    function updateRecentlyViewdProducts(){
-        const currentProductData = {
-            productId: "{{ product.id }}",
-            productTitle: "{{ product.title }}",
-            productImage: "{{ product.featured_image | image_url: width: 400 }}",
-            price : "{{ product.price | money }}",
-            productUrl : "{{ product.url}}"
+            const productArray = [currentProductData];
+            const maxProducts = 4;
+            const currentProductId = currentProductData.productId;
+            const productArrayString = JSON.stringify(productArray);
+
+            const storeData = localStorage.getItem('recently_viewed');
+
+            if (storeData == null) {
+                localStorage.setItem('recently_viewed', productArrayString);
+            }
+            else {
+                const oldProductData = localStorage.getItem('recently_viewed');
+                const storeProductCount = (oldProductData.match(/productId/g) || []).length;
+                console.log("Stored product count:", storeProductCount);
+            }
         }
-        const productArray = [currentProductData];
-        const maxProducts = 4;
-        const currentProductId = currentProductData.productId;
-        const productArrayString = JSON.stringify(productArray);
-        const storeData = localStorage.getItem('recently_viewed ');
 
-        if(storeData == null){
-            localStorage.setItem('recently_viewed ', productArrayString);
-        } 
-        else
-        {
-            const oldProductData = localStorage.getItem('recently_viewed ');
-            const storeProductCount = (oldProductData.match(/productId/g) || []).length;
-            console.log(storeProductCount);
-            
-        }
-        
-    }
-    updateRecentlyViewdProducts();
-})
-
+        updateRecentlyViewedProducts();
+    });
 </script>
+
 
 
 {% schema %}
