@@ -39,7 +39,7 @@ p.announce-text.text-center {
 
 .card-body svg, .card-body img{
   width: 100%;
-  height: auto;
+  height: 230px;
 }
 
 /* cart drawer */

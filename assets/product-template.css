@@ -16,10 +16,7 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded:
 button.btn.btn-primary.w-75.mb-2.fw-semibold {
     height: 43px;
 }
-.card-body svg, .card-body img {
-    width: 100%;
-    height: 230px;
-}
+
 
 
     /* variant style  */
