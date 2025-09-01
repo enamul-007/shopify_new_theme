@@ -99,3 +99,13 @@ p.announce-text.text-center {
 
 
 /* cart drawer */
+
+
+/* product filtering */
+
+.product_filtering {
+    text-align: end;
+    padding-right: 15px;
+}
+
+/* product filtering */
