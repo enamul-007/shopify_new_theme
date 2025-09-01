@@ -59,7 +59,7 @@
                                     <div class="filter-group-display__range">
                                         <div class="display__range-form">
                                             <span>{{cart.currency.symbol}}</span>
-                                            <input type="number" name="{{ filter.min_value.param_name }}"
+                                            <input class="w-50" type="number" name="{{ filter.min_value.param_name }}"
                                                 id="Filter-{{ filter.min_value.param_name }}" {% if
                                                 filter.min_value.value
                                                 -%}value="{{ filter.min_value.value |  money_without_currency |  replace: ',','' }}"
