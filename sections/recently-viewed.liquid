@@ -23,7 +23,7 @@
             const storedData = localStorage.getItem('recently_viewed');
 
             if (storedData == null) {
-                // প্রথমবার সেট হবে
+
                 localStorage.setItem('recently_viewed', JSON.stringify([currentProductData]));
             } else {
                 const parsedResponsed = JSON.parse(storedData);

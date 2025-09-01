@@ -9,12 +9,14 @@
  */
 {
     "sections": {
-        "image_banner": {
-            "type": "image-banner",
-            "settings": {}
+        "collection-template":{
+            "type": "collection-template",
+            "settings": {
+               
+            }
         }
     },
-    "order":[
-        "image_banner"
+    "order": [
+        "collection-template"
     ]
 }
