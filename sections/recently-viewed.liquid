@@ -9,8 +9,9 @@
 
 
 <script>
+
     $(document).ready(function () {
-        function updateRecentlyViewedProducts() {
+        function updateRecentlyViewdProducts() {
             const currentProductData = {
                 productId: "{{ product.id }}",
                 productTitle: "{{ product.title }}",
@@ -18,28 +19,25 @@
                 price: "{{ product.price | money }}",
                 productUrl: "{{ product.url}}"
             }
-
             const productArray = [currentProductData];
             const maxProducts = 4;
             const currentProductId = currentProductData.productId;
             const productArrayString = JSON.stringify(productArray);
-
-            const storeData = localStorage.getItem('recently_viewed');
-
-            if (storeData == null) {
+            const storedData = localStorage.getItem('recently_viewed');
+            if (storedData == null) {
                 localStorage.setItem('recently_viewed', productArrayString);
-            }
-            else {
+            } else {
                 const oldProductData = localStorage.getItem('recently_viewed');
-                const storeProductCount = (oldProductData.match(/productId/g) || []).length;
-                console.log("Stored product count:", storeProductCount);
+                const storedProductCount = (oldProductData.match(/productId/g) || []).length;
+                console.log(storedProductCount);
+
             }
+
         }
+        updateRecentlyViewdProducts();
+    })
 
-        updateRecentlyViewedProducts();
-    });
 </script>
-
 
 
 {% schema %}
