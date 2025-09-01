@@ -56,14 +56,23 @@
                             <div class="filter-group-display__range">
                                 <div class="display__range-form">
                                     <span>{{cart.currency.symbol}}</span>
-                                    <input type="number" 
-                                    name="{{ filter.min_value.param_name }}"
-                                    id="Filter-{{ filter.min_value.param_name }}"
-                                    {% if filter.min_value.value -%}value="{{ filter.min_value.value |  money_without_currency |  replace: ',','' }}"{%- endif %}
-                                    placeholder="0"
-                                    max="{{ filter.range_max |  money_without_currency |  replace: ',', '' }}" >
+                                    <input type="number" name="{{ filter.min_value.param_name }}"
+                                        id="Filter-{{ filter.min_value.param_name }}" {% if filter.min_value.value
+                                        -%}value="{{ filter.min_value.value |  money_without_currency |  replace: ',','' }}"
+                                        {%- endif %} placeholder="0"
+                                        max="{{ filter.range_max |  money_without_currency |  replace: ',', '' }}">
                                     <label for="Filter-{{ filter.min_value.param_name }}">From</label>
                                 </div>
+                            </div>
+                            <div class="display__range-to">
+                                <label for="Filter-{{ filter.max_value.param_name }}">To</label>
+                                <span>{{ cart.currency.symbol }}</span>
+                                <input type="number" name="{{ filter.max_value.param_name }}"
+                                    id="Filter-{{ filter.max_value.param_name }}" {% if filter.max_value.value
+                                    -%}value="{{ filter.max_value.value |  money_without_currency |  replace: ',',''  }}"
+                                    {%- endif %}
+                                    placeholder="{{ filter.range_max |  money_without_currency |  replace: ',','' }}"
+                                    min="0" max="{{ filter.range_max |  money_without_currency |  replace: ',','' }}">
                             </div>
                             {% else %}
 
