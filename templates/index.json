@@ -27,10 +27,20 @@
         "sub_heading": "",
         "collection": "best-selling"
       }
+    },
+    "featured_collection_gtf7nJ": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "Featured collection",
+        "sub_heading": "",
+        "collection": "jewlerry"
+      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection_nV3GLb"
+    "featured_collection_nV3GLb",
+    "featured_collection_gtf7nJ"
   ]
 }
