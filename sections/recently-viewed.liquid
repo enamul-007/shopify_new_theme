@@ -29,12 +29,48 @@
             } else {
                 const oldProductData = localStorage.getItem('recently_viewed');
                 const storedProductCount = (oldProductData.match(/productId/g) || []).length;
-                console.log(storedProductCount);
-
+                const revisitedProduct = oldProductData.includes(currentProductId);
+                if (storedProductCount < maxProducts && !revisitedProduct) {
+                    const parsedResponsed = JSON.parse(oldProductData);
+                    const updatedProductArray = parsedResponsed.concat(productArray);
+                    localStorage.setItem('recently_viewed', JSON.stringify(updatedProductArray));
+                } elseif(storedProductCount >= maxProducts && !revisitedProduct){
+                    const parsedResponsed = JSON.parse(oldProductData);
+                    parsedResponsed.shift();
+                    const updatedProductArray = parsedResponsed.concat(productArray);
+                    localStorage.setItem('recently_viewed', JSON.stringify(updatedProductArray));
+                }
             }
 
         }
         updateRecentlyViewdProducts();
+        function displayRecentlyViewdProducts() {
+            const storedProductData = JSON.parse(localStorage.getItem('recently_viewed'));
+            const recentProductHtml = [];
+            storedProductData.forEach(function (product) {
+                recentProductHtml.push(` 
+                <div class="col-md-3">
+                    <div class="card my-2">
+                        <div class="card-body">
+                            <img src="${product.image}" alt="${product.title}" srcset="${product.image}" width="300" height="200">
+                            <div class="product-info">
+                                <p>
+                                    <strong>${product.title}</strong>
+                                </p>
+                                <p>Price: ${product.price}</p>
+                                <div class="CTA">
+                                    <a href="${product.url}" class="btn btn-secondary w-100">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `)
+            });
+            const recentProductsBlock = recentProductHtml.join('');
+            $('#recently_viewed_products').html(recentProductsBlock);
+        }
+        displayRecentlyViewdProducts();
     })
 
 </script>
