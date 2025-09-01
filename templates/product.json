@@ -56,11 +56,19 @@
     "recomendations_product_bQeWrn": {
       "type": "recomendations-product",
       "name": "Product Recomendations",
+      "settings": {
+        "product_limite": 4
+      }
+    },
+    "recently_viewed_tmUrjw": {
+      "type": "recently-viewed",
+      "name": "Recently Viewed Products",
       "settings": {}
     }
   },
   "order": [
     "main-product",
-    "recomendations_product_bQeWrn"
+    "recomendations_product_bQeWrn",
+    "recently_viewed_tmUrjw"
   ]
 }
