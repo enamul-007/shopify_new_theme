@@ -1,20 +1,53 @@
 <div class="recently_viewed_section">
-    <div class="section_heading">
-        <h2 class="section_title">Recently Viewed Products</h2>
-    </div>
     <div class="container">
+        <div class="section_heading">
+            <h2 class="section_title">Recently Viewed Products</h2>
+        </div>
         <div class="row" id="recently_viewed_products"> my data here </div>
     </div>
 </div>
 
-{% schema %}
-    {
-    "name": "Recently Viewed Products",
-    "settings": [],
-    "presets": [
-        {
-        "name": "Recently Viewed Products"
+
+<script>
+
+$(document).ready(function (){
+    function updateRecentlyViewdProducts(){
+        const currentProductData = {
+            productId: "{{ product.id }}",
+            productTitle: "{{ product.title }}",
+            productImage: "{{ product.featured_image | image_url: width: 400 }}",
+            price : "{{ product.price | money }}",
+            productUrl : "{{ product.url}}"
         }
-    ]
+        const productArray = [currentProductData];
+        const maxProducts = 4;
+        const currentProductId = currentProductData.productId;
+        const productArrayString = JSON.stringify(productArray);
+        const storeData = localStorage.getItem('recently_viewed ');
+
+        if(storeData == null){
+            localStorage.setItem('recently_viewed ', productArrayString);
+        } 
+        else
+        {
+            const oldProductData = localStorage.getItem('recently_viewed ');
+            const storeProductCount = (oldProductData.match(/productId/g) || []).length;
+        }
     }
+    updateRecentlyViewdProducts();
+})
+
+</script>
+
+
+{% schema %}
+{
+"name": "Recently Viewed Products",
+"settings": [],
+"presets": [
+{
+"name": "Recently Viewed Products"
+}
+]
+}
 {% endschema %}
