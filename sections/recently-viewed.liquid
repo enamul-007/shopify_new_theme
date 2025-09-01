@@ -3,13 +3,11 @@
         <div class="section_heading">
             <h2 class="section_title">Recently Viewed Products</h2>
         </div>
-        <div class="row" id="recently_viewed_products"> my data here </div>
+        <div class="row" id="recently_viewed_products"> </div>
     </div>
 </div>
 
-
 <script>
-
     $(document).ready(function () {
         function updateRecentlyViewdProducts() {
             const currentProductData = {
@@ -17,73 +15,70 @@
                 productTitle: "{{ product.title }}",
                 productImage: "{{ product.featured_image | image_url: width: 400 }}",
                 price: "{{ product.price | money }}",
-                productUrl: "{{ product.url}}"
-            }
-            const productArray = [currentProductData];
+                productUrl: "{{ product.url }}"
+            };
+
             const maxProducts = 4;
             const currentProductId = currentProductData.productId;
-            const productArrayString = JSON.stringify(productArray);
             const storedData = localStorage.getItem('recently_viewed');
+
             if (storedData == null) {
-                localStorage.setItem('recently_viewed', productArrayString);
+                // প্রথমবার সেট হবে
+                localStorage.setItem('recently_viewed', JSON.stringify([currentProductData]));
             } else {
-                const oldProductData = localStorage.getItem('recently_viewed');
-                const storedProductCount = (oldProductData.match(/productId/g) || []).length;
-                const revisitedProduct = oldProductData.includes(currentProductId);
+                const parsedResponsed = JSON.parse(storedData);
+                const storedProductCount = parsedResponsed.length;
+                const revisitedProduct = parsedResponsed.some(p => p.productId == currentProductId);
+
                 if (storedProductCount < maxProducts && !revisitedProduct) {
-                    const parsedResponsed = JSON.parse(oldProductData);
-                    const updatedProductArray = parsedResponsed.concat(productArray);
-                    localStorage.setItem('recently_viewed', JSON.stringify(updatedProductArray));
-                } elseif(storedProductCount >= maxProducts && !revisitedProduct){
-                    const parsedResponsed = JSON.parse(oldProductData);
-                    parsedResponsed.shift();
-                    const updatedProductArray = parsedResponsed.concat(productArray);
-                    localStorage.setItem('recently_viewed', JSON.stringify(updatedProductArray));
+                    parsedResponsed.push(currentProductData);
+                    localStorage.setItem('recently_viewed', JSON.stringify(parsedResponsed));
+                } else if (storedProductCount >= maxProducts && !revisitedProduct) {
+                    parsedResponsed.shift(); // oldest remove
+                    parsedResponsed.push(currentProductData);
+                    localStorage.setItem('recently_viewed', JSON.stringify(parsedResponsed));
                 }
             }
-
         }
-        updateRecentlyViewdProducts();
+
         function displayRecentlyViewdProducts() {
-            const storedProductData = JSON.parse(localStorage.getItem('recently_viewed'));
-            const recentProductHtml = [];
-            storedProductData.forEach(function (product) {
-                recentProductHtml.push(` 
+            const storedProductData = JSON.parse(localStorage.getItem('recently_viewed')) || [];
+            if (storedProductData.length === 0) return;
+
+            const recentProductHtml = storedProductData.map(product => `
                 <div class="col-md-3">
                     <div class="card my-2">
                         <div class="card-body">
-                            <img src="${product.image}" alt="${product.title}" srcset="${product.image}" width="300" height="200">
+                            <img src="${product.productImage}" alt="${product.productTitle}" width="300" height="200">
                             <div class="product-info">
-                                <p>
-                                    <strong>${product.title}</strong>
-                                </p>
+                                <p><strong>${product.productTitle}</strong></p>
                                 <p>Price: ${product.price}</p>
                                 <div class="CTA">
-                                    <a href="${product.url}" class="btn btn-secondary w-100">View Details</a>
+                                    <a href="${product.productUrl}" class="btn btn-secondary w-100">View Details</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                `)
-            });
-            const recentProductsBlock = recentProductHtml.join('');
-            $('#recently_viewed_products').html(recentProductsBlock);
+            `);
+
+            $('#recently_viewed_products').html(recentProductHtml.join(''));
         }
+
+        // Call functions
+        updateRecentlyViewdProducts();
         displayRecentlyViewdProducts();
-    })
-
+    });
 </script>
-
 
 {% schema %}
 {
-"name": "Recently Viewed Products",
-"settings": [],
-"presets": [
-{
-"name": "Recently Viewed Products"
-}
-]
+  "name": "Recently Viewed Products",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Recently Viewed Products"
+    }
+  ]
 }
 {% endschema %}
