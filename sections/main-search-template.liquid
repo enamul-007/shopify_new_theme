@@ -1,18 +1,35 @@
-    <div class="search-template-section">
-        <div class="container">
-            <div class="search_header p-5">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <form action="{{ routes.search_url }}" method="get" role="search">
-                            <div class="d-flex ">
-                                <input class="form-control mx-2" type="search" name="q" id="searchBox" value="{{ search.terms | escape }}" placeholder="Search Here">
-                                <input type="hidden" name="options[prifix]" value="last">
-                                <button class="btn btn-primary btn-sm">search</button>
-                            </div>
-                        </form>
-                    </div>
-                    
+<div class="search-template-section">
+    <div class="container">
+        <div class="search_header p-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form action="{{ routes.search_url }}" method="get" role="search">
+                        <div class="d-flex ">
+                            <input class="form-control mx-2" type="search" name="q" id="searchBox"
+                                value="{{ search.terms | escape }}" placeholder="Search Here">
+                            <input type="hidden" name="options[prifix]" value="last">
+                            <button class="btn btn-primary btn-sm">search</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+        {% if search.results.size > 0 %}
+            <div class="search_results">
+            {% for item in search.results %}
+                {% case item.object_type %}
+                    {% when 'product' %}
+                        {% render 'card-product' product: item %}
+                    {% else %}
+                        
+                {% endcase %}
+            {% endfor %}
+            </div>
+        {% else %}
+        <div class="text-center">
+            <p>No Results Found!</p>
+        </div>
+
+        {% endif %}
     </div>
+</div>
