@@ -15,16 +15,24 @@
             </div>
         </div>
         {% if search.results.size > 0 %}
-            <div class="search_results">
-            {% for item in search.results %}
+        <div class="search_results">
+            <div class="row">
+                {% for item in search.results %}
                 {% case item.object_type %}
-                    {% when 'product' %}
-                        {% render 'card-product' product: item %}
-                    {% else %}
-                        
+                {% when 'product' %}
+                {% render 'card-product' product: item %}
+                {% when 'articale' %}
+                <div class=" col-md-3 articale">
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                </div>
+                {% when ' col-md-3 page' %}
+                <div class="page">
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                </div>
                 {% endcase %}
-            {% endfor %}
+                {% endfor %}
             </div>
+        </div>
         {% else %}
         <div class="text-center">
             <p>No Results Found!</p>
