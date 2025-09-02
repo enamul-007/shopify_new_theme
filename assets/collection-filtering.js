@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+    // collection sorting
     Shopify.queryParams = {};
 
     if (location.search.length) {
@@ -16,4 +18,28 @@ $(document).ready(function() {
         Shopify.queryParams.sort_by = value;
         location.search = $.param(Shopify.queryParams);
     });
+
+    // collection filtering
+
+    function updateCollection(){
+        var queryString =  $("#collection-filter-form").serialize();    
+    }
+
+    function updateSection(query){
+        fetch("?section_id=collection-template"+query)
+        .then((Response)=> Response.text())
+        .then((colData)=>{
+            var col_html = $(colData);
+            var col_items = $(".collection-products", col_html);
+            $(".collection-products").replaceWith(col_items);
+
+        })
+        .catch((error)=>{
+            console.log(error);
+            
+        })
+    }
+    $('#collection-filter-form  input[type=checkbox], #collection-filter-form input[type=number]').on('change', function(e){
+        updateCollection(); 
+    })
 });
