@@ -114,8 +114,8 @@ body {
 }
 
 .product-card__price {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 700;
     color: var(--primary-color);
 }
 
