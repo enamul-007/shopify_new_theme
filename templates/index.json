@@ -8,67 +8,13 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "settings": {
-        "image": "shopify://shop_images/woman-gossiping-with-colleagues-found-out-shocking-revelation-speechless-concerned-young-redhead_1258-127734.avif",
-        "content_width": 60,
-        "heading": "Our Best collection",
-        "sub_heading": "",
-        "label_1": "Buy Now",
-        "url_1": ""
-      }
-    },
-    "featured_collection_WxXafE": {
-      "type": "featured-collection",
-      "name": "Featured collection",
-      "settings": {
-        "heading": "Featured collection",
-        "sub_heading": "",
-        "collection": "best-selling"
-      }
-    },
-    "multicolumn_phQw6z": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_HUcF6Y": {
-          "type": "column",
-          "settings": {
-            "title": "column title",
-            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
-          }
-        },
-        "column_Ja6Ekm": {
-          "type": "column",
-          "settings": {
-            "title": "column title",
-            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
-          }
-        },
-        "column_AUHDNA": {
-          "type": "column",
-          "settings": {
-            "title": "column title",
-            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
-          }
+    "sections": {
+        "image_banner": {
+            "type": "image-banner",
+            "settings": {}
         }
-      },
-      "block_order": [
-        "column_HUcF6Y",
-        "column_Ja6Ekm",
-        "column_AUHDNA"
-      ],
-      "name": "Multicolumn",
-      "settings": {
-        "heading": "Multicolumn",
-        "sub_heading": ""
-      }
-    }
-  },
-  "order": [
-    "image_banner",
-    "featured_collection_WxXafE",
-    "multicolumn_phQw6z"
-  ]
+    },
+    "order":[
+        "image_banner"
+    ]
 }

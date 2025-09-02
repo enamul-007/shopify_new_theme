@@ -46,20 +46,23 @@
             if (storedProductData.length === 0) return;
 
             const recentProductHtml = storedProductData.map(product => `
-                <div class="col-md-3">
-                    <div class="card my-2">
-                        <div class="card-body">
-                            <img src="${product.productImage}" alt="${product.productTitle}" width="300" height="200">
-                            <div class="product-info">
-                                <p><strong>${product.productTitle}</strong></p>
-                                <p>Price: ${product.price}</p>
-                                <div class="CTA">
-                                    <a href="${product.productUrl}" class="btn btn-secondary w-100">View Details</a>
-                                </div>
+              <body>
+                <div class="cont">
+                    <div class="product-card">
+                        <div class="product-card__image">
+                            {{ product.featured_image | image_url: width: 300 | image_tag }}
+                        </div>
+                        <div class="product-card__info">
+                            <h2 class="product-card__title">{{product.title}}</h2>
+                            <p class="product-card__description">{{ product.description | truncate: 30 }}</p>
+                            <div class="product-card__price-row">
+                                <span class="product-card__price">Price: {{ product.price |  money }}</span>
+                                <a href="{{ product.url }}" class="product-card__btn">View Details</a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </body>
             `);
 
             $('#recently_viewed_products').html(recentProductHtml.join(''));
@@ -73,12 +76,12 @@
 
 {% schema %}
 {
-  "name": "Recently Viewed Products",
-  "settings": [],
-  "presets": [
-    {
-      "name": "Recently Viewed Products"
-    }
-  ]
+"name": "Recently Viewed Products",
+"settings": [],
+"presets": [
+{
+"name": "Recently Viewed Products"
+}
+]
 }
 {% endschema %}
