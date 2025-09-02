@@ -16,7 +16,22 @@ p.announce-text.text-center {
   --bs-navbar-padding-y: 0;
 }
 
+
+.search_icon{
+  cursor: pointer;
+}
 /* header style end */
+
+/* predictive-search */
+
+div#predictive_search_result {
+    position: absolute;
+    background: #ffffff;
+    padding: 30px;
+    width: 825px;
+}
+
+/* predictive-search */
 
 /* banner section */
 .image-banner-main {
@@ -129,6 +144,7 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
+
 }
 
 .product-card__btn:hover {

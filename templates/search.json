@@ -9,12 +9,12 @@
  */
 {
     "sections": {
-        "image_banner": {
-            "type": "image-banner",
+        "main-search":{
+            "type": "main-search-template",
             "settings": {}
         }
     },
-    "order":[
-        "image_banner"
+    "order": [
+        "main-search"
     ]
 }

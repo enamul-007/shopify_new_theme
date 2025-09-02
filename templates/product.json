@@ -35,12 +35,6 @@
           "settings": {
             "enable_dynamic_button": true
           }
-        },
-        "variants_C49KL3": {
-          "type": "variants",
-          "settings": {
-            "variant_type": "pills"
-          }
         }
       },
       "block_order": [
@@ -48,27 +42,17 @@
         "title",
         "price",
         "quantity_selector",
-        "buy_buttons",
-        "variants_C49KL3"
+        "buy_buttons"
       ],
       "settings": {}
     },
-    "recomendations_product_bQeWrn": {
-      "type": "recomendations-product",
-      "name": "Product Recomendations",
-      "settings": {
-        "product_limite": 4
-      }
-    },
-    "recently_viewed_tmUrjw": {
-      "type": "recently-viewed",
-      "name": "Recently Viewed Products",
+    "recomnended-products": {
+      "type": "recomnended-products",
       "settings": {}
     }
   },
   "order": [
     "main-product",
-    "recomendations_product_bQeWrn",
-    "recently_viewed_tmUrjw"
+    "recomnended-products"
   ]
 }
