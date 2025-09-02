@@ -37,6 +37,10 @@ $(document).ready(function () {
             .catch((error) => {
                 console.log(error);
             });
+
+            var baseUrl =  window.location.pathname;
+            var queryUrl = baseUrl + '?' + query
+            window.history.pushState({path: queryUrl}, '' , queryUrl)
     }
 
     $('#collection-filter-form input[type=checkbox], #collection-filter-form input[type=number]').on('change', function () {
