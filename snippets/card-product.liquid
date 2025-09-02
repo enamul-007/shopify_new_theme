@@ -1,16 +1,17 @@
-<div class="col-md-3">
-    <div class="card my-2">
-        <div class="card-body">
-            {{ product.featured_image | image_url: width: 300 | image_tag }}
-            <div class="product-info">
-                <p>
-                    <strong>{{ product.title }}</strong>
-                </p>
-                <p>Price: {{ product.price | money }}</p>
-                <div class="CTA">
-                    <a href="{{ product.url }}" class="btn btn-secondary w-100">View Details</a>
+<body>
+    <div class="cont">
+        <div class="product-card">
+            <div class="product-card__image">
+                {{ product.featured_image | image_url: width: 300 | image_tag }}
+            </div>
+            <div class="product-card__info">
+                <h2 class="product-card__title">{{product.title}}</h2>
+                <p class="product-card__description">{{ product.description | truncate: 30 }}</p>
+                <div class="product-card__price-row">
+                    <span class="product-card__price">Price: {{ product.price }}</span>
+                    <a href="{{ product.url }}" class="product-card__btn">Add to Cart</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</body>
