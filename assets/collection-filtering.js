@@ -13,16 +13,17 @@ $(document).ready(function () {
         });
     }
 
-    $("#sorted_by").on("change", function (e) {
+
+    $("#sorted_by").on("change", function () {
         var value = $(this).val();
         Shopify.queryParams.sort_by = value;
         location.search = $.param(Shopify.queryParams);
     });
 
     // collection filtering
-
     function updateCollection() {
         var queryString = $("#collection-filter-form").serialize();
+        updateSection("&" + queryString); 
     }
 
     function updateSection(query) {
@@ -38,7 +39,8 @@ $(document).ready(function () {
             });
     }
 
-    $('#collection-filter-form  input[type=checkbox], #collection-filter-form input[type=number]').on('change', function (e) {
+    $('#collection-filter-form input[type=checkbox], #collection-filter-form input[type=number]').on('change', function () {
         updateCollection();
-    })
+    });
+
 });
