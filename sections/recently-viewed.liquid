@@ -3,10 +3,9 @@
         <div class="section_heading">
             <h2 class="section_title">Recently Viewed Products</h2>
         </div>
-        <div class="row" id="recently_viewed_products"> </div>
+        <div class="row" id="recently_viewed_products"></div>
     </div>
 </div>
-
 
 <script>
     $(document).ready(function () {
@@ -16,61 +15,64 @@
                 productTitle: "{{ product.title }}",
                 productImage: "{{ product.featured_image | image_url: width: 400 }}",
                 price: "{{ product.price | money }}",
-                productUrl: "{{ product.url }}"
+                productUrl: "{{ product.url }}",
+                productDescription: "{{ product.description | strip_html | truncate: 80 }}"
             };
 
             const maxProducts = 4;
             const currentProductId = currentProductData.productId;
-            const storedData = localStorage.getItem('recently_viewed');
+            const storedData = localStorage.getItem("recently_viewed");
 
             if (storedData == null) {
-
-                localStorage.setItem('recently_viewed', JSON.stringify([currentProductData]));
+                localStorage.setItem("recently_viewed", JSON.stringify([currentProductData]));
             } else {
                 const parsedResponsed = JSON.parse(storedData);
                 const storedProductCount = parsedResponsed.length;
-                const revisitedProduct = parsedResponsed.some(p => p.productId == currentProductId);
+                const revisitedProduct = parsedResponsed.some(
+                    (p) => p.productId == currentProductId
+                );
 
                 if (storedProductCount < maxProducts && !revisitedProduct) {
                     parsedResponsed.push(currentProductData);
-                    localStorage.setItem('recently_viewed', JSON.stringify(parsedResponsed));
+                    localStorage.setItem("recently_viewed", JSON.stringify(parsedResponsed));
                 } else if (storedProductCount >= maxProducts && !revisitedProduct) {
-                    parsedResponsed.shift(); // oldest remove
+                    parsedResponsed.shift(); 
                     parsedResponsed.push(currentProductData);
-                    localStorage.setItem('recently_viewed', JSON.stringify(parsedResponsed));
+                    localStorage.setItem("recently_viewed", JSON.stringify(parsedResponsed));
                 }
             }
         }
 
         function displayRecentlyViewdProducts() {
-            const storedProductData = JSON.parse(localStorage.getItem('recently_viewed')) || [];
+            const storedProductData =
+                JSON.parse(localStorage.getItem("recently_viewed")) || [];
             if (storedProductData.length === 0) return;
 
-            const recentProductHtml = storedProductData.map(product => `
-                <div class="col-md-3">
-                    <body>
-                        <div class="cont">
-                            <div class="product-card">
-                                <div class="product-card__image">
-                                    {{ product.featured_image | image_url: width: 300 | image_tag }}
-                                </div>
-                                <div class="product-card__info">
-                                    <h2 class="product-card__title">{{product.title}}</h2>
-                                    <p class="product-card__description">{{ product.description | truncate: 30 }}</p>
-                                    <div class="product-card__price-row">
-                                        <span class="product-card__price">Price: {{ product.price | money }}</span>
-                                        <a href="{{ product.url }}" class="product-card__btn">View Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </body>
+            const recentProductHtml = storedProductData
+                .map(
+                    (product) => `
+        <div class="col-md-3">
+          <div class="cont">
+            <div class="product-card">
+              <div class="product-card__image">
+                <img src="${product.productImage}" alt="${product.productTitle}" />
+              </div>
+              <div class="product-card__info">
+                <h2 class="product-card__title">${product.productTitle}</h2>
+                <p class="product-card__description">${product.productDescription}</p>
+                <div class="product-card__price-row">
+                  <span class="product-card__price">Price: ${product.price}</span>
+                  <a href="${product.productUrl}" class="product-card__btn">View Details</a>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `
+                )
+                .join("");
 
-            `);
-
-
-            $('#recently_viewed_products').html(recentProductHtml.join(''));
+            $("#recently_viewed_products").html(recentProductHtml);
         }
 
         // Call functions

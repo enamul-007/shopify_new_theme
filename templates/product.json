@@ -22,12 +22,6 @@
           "type": "title",
           "settings": {}
         },
-        "variants_kzicgx": {
-          "type": "variants",
-          "settings": {
-            "variant_type": "pills"
-          }
-        },
         "price": {
           "type": "price",
           "settings": {}
@@ -41,38 +35,24 @@
           "settings": {
             "enable_dynamic_button": true
           }
-        },
-        "description_6cqJnp": {
-          "type": "description",
-          "settings": {}
         }
       },
       "block_order": [
         "vendor",
         "title",
-        "variants_kzicgx",
         "price",
         "quantity_selector",
-        "buy_buttons",
-        "description_6cqJnp"
+        "buy_buttons"
       ],
       "settings": {}
     },
     "recomnended-products": {
       "type": "recomnended-products",
-      "settings": {
-        "product_limite": 4
-      }
-    },
-    "recently_viewed_8RyVmg": {
-      "type": "recently-viewed",
-      "name": "Recently Viewed Products",
       "settings": {}
     }
   },
   "order": [
     "main-product",
-    "recomnended-products",
-    "recently_viewed_8RyVmg"
+    "recomnended-products"
   ]
 }
