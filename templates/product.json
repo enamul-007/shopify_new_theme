@@ -35,6 +35,10 @@
           "settings": {
             "enable_dynamic_button": true
           }
+        },
+        "description_Fdbpgj": {
+          "type": "description",
+          "settings": {}
         }
       },
       "block_order": [
@@ -42,7 +46,8 @@
         "title",
         "price",
         "quantity_selector",
-        "buy_buttons"
+        "buy_buttons",
+        "description_Fdbpgj"
       ],
       "settings": {}
     },
@@ -51,10 +56,16 @@
       "settings": {
         "product_limite": 4
       }
+    },
+    "recently_viewed_nCQyTx": {
+      "type": "recently-viewed",
+      "name": "Recently Viewed Products",
+      "settings": {}
     }
   },
   "order": [
     "main-product",
-    "recomnended-products"
+    "recomnended-products",
+    "recently_viewed_nCQyTx"
   ]
 }
