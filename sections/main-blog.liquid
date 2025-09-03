@@ -12,6 +12,8 @@
                         <div class="square">
                             {% if article.image != blank %}
                             <img src="{{ article.image | asset_url }}" class="mask" alt="{{ article.image.alt }}" width="400" height="300">
+                            {% else %}
+                                 {{ 'product-apparel-1' |  placeholder_svg_tag: 'placeholder-svg' }}
                             {% endif %}
                             <h1>Is Apple a Design Company?</h1>
                             <p>
