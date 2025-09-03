@@ -8,7 +8,9 @@
             {% if recommendations.performed? and recommendations.products_count %}
             <div class="row">
                 {% for product in recommendations.products %}
-                {% render 'card-product', product: product %}
+                <div class="col-md-3">
+                    {% render 'card-product', product: product %}
+                </div>
                 {% endfor %}
             </div>
             {% endif %}
@@ -35,10 +37,10 @@
 "name": "product recomendations",
 "settings": [
 {
-    "type": "number",
-    "id": "product_limite",
-    "label": "Number of products to show",
-    "default": 4
+"type": "number",
+"id": "product_limite",
+"label": "Number of products to show",
+"default": 4
 }
 ],
 "presets": [
