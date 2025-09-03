@@ -48,11 +48,19 @@
     },
     "recomnended-products": {
       "type": "recomnended-products",
+      "settings": {
+        "product_limite": 4
+      }
+    },
+    "recently_viewed_Majdqr": {
+      "type": "recently-viewed",
+      "name": "Recently Viewed Products",
       "settings": {}
     }
   },
   "order": [
     "main-product",
-    "recomnended-products"
+    "recomnended-products",
+    "recently_viewed_Majdqr"
   ]
 }
