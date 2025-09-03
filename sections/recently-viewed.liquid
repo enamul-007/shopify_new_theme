@@ -16,7 +16,7 @@
                 productImage: "{{ product.featured_image | image_url: width: 400 }}",
                 price: "{{ product.price | money }}",
                 productUrl: "{{ product.url }}",
-                productDescription: "{{ product.description | strip_html | truncate: 80 }}"
+                productDescription: "{{ product.description | strip_html | truncate: 25 }}"
             };
 
             const maxProducts = 4;
