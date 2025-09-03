@@ -22,21 +22,15 @@
     "multicolumn_9GiLfJ": {
       "type": "multicolumn",
       "blocks": {
-        "column_NLgWhk": {
-          "type": "column",
-          "settings": {
-            "title": "column title",
-            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
-          }
-        },
-        "column_xmR8EU": {
-          "type": "column",
-          "settings": {
-            "title": "column title",
-            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
-          }
-        },
         "column_UMj9KE": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/download_5.png",
+            "title": "column title",
+            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
+          }
+        },
+        "column_3f3inf": {
           "type": "column",
           "settings": {
             "title": "column title",
@@ -45,9 +39,8 @@
         }
       },
       "block_order": [
-        "column_NLgWhk",
-        "column_xmR8EU",
-        "column_UMj9KE"
+        "column_UMj9KE",
+        "column_3f3inf"
       ],
       "name": "Multicolumn",
       "settings": {
