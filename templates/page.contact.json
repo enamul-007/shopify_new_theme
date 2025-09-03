@@ -9,12 +9,12 @@
  */
 {
     "sections": {
-        "image_banner": {
-            "type": "image-banner",
+        "contact-page": {
+            "type": "contact-page",
             "settings": {}
         }
     },
-    "order":[
-        "image_banner"
+    "order": [
+        "contact-page"
     ]
 }
