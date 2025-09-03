@@ -48,19 +48,11 @@
     },
     "recomnended-products": {
       "type": "recomnended-products",
-      "settings": {
-        "product_limite": 4
-      }
-    },
-    "recently_viewed_EQYrbC": {
-      "type": "recently-viewed",
-      "name": "Recently Viewed Products",
       "settings": {}
     }
   },
   "order": [
     "main-product",
-    "recomnended-products",
-    "recently_viewed_EQYrbC"
+    "recomnended-products"
   ]
 }

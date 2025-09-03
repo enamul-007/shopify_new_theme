@@ -14,7 +14,7 @@
               <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.product.title }}">
             </td>
             <td class="item-info">
-              <h6 class="item-title">{{item.product.title}}</h6>
+              <h6 class="item-title ">{{item.product.title | truncate: 20 }}</h6>
               {% unless item.product.has_only_default_variant %}
               {% for option in item.options_with_values %}
               <span class="item_option">{{ option.value }}</span>
@@ -59,7 +59,7 @@
           <button type="submit" name="checkout" class="btn btn-primary w-100">Checkout</button>
         </div>
       </div>
-      di
+    
     </div>
   </div>
   {% endform %}
