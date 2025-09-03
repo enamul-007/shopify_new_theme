@@ -4,33 +4,14 @@
             <h2>{{ blog.title }}</h2>
         </div>
         <div class="row">
-            {% for blog in blog.articles %}
-            <div class="col-md-4">
-
-                <body>
-                    <div class="container">
-                        <div class="square">
-                            {% if article.image != blank %}
-                            <img src="{{ article.image | asset_url }}" class="mask" alt="{{ article.image.alt }}" width="400" height="300">
-                            {% else %}
-                                 {{ 'product-apparel-1' |  placeholder_svg_tag: 'placeholder-svg' }}
-                            {% endif %}
-                            <h1>Is Apple a Design Company?</h1>
-                            <p>
-                                Apple is more than a tech company; it became a culture unto itself,
-                                a passion of most people and the birthplace of the world’s most
-                                revolutionized products.
-                            </p>
-
-                            <div>
-                                <a href=""
-                                    target="_blank" class="button">Read More</a>
-                            </div>
-                        </div>
+            {% for blog  in blog.articles %}
+                <div class="col-md-4">
+                    <div class="card-body">
+                    {% if article.image != blank %}
+                        {{ article.image |  image_url: width: 350 |  image_tag }}
+                    {% endif %}
                     </div>
-                </body>
-
-            </div>
+                </div>
             {% endfor %}
         </div>
     </div>
