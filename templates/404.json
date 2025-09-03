@@ -11,11 +11,7 @@
   "sections": {
     "main": {
       "type": "main-404",
-      "settings": {
-        "image": "shopify://shop_images/219918-P1D0HC-507.jpg",
-        "action_url": "",
-        "action_label": "Go Back"
-      }
+      "settings": {}
     }
   },
   "order": [

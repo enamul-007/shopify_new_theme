@@ -9,12 +9,12 @@
  */
 {
     "sections": {
-        "image_banner": {
-            "type": "image-banner",
+        "main":{
+            "type": "main-blog",
             "settings": {}
         }
     },
-    "order":[
-        "image_banner"
+    "order": [
+        "main"
     ]
 }
