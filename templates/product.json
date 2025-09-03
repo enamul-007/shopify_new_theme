@@ -48,7 +48,9 @@
     },
     "recomnended-products": {
       "type": "recomnended-products",
-      "settings": {}
+      "settings": {
+        "product_limite": 4
+      }
     }
   },
   "order": [
