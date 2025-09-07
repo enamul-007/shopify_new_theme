@@ -28,7 +28,7 @@ div#predictive_search_result {
     position: absolute;
     background: #ffffff;
     padding: 30px;
-    width: 825px;
+    width: 740px;
 }
 
 /* predictive-search */
@@ -55,6 +55,17 @@ div#predictive_search_result {
 /* card part */
 
 
+/*  */
+
+.card-body img, .card-body svg {
+  width: 100%;
+  height: 300;
+  display: block;
+}
+
+/*  */
+
+
 :root {
     --primary-color: #D83344;
     --text-color: #333333;
@@ -67,7 +78,6 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
-    padding: 20px;
     margin: 0;
 }
 
@@ -151,6 +161,184 @@ body {
     background-color: #C71729;
 }
 
+/* blog page */
+
+
+
+.square {
+  width: 460px;
+  height: 430px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0px 20px 50px #D9DBDF;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;   
+}
+
+.square:hover {
+  transform: translate(10px, -10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.square img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 4px 4px 0 0; 
+}
+
+h1 {
+  margin-top: 20px;
+  padding-left: 30px;
+  font-family: 'Merriweather', serif;
+  font-size: 24px;
+  text-align: left;
+}
+
+p {
+  text-align: justify;
+  
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  color: #060505;
+  line-height: 18px;
+}
+.article_title{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-color);
+
+}
+.button {
+  background-color: #3EDD84;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block; 
+  margin: 0 0 0 30px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'Merriweather', serif;
+}
+
+
+
+/* blog page */
+
+/* article page */
+
+.article_mainPage_title{
+  font-size: px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+h1.article_mainPage_title {
+padding-left: 0 !important;
+}
+
+.article_main_section {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+}
+
+.article-image-wrapper {
+  width: 1300px;      
+  height: 500px;      
+  margin: 0 auto;     
+  overflow: hidden;   
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.article-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.article-image-wrapper img:hover {
+  transform: scale(1.05);
+}
+
+/* article page */
+
+
+/* article comment part */
+
+  .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 320px;
+            width: 100%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e5e7eb;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .profile-image {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 2px;
+        }
+
+        .comment_date {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .stars {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 16px;
+        }
+
+        .star {
+            width: 16px;
+            height: 16px;
+            color: #fbbf24;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #374151;
+        }
+
+/* article comment part */
+
+
 @media (max-width: 480px) {
     .cont {
         max-width: 100%;
@@ -205,9 +393,9 @@ body {
 }
 
 .cart_quantity_input {
-  width: 80px; /* চাইলে ছোট/বড় করতে পারো */
+  width: 80px; 
   text-align: center;
-  padding: 8px 30px; /* ডানে-বামে space দিলাম যাতে + / - বসানো যায় */
+  padding: 8px 30px; 
 }
 
 /* Minus button */
@@ -226,7 +414,7 @@ body {
 /* Plus button */
 .quantity_increses {
   position: absolute;
-  right: 85px;
+  right: 45px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
