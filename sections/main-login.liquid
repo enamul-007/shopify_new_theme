@@ -1,1 +1,92 @@
-<h3>this is login form</h3>
+<div class="customer_login_page">
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+
+        <!-- Recover Password Form -->
+        <div id="password_recover" style="display: none;">
+          <div class="login-form-area p-4 shadow rounded bg-white">
+            <div class="page_header mb-3">
+              <h2 class="mb-2">Reset Your Password</h2>
+              <span>We will send you an email to reset your password</span>
+            </div>
+
+            {% form 'recover_customer_password' %}
+              {% if form.posted_successfully? %}
+                <span class="success-message text-success">Password reset email sent!</span>
+              {% endif %}
+
+              <div class="mb-3">
+                <input type="email" class="form-control" name="email" id="recoverPass"
+                  placeholder="Email" required>
+              </div>
+
+              {% if form.errors %}
+                {{ form.errors | default_errors }}
+              {% endif %}
+
+              <button type="submit" class="btn btn-primary w-100">Submit</button>
+            {% endform %}
+
+            <p id="cancel" class="text-center mt-3 text-decoration-underline" style="cursor:pointer;">Cancel</p>
+          </div>
+        </div>
+
+        <!-- Customer Login Form -->
+        <div id="customer_login">
+          <div class="login-form-area p-4 shadow rounded bg-white">
+            <h2 class="mb-4">Customer Login</h2>
+
+            {% form 'customer_login' %}
+              {% if form.errors %}
+                {{ form.errors | default_errors }}
+              {% endif %}
+
+              <div class="mb-3">
+                <input type="email" class="form-control" name="customer[email]" id="customerEmail"
+                  placeholder="Email" required>
+              </div>
+
+              <div class="mb-3">
+                <input type="password" class="form-control" name="customer[password]" id="customerPassword"
+                  placeholder="Password" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100">Login</button>
+              <p id="forgotPassword" class="text-center mt-3 text-decoration-underline" style="cursor:pointer;">Forgot Password?</p>
+              <div class="mt-3 text-center">
+                <a href="{{ routes.account_register_url }}">Create a New Account?</a>
+              </div>
+            {% endform %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const loginSection = document.getElementById("customer_login");
+  const recoverSection = document.getElementById("password_recover");
+
+  // check localStorage on load
+  if (localStorage.getItem("showRecoverForm") === "true") {
+    loginSection.style.display = "none";
+    recoverSection.style.display = "block";
+  }
+
+  // Forgot Password click
+  document.getElementById("forgotPassword").addEventListener("click", function() {
+    loginSection.style.display = "none";
+    recoverSection.style.display = "block";
+    localStorage.setItem("showRecoverForm", "true");
+  });
+
+  // Cancel click
+  document.getElementById("cancel").addEventListener("click", function() {
+    loginSection.style.display = "block";
+    recoverSection.style.display = "none";
+    localStorage.setItem("showRecoverForm", "false");
+  });
+</script>
