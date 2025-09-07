@@ -8,13 +8,13 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "main": {
-        "type": "main-login",
-        "settings": {}
-        }
-    },
-    "order": [
-        "main"      
-    ]
+  "sections": {
+    "main": {
+      "type": "main-login",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
 }
