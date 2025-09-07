@@ -1,0 +1,103 @@
+<div class="article_main_section">
+    <div class="container">
+
+        {% if article.image %}
+        <div class="article-image-wrapper mb-4">
+            {{ article.image | image_url: width: 800, height: 500 | image_tag: alt: article.title }}
+        </div>
+        {% endif %}
+
+        <div class="article_heading">
+            <h1 class="article_mainPage_title">{{ article.title | escape }}</h1>
+        </div>
+
+        <div class="article_info mb-3 text-muted">
+            <strong class="article_author_name">{{ article.author }}</strong>
+            &bull;
+            <strong class="date">{{ article.published_at | time_tag: format: 'date' }}</strong>
+        </div>
+
+        <hr>
+
+        <div class="article_content mb-4">
+            {{ article.content }}
+        </div>
+
+        <div class="action_back my-3">
+            <a href="{{ blog.url }}" class="btn btn-outline-dark">Back To {{ blog.title }}</a>
+        </div>
+
+        {% if blog.comments_enabled? %}
+
+        <!-- Comments Section -->
+        {% if article.comments_count > 0 %}
+        <div class="comment_heading">
+            <h3 class="comments_title my-4">Comments ({{ article.comments_count }})</h3>
+        </div>
+        <hr>
+
+        {% for comment in article.comments %}
+        {% if comment.status == 'published' and comment.content %}
+        <div class="comment_area mb-3">
+            <article class="comment_article p-3 border rounded bg-light">
+                <div class="d-flex align-items-center mb-2">
+                    <div class="me-3">
+                        {% render 'icon', icons: 'user' %}
+                    </div>
+                    <div>
+                        <div class="fw-bold">{{ comment.author | escape }}</div>
+                        <small class="text-muted">{{ comment.created_at | time_tag: format: 'date' }}</small>
+                    </div>
+                </div>
+                <div class="testimonial-text">
+                    {{ comment.content }}
+                </div>
+            </article>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+        <!-- Comment Form -->
+        <div class="comment_form my-5">
+            <div class="comment_form_heading mb-3">
+                <h3 class="comment_form_title">Write a Comment</h3>
+            </div>
+
+            {% form 'new_comment', article %}
+            {{ form.errors | default_errors }}
+
+            {% if form.posted_successfully? %}
+            <p class="alert alert-success">✅ Your comment was successfully submitted and is awaiting approval.</p>
+            {% assign form.author = '' %}
+            {% assign form.email = '' %}
+            {% assign form.body = '' %}
+            {% endif %}
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <input type="text" class="form-control" name="comment[author]" value="{{ form.author }}"
+                        placeholder="Name" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="email" class="form-control" name="comment[email]" value="{{ form.email }}"
+                        placeholder="Email" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <textarea class="form-control" name="comment[body]" rows="5"
+                    placeholder="Comment">{{ form.body }}</textarea>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </div>
+            {% endform %}
+        </div>
+
+        {% endif %}
+
+        <hr>
+    </div>
+</div>
