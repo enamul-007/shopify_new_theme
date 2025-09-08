@@ -8,12 +8,12 @@
             </div>
             <div class="row">
                 <div class="col-md-8">
-                      <div class="order_header">
+                    <div class="order_header">
                         <h3>order : {{ order.name }}</h3>
                         <p>Placed on {{ order.created_at | time_tag : format: 'date'}}</p>
                         {% if order.cancelled %}
-                            <p>Cancelled on : {{ order.cancelled_at | time_tag : format: 'date' }}</p>
-                            <p>Reson : {{ order.cancel_reason_label  }}</p>
+                        <p>Cancelled on : {{ order.cancelled_at | time_tag : format: 'date' }}</p>
+                        <p>Reson : {{ order.cancel_reason_label }}</p>
                         {% endif %}
                     </div>
                     <div>
@@ -21,20 +21,13 @@
                             <thead>
                                 <tr>
                                     <th>Product</th>
-                                </tr>
-                                <tr>
                                     <th>SKU</th>
-                                </tr>
-                                <tr>
-                                    <th>Price</th>  
-                                </tr>
-                                <tr>
+                                    <th>Price</th>
                                     <th>Quantity</th>
+                                    <th class="text-end">Total</th>
                                 </tr>
-                                <tr>
-                                    <th>Total</th>
-                                </tr>
-                                
+
+
                             </thead>
                             <tbody>
                                 {% for line_item in order.line_items %}
@@ -53,8 +46,8 @@
                                 <tr>
                                     <td>{{ line_item.line_price | money }}</td>
                                 </tr>
-                                {% endfor %}    
-                            </tbody>    
+                                {% endfor %}
+                            </tbody>
                         </table>
                     </div>
                 </div>
