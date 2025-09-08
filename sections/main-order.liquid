@@ -55,11 +55,23 @@
                                                     {% for discount_allocation in
                                                     line_item.line_level_discount_allocations %}
                                                     <li class="text-success small">
-                                                        - {{ discount_allocation.discount_application.title }}:
-                                                        {{ discount_allocation.amount | money }}
+                                                        - {{- discount_allocation.discount_application.title -}}:
+                                                        {{- discount_allocation.amount | money -}}
                                                     </li>
                                                     {% endfor %}
                                                 </ul>
+                                                {% endif %}
+                                                {% if line_item.fulfillment %}
+                                                    <div class="fulfilment">
+                                                        <span>Fulfilment On : {{ line_item.fulfillment.created_at |  time_tag: format: 'date' }}</span>
+                                                    </div>
+                                                    {% if line_item.fulfillment.tracking_url %}
+                                                        <a href="{{ line_item.fulfillment.tracking_url }}">Track Order</a>
+                                                    {% endif %}
+                                                    {{ line_item.fulfillment.tracking_company }}
+                                                    {% if line_item.fulfillment.tracking_number %}
+                                                        <span>Tracking Number : {{ line_item.fulfillment.tracking_number }}</span>
+                                                    {% endif %}
                                                 {% endif %}
                                             </div>
                                         </div>
