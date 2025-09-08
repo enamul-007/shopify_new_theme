@@ -62,22 +62,43 @@
                                                 </ul>
                                                 {% endif %}
                                                 {% if line_item.fulfillment %}
-                                                    <div class="fulfilment">
-                                                        <span>Fulfilment On : {{ line_item.fulfillment.created_at |  time_tag: format: 'date' }}</span>
-                                                    </div>
-                                                    {% if line_item.fulfillment.tracking_url %}
-                                                        <a href="{{ line_item.fulfillment.tracking_url }}">Track Order</a>
-                                                    {% endif %}
-                                                    {{ line_item.fulfillment.tracking_company }}
-                                                    {% if line_item.fulfillment.tracking_number %}
-                                                        <span>Tracking Number : {{ line_item.fulfillment.tracking_number }}</span>
-                                                    {% endif %}
+                                                <div class="fulfilment">
+                                                    <span>Fulfilment On : {{ line_item.fulfillment.created_at |
+                                                        time_tag: format: 'date' }}</span>
+                                                </div>
+                                                {% if line_item.fulfillment.tracking_url %}
+                                                <a href="{{ line_item.fulfillment.tracking_url }}">Track Order</a>
+                                                {% endif %}
+                                                {{ line_item.fulfillment.tracking_company }}
+                                                {% if line_item.fulfillment.tracking_number %}
+                                                <span>Tracking Number : {{ line_item.fulfillment.tracking_number
+                                                    }}</span>
+                                                {% endif %}
                                                 {% endif %}
                                             </div>
                                         </div>
                                     </td>
                                     <td>{{ line_item.sku }}</td>
-                                    <td>{{ line_item.price | money }}</td>
+                                    <td>
+                                        {% if line_item.original_price != line_item.final_line_price or
+                                        line_item.unit_price_measurement %}
+                                        <dl>
+                                            {% if line_item.original_price != line_item.final_price %}
+
+                                            <dd class="text-decoration-line-through text-muted">
+                                                {{ line_item.original_price | money }}
+                                            </dd>
+                                            <dd>
+                                                <span>{{ line_item.final_price | money }}</span>
+                                            </dd>
+                                            {% else %}
+                                            <span>{{ line_item.original_price | money }}</span>
+                                            {% endif %}
+                                        </dl>
+                                        {% else %}
+                                        <span>{{ line_item.final_price | money }}</span>
+                                        {% endif %}
+                                    </td>
                                     <td>{{ line_item.quantity }}</td>
                                     <td class="text-end">{{ line_item.line_price | money }}</td>
                                 </tr>
