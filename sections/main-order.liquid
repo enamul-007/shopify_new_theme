@@ -40,7 +40,7 @@
                                             </div>
                                             {% endif %}
                                             <div>
-                                                <strong>{{ line_item.title }}</strong>
+                                                <strong><a href="{{ line_item.url }}">{{ line_item.title }}</a></strong>
                                                 {% if line_item.variant_title != 'Default Title' %}
                                                 <p class="mb-0">{{ line_item.variant_title }}</p>
                                                 {% endif %}
