@@ -7,8 +7,7 @@
       <div class="col-md-8">
         <div class="Order_history p-4 shadow rounded bg-white mb-4">
           <h4 class="text-center fw-bold">Orders</h4>
-          <h4 class="text-center fw-bold">{{customer.orders_count}}</h4>
-          {% if customer.orders_count > 0 %}    
+          {% if customer.orders.size > 0 %}    
           <table class="table table-bordered mt-3">
             <thead>
               <tr>
