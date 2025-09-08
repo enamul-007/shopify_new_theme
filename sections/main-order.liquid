@@ -1,8 +1,39 @@
 <div class="order_details_section">
     <div class="container">
         <div class="order_details_wrapper p-4 shadow rounded bg-white">
-            <h2 class="mb-4">Order Details</h2>
-            <p class="mb-3">Thank you for your order! Here are the details of your purchase:</p>
+            <div class="order_details_content text-center">
+                <h2 class="mb-4">Order Details</h2>
+                <p class="mb-3">Thank you for your order! Here are the details of your purchase:</p>
+                <a href="{{ routes.account_url }}">Return To Dashboard</a>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for line_item in order.line_items %}
+                            <tr>
+                                <td>{{ line_item.title }}</td>
+                                <td>{{ line_item.quantity }}</td>
+                                <td>{{ line_item.price | money }}</td>
+                            </tr>
+                            {% endfor %}
+                            <tr>
+                                <td colspan="2" class="text-end"><strong>Total:</strong></td>
+                                <td><strong>{{ order.total_price | money }}</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="col-md-4"></div>
+            </div>
 
 
         </div>
