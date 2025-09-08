@@ -1,24 +1,10 @@
 <div class="order_details_section">
     <div class="container">
-        <h2 class="mb-4">Order Details</h2>
-        <p>Order ID: {{ order.name }}</p>
-        <p>Order Date: {{ order.created_at | date: "%B %d, %Y" }}</p>
+        <div class="order_details_wrapper p-4 shadow rounded bg-white">
+            <h2 class="mb-4">Order Details</h2>
+            <p class="mb-3">Thank you for your order! Here are the details of your purchase:</p>
 
-        <h3 class="mt-4">Items:</h3>
-        <ul class="list-group mb-4">
-            {% for line_item in order.line_items %}
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <div>
-                    <strong>{{ line_item.quantity }} x {{ line_item.title }}</strong>
-                    {% if line_item.variant_title != 'Default Title' %}
-                    <br><small class="text-muted">{{ line_item.variant_title }}</small>
-                    {% endif %}
-                </div>
-                <span>{{ line_item.line_price | money }}</span>
-            </li>
-            {% endfor %}
-        </ul>
 
-        <h3 class="mt-4">Total: {{ order.total_price | money }}</h3>
+        </div>
     </div>
 </div>
