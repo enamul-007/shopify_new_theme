@@ -8,29 +8,10 @@
             </div>
             <div class="row">
                 <div class="col-md-8">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">Product</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for line_item in order.line_items %}
-                            <tr>
-                                <td>{{ line_item.title }}</td>
-                                <td>{{ line_item.quantity }}</td>
-                                <td>{{ line_item.price | money }}</td>
-                            </tr>
-                            {% endfor %}
-                            <tr>
-                                <td colspan="2" class="text-end"><strong>Total:</strong></td>
-                                <td><strong>{{ order.total_price | money }}</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
+                      <div class="order_header">
+                        <h3>order{{ order.name }}</h3>
+                        <p>Placed on {{ order.created_at | time_tag : format: 'date'}}</p>
+                    </div>
                 </div>
                 <div class="col-md-4"></div>
             </div>
