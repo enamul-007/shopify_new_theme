@@ -100,7 +100,20 @@
                                         {% endif %}
                                     </td>
                                     <td>{{ line_item.quantity }}</td>
-                                    <td class="text-end">{{ line_item.line_price | money }}</td>
+                                    <td class="text-end">
+                                        {% if line_item.original_line_price != line_item.final_line_price %}
+                                        <dl>
+                                            <dd class="regular-price">
+                                                <span>{{ line_item.original_line_price | money }}</span>
+                                            </dd>
+                                            <dd>
+                                                <span>{{ line_item.final_line_price | money }}</span>
+                                            </dd>
+                                        </dl>
+                                        {% else %}
+                                        <span>{{ line_item.original_line_price | money }}</span>
+                                        {% endif %}
+                                    </td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
