@@ -117,6 +117,72 @@
                                 </tr>
                                 {% endfor %}
                             </tbody>
+                            <tfoot>
+                                <tr class="mt-3">
+                                    <td colspan="4">
+                                        <span>Subtotal</span>
+                                    </td>
+                                    <td class="text-end">
+                                        {{ order.line_items_subtotal_price | money }}
+                                    </td>
+                                </tr>
+                                {% if order.cart_level_discount_applications != blank %}
+                                <tr>
+                                    {% for discount_application in order.cart_level_discount_applications %}
+                                    <td colspan="4">
+                                        Discount
+                                        <span>{{ discount_application.title }}</span>
+                                    </td>
+                                    <td class="text-end">
+                                        <div>
+                                            <span>{{ discount_application.total_allocated_amount | money }}</span>
+                                            <span>{{ discount_application.title }}</span>
+                                        </div>
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                                {% endif %}
+                                {% for shipping_method in order.shipping_methods %}
+                                <tr>
+                                    <td colspan="4">
+                                        Shipping method: ({{ shipping_method.title }})
+                                    </td>
+                                    <td class="text-end">{{ shipping_method.price | money }}</td>
+                                </tr>
+                                {% endfor %}
+                                {% for tax_line in order.tax_lines %}
+                                <tr>
+                                    <td colspan="4">
+                                        Tax ({{ tax_line.title }}{{ tax_line.rate | times: 100 }}%)
+                                    </td>
+                                    <td class="text-end">
+                                        {{ tax_line.price | money }}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                {% if order.total_duties %}
+                                <tr>
+                                    <td colspan="4">Total duties</td>
+                                    <td class="text-end">{{ order.total_duties | money }}</td>
+                                </tr>
+                                {% endif %}
+                                {% if order.total_refunded_amount > 0 %}
+                                <tr>
+                                    <td colspan="4">
+                                        Refund
+                                    </td>
+                                    <td class="text-end">-{{ order.total_refunded_amount | money_with_currency }}</td>
+                                </tr>
+                                {% endif %}
+                                <tr>
+                                    <td colspan="3">
+                                        <h3>Total</h3>
+                                    </td>
+                                    <td colspan="2" class="text-end">
+                                        <h3>{{ order.total_net_amount | money_with_currency }}</h3>
+                                    </td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
