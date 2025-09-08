@@ -220,6 +220,10 @@
                         {% if order.shipping_address.phone %}
                         <p><strong>Phone:</strong> {{ order.shipping_address.phone }}</p>
                         {% endif %}
+                        <p>
+                            <strong>Fulfilment Status :</strong>
+                            {{ order.fulfillment_status_label }}
+                        </p>
                         <p><strong>Address:</strong>
                             {{ order.shipping_address.address1 }},
                             {% if order.shipping_address.address2 %}
