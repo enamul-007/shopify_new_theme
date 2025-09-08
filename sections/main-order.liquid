@@ -188,7 +188,7 @@
                 </div>
                 <div class="col-md-4">
                     
-                    <div class="order_billing_details">
+                    <div class="order_billing_details p-4 shadow rounded bg-white">
                         <h3 class="mb-3">Billing Details</h3>
                         <p><strong>Name:</strong> {{ order.billing_address.name }}</p>
                         <p><strong>Email:</strong> {{ order.email }}</p>
@@ -210,7 +210,7 @@
                     </div>
 
                     {% if order.shipping_address %}
-                    <div class="order_shipping_details mt-4">
+                    <div class="order_shipping_details mt-4 p-4 shadow rounded bg-white">
                         <h3 class="mb-3">Shipping Details</h3>
                         <p><strong>Name:</strong> {{ order.shipping_address.name }}</p>
                         {% if order.shipping_address.phone %}
