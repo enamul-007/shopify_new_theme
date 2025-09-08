@@ -1,93 +1,85 @@
 <div class="order_details_section">
-  <div class="container">
-    <div class="order_details_wrapper">
-      <div class="order_details_content text-center mb-4">
-        <h2 class="mb-4">Order Details</h2>
-        <p class="mb-3">Thank you for your order! Here are the details of your purchase:</p>
-        <a href="{{ routes.account_url }}" class="btn btn-outline-dark">Return To Dashboard</a>
-      </div>
-
-      <div class="row gap-5">
-        <!-- Order Details Left -->
-        <div class="col-md-7 p-4 shadow rounded bg-white">
-          <div class="order_header mb-3">
-            <h3>Order: {{ order.name }}</h3>
-            <p>Placed on {{ order.created_at | time_tag: format: 'date' }}</p>
-
-            {% if order.cancelled %}
-              <p class="text-danger mb-0">Cancelled on: {{ order.cancelled_at | time_tag: format: 'date' }}</p>
-              <p class="text-danger">Reason: {{ order.cancel_reason_label }}</p>
-            {% endif %}
-          </div>
-
-          <!-- Line Items -->
-          <table class="table table-bordered align-middle">
-            <thead>
-              <tr>
-                <th>Product</th>
-                <th>SKU</th>
-                <th>Price</th>
-                <th>Qty</th>
-                <th class="text-end">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for line_item in order.line_items %}
-                <tr>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      {% if line_item.image %}
-                        <div class="me-3">
-                          <img src="{{ line_item.image | image_url: width: 60, height: 60 }}" alt="{{ line_item.title }}" class="rounded border">
-                        </div>
-                      {% endif %}
-                      <div>
-                        <strong><a href="{{ line_item.url }}">{{ line_item.title }}</a></strong>
-                        {% if line_item.variant_title != 'Default Title' %}
-                          <p class="mb-0 text-muted small">{{ line_item.variant_title }}</p>
+    <div class="container">
+        <div class="order_details_wrapper ">
+            <div class="order_details_content text-center mb-4">
+                <h2 class="mb-4">Order Details</h2>
+                <p class="mb-3 text-center">Thank you for your order! Here are the details of your purchase:</p>
+                <a href="{{ routes.account_url }}">Return To Dashboard</a>
+            </div>
+            <div class="row gap-5">
+                <div class="col-md-7 p-4 shadow rounded bg-white">
+                    <div class="order_header">
+                        <h3>order : {{ order.name }}</h3>
+                        <p>Placed on {{ order.created_at | time_tag : format: 'date'}}</p>
+                        {% if order.cancelled %}
+                        <p>Cancelled on : {{ order.cancelled_at | time_tag : format: 'date' }}</p>
+                        <p>Reson : {{ order.cancel_reason_label }}</p>
                         {% endif %}
-
-                        {% if line_item.line_level_discount_allocations != blank %}
-                          <ul class="list-unstyled mb-0">
-                            {% for discount_allocation in line_item.line_level_discount_allocations %}
-                              <li class="text-success small">
-                                - {{ discount_allocation.discount_application.title }}: 
-                                {{ discount_allocation.amount | money }}
-                              </li>
-                            {% endfor %}
-                          </ul>
-                        {% endif %}
-                      </div>
                     </div>
-                  </td>
-                  <td>{{ line_item.sku }}</td>
-                  <td>{{ line_item.price | money }}</td>
-                  <td>{{ line_item.quantity }}</td>
-                  <td class="text-end">{{ line_item.line_price | money }}</td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
+                    <div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>SKU</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th class="text-end">Total</th>
+                                </tr>
 
-        <!-- Order Summary Right -->
-        <div class="col-md-4 p-4 shadow rounded bg-white">
-          <h4 class="mb-3">Order Summary</h4>
-          <p><strong>Subtotal:</strong> {{ order.subtotal_price | money }}</p>
-          {% if order.total_discounts > 0 %}
-            <p class="text-success"><strong>Discounts:</strong> -{{ order.total_discounts | money }}</p>
-          {% endif %}
-          <p><strong>Shipping:</strong> {{ order.shipping_price | money }}</p>
-          <p><strong>Tax:</strong> {{ order.total_tax | money }}</p>
-          <hr>
-          <h5><strong>Total:</strong> {{ order.total_net_amount | money_with_currency }}</h5>
 
-          <div class="mt-4">
-            <p><strong>Payment Status:</strong> {{ order.financial_status_label }}</p>
-            <p><strong>Fulfillment:</strong> {{ order.fulfillment_status_label }}</p>
-          </div>
+                            </thead>
+                            <tbody>
+                                {% for line_item in order.line_items %}
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            {% if line_item.image %}
+                                            <div class="me-3">
+                                                <img src="{{ line_item.image | image_url: width: 50, height: 50 }}"
+                                                    alt="{{ line_item.title }}">
+                                            </div>
+                                            {% else %}
+                                            <div class="me-3">
+                                                {% render 'icon', icons: 'no-image', size: '50' %}
+                                            </div>
+                                            {% endif %}
+
+                                            <div>
+                                                <strong><a href="{{ line_item.url }}">{{ line_item.title }}</a></strong>
+                                                {% if line_item.variant_title != 'Default Title' %}
+                                                <p class="mb-0">{{ line_item.variant_title }}</p>
+                                                {% endif %}
+                                                {% if line_item.line_level_discount_allocations != blank %}
+                                                <ul class="list-unstyled mb-0">
+                                                    {% for discount_allocation in
+                                                    line_item.line_level_discount_allocations %}
+                                                    <li class="text-success small">
+                                                        - {{ discount_allocation.discount_application.title }}:
+                                                        {{ discount_allocation.amount | money }}
+                                                    </li>
+                                                    {% endfor %}
+                                                </ul>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{{ line_item.sku }}</td>
+                                    <td>{{ line_item.price | money }}</td>
+                                    <td>{{ line_item.quantity }}</td>
+                                    <td class="text-end">{{ line_item.line_price | money }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-4 p-4 shadow rounded bg-white">
+                    jdfsj
+                </div>
+            </div>
+
+
         </div>
-      </div>
     </div>
-  </div>
 </div>
