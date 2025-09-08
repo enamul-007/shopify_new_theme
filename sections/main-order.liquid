@@ -20,12 +20,21 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    product
+                                    <th>Product</th>
                                 </tr>
-                                <tr>SKU</tr>
-                                <tr>Price</tr>
-                                <tr>Quantity</tr>
-                                <tr>Total</tr>
+                                <tr>
+                                    <th>SKU</th>
+                                </tr>
+                                <tr>
+                                    <th>Price</th>  
+                                </tr>
+                                <tr>
+                                    <th>Quantity</th>
+                                </tr>
+                                <tr>
+                                    <th>Total</th>
+                                </tr>
+                                
                             </thead>
                             <tbody>
                                 {% for line_item in order.line_items %}
