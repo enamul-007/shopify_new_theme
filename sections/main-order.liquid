@@ -1,13 +1,13 @@
 <div class="order_details_section">
     <div class="container">
         <div class="order_details_wrapper ">
-            <div class="order_details_content text-center p-4 shadow rounded bg-white mb-4">
+            <div class="order_details_content text-center mb-4">
                 <h2 class="mb-4">Order Details</h2>
                 <p class="mb-3 text-center">Thank you for your order! Here are the details of your purchase:</p>
                 <a href="{{ routes.account_url }}">Return To Dashboard</a>
             </div>
-            <div class="row gap-2">
-                <div class="col-md-7 mb-4">
+            <div class="row g-2">
+                <div class="col-md-7 p-4 shadow rounded bg-white">
                     <div class="order_header">
                         <h3>order : {{ order.name }}</h3>
                         <p>Placed on {{ order.created_at | time_tag : format: 'date'}}</p>
