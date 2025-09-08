@@ -16,6 +16,48 @@
                             <p>Reson : {{ order.cancel_reason_label  }}</p>
                         {% endif %}
                     </div>
+                    <div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for line_item in order.line_items %}
+                                <tr>
+                                    <td>{{ line_item.title }}</td>
+                                    <td>{{ line_item.quantity }}</td>
+                                    <td>{{ line_item.price | money }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="2" class="text-end">Subtotal</th>
+                                    <td>{{ order.subtotal_price | money }}</td>
+                                </tr>
+                                {% if order.total_discounts > 0 %}
+                                <tr>
+                                    <th colspan="2" class="text-end">Discounts</th>
+                                    <td>-{{ order.total_discounts | money }}</td>
+                                </tr>
+                                {% endif %}
+                                {% if order.total_tax > 0 %}
+                                <tr>
+                                    <th colspan="2" class="text-end">Tax</th>
+                                    <td>{{ order.total_tax | money }}</td>
+                                </tr>
+                                {% endif %}
+                                <tr>
+                                    <th colspan="2" class="text-end">Total</th>
+                                    <td>{{ order.total_price | money }}</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
                 <div class="col-md-4"></div>
             </div>
