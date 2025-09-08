@@ -1,9 +1,70 @@
 <div class="main-account-{{section.id}}">
-    <h2>Main Account</h2>
+    <div class="container">
+        <div class="heading">
+            <h2 class="fw-bold py-3">{{ customer.first_name }}'s Profile</h2>
+
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="Order_history p-4 shadow rounded bg-white mb-4">
+                    <h4 class="text-center fw-bold">Orders</h4>
+                    {% if customer.orders_count > 0 %}  
+                    <table class="table table-bordered mt-3">
+                        <thead>
+                            <tr>
+                                <th class="">Order</th>
+                                <th class="">Date</th>
+                                <th class="">Payment Status</th>
+                                <th class="">Fulfilment</th>
+                                <th class="">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in customer.orders %}
+                            <td>
+                                <a href="{{ order.customer_url }}">#{{ order.name }}</a>
+                            </td>
+                            <td>
+                                {{ order.created_at | date: "%d %b, %Y" }}
+                            </td>
+                            <td>
+                                {{ order.financial_status_label }}
+                            </td>
+                            <td>
+                                {{ order.fulfillment_status_label }}
+                            </td>
+                            <td>
+                                {{ order.total_net_amount | money_with_currency}}
+                            </td>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <h4 class="text-center my-5">You have no orders.</h4>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="customer_info p-4 shadow rounded bg-white">
+                    <h3 class="mb-3">Account Information</h3>
+                    <div class="d-flex  ">
+                        <p><strong>Name:</strong>
+                        <p class="fw-semibold mx-2">{{ customer.first_name }} {{ customer.last_name }}</p>
+                        </p>
+                    </div>
+                    <p><strong>Email:</strong> {{ customer.email }}</p>
+                    <div class="d-flex justify-content-between mt-4">
+                        <a href="{{ routes.account_addresses_url }}" class="btn btn-outline-dark">Account Address</a>
+                        <a href="{{ routes.account_logout_url }}" class="btn btn-outline-dark">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% schema %}
 {
-    "name": "Customer Account",
-    "settings": []
+"name": "Customer Account",
+"settings": []
 }
 {% endschema %}
