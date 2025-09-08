@@ -195,6 +195,10 @@
                         {% if order.billing_address.phone %}
                         <p><strong>Phone:</strong> {{ order.billing_address.phone }}</p>
                         {% endif %}
+                        <p>
+                            <strong>Payment : </strong>
+                            {{ order.financial_status_label }}
+                        </p>
                         <p><strong>Address:</strong>
                             {{ order.billing_address.address1 }},
                             {% if order.billing_address.address2 %}
