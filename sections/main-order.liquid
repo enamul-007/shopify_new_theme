@@ -33,19 +33,13 @@
                                 {% for line_item in order.line_items %}
                                 <tr>
                                     <td>{{ line_item.title }}</td>
-                                </tr>
-                                <tr>
                                     <td>{{ line_item.sku }}</td>
-                                </tr>
-                                <tr>
-                                    <td>{{ line_item.price | money }}</td>
-                                </tr>
-                                <tr>
+                                    <td>{{ line_item.price | money }}</td>  
                                     <td>{{ line_item.quantity }}</td>
+                                    <td class="text-end">{{ line_item.line_price | money }}</td>
+                                    
                                 </tr>
-                                <tr>
-                                    <td>{{ line_item.line_price | money }}</td>
-                                </tr>
+                               
                                 {% endfor %}
                             </tbody>
                         </table>
