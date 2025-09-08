@@ -32,12 +32,27 @@
                             <tbody>
                                 {% for line_item in order.line_items %}
                                 <tr>
-                                    <td>{{ line_item.title }}</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            {% if line_item.image %}
+                                            <div class="me-3">
+                                                <img src="{{ line_item.image | image_url: width: 50, height: 50 }}" alt="{{ line_item.title }}">
+                                            </div>
+                                            {% endif %}
+                                            <div>
+                                                <strong>{{ line_item.title }}</strong>
+                                                {% if line_item.variant_title != 'Default Title' %}
+                                                <p class="mb-0">{{ line_item.variant_title }}</p>
+                                                {% endif %}
+                                            </div>
+
+                                        </div>
+                                    </td>
                                     <td>{{ line_item.sku }}</td>
                                     <td>{{ line_item.price | money }}</td>  
                                     <td>{{ line_item.quantity }}</td>
                                     <td class="text-end">{{ line_item.line_price | money }}</td>
-                                    
+
                                 </tr>
                                
                                 {% endfor %}
