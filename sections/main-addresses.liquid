@@ -70,8 +70,13 @@
                     </div>
 
                     <div class="card_footer">
-                        <div class="last_order">Last Order: 2 days ago</div>
+                        {% if customer.last_order %}
+                        <div class="last_order">Last Order: {{ customer.last_order.created_at | date: 'date' }}</div>
                         <div class="total_orders">15 Orders</div>
+                        {% else %}
+                        <div class="no_orders">No orders yet</div>
+                        {% endif %}
+
                     </div>
                 </div>
             </div>
