@@ -184,12 +184,15 @@
         $('.select_country select').each(function (index, element) {
             var selectedCountry = $(this).data('default');
             $(this).find('option').each(function () {
-                var optionVal = $(this).val();
-                if (optionVal == selectedCountry) {
-                    console.log(optionVal);
+                var country = $(this).val();
+                if (country == selectedCountry) {
+                    console.log(country);
                     $(this).prop('selected', true);
                 }
             });
+            var provinces = $(this).find(''option:selected'').data('provinces');
+            console.log(provinces);
+            
         });
     });
 
