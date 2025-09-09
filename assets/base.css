@@ -360,7 +360,7 @@ padding-left: 0 !important;
 
 /* Card Type Variations */
 .card_part.shipping {
-    border-left: 4px solid #3b82f6;
+    border: 1px solid gray;
 }
 
 .card_part.billing {
