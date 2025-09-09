@@ -451,14 +451,14 @@ padding-left: 0 !important;
 }
 .address_item {
     display: flex;
-    align-items: center; /* icon + text vertical middle */
+    align-items: center; 
     margin-bottom: 10px;
     padding: 8px;
     border-radius: 6px;
     background: #f9fafb;
 }
 
-.address_icon {
+.address_icon .email_icon {
     width: 16px;
     height: 16px;
     margin-right: 10px;
