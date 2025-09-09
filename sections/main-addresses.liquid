@@ -194,7 +194,7 @@
             // Province বের করা
             var provincesData = $(this).find('option:selected').data('provinces');
             if (provincesData && provincesData.length > 0) {
-                var provinces = JSON.parse(provincesData); // string → object
+                var provinces = JSON.parse(provincesData);
 
                 var $provinceSelect = $(this)
                     .closest('.col')
@@ -217,8 +217,10 @@
                     $provinceSelector.append($opt);
                 });
 
-                $provinceSelect.show();
+                
+                $provinceSelect.removeClass('d-none').show();
             }
+
         });
     });
 
