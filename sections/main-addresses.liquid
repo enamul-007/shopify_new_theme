@@ -52,12 +52,11 @@
                             </div>
 
                         </div>
-                        {{address.phone}}
                         {% if address.phone != blank %}
                         <div class="address_item">
                             <span class="address_icon me-2">📱</span>
                             <div class="address_text">
-                                <span class="address_label">Phone:</span> {{ customer.phone }}
+                                <span class="address_label">Phone:</span> {{ address.phone }}
                             </div>
                         </div>
                         {% endif %}
