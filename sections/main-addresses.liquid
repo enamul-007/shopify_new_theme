@@ -23,8 +23,7 @@
                             <span class="address_icon">🏠</span>
                             <div class="address_text">
                                 <span class="address_label">Address:</span><br>
-                                House 25, Road 8<br>
-                                Dhanmondi, Dhaka - 1205
+                                {{ address.address1 }}{% if address.address2 %}, {{ address.address2 }}{% endif %}, {{ address.city }}, {{ address.province }} - {{ address.zip }}, {{ address.country  }}
                             </div>
                         </div>
 
