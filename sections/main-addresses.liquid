@@ -1,3 +1,57 @@
 <div class="address_sections">
-    isdjflkaj
+    <div class="container">
+        <div class="page_heading text-center fw-bold my-4">
+            <h2>Addresses</h2>
+        </div>
+        <div class="row">
+            {% for address in customer.addresses %}
+            <div class="col-md-4">
+                <div class="card_part shipping">
+                    <div class="status_badge status_active">Active</div>
+
+                    <div class="card_header">
+                        <div class="customer_info">
+                            <div class="customer_name">Ahmed Hassan</div>
+                            <div class="customer_id">ID: C001</div>
+                        </div>
+                        <div class="action_buttons">
+                            <button class="btn_edit" onclick="editAddress(1)" title="Edit Address">✏️</button>
+                            <button class="btn_delete" onclick="deleteAddress(1)" title="Delete Address">🗑️</button>
+                        </div>
+                    </div>
+
+                    <div class="address_details">
+                        <div class="address_item">
+                            <span class="address_icon">🏠</span>
+                            <div class="address_text">
+                                <span class="address_label">Address:</span><br>
+                                House 25, Road 8<br>
+                                Dhanmondi, Dhaka - 1205
+                            </div>
+                        </div>
+
+                        <div class="address_item">
+                            <span class="address_icon">📱</span>
+                            <div class="address_text">
+                                <span class="address_label">Phone:</span> +880 1712-345678
+                            </div>
+                        </div>
+
+                        <div class="address_item">
+                            <span class="address_icon">✉️</span>
+                            <div class="address_text">
+                                <span class="address_label">Email:</span> ahmed.hassan@email.com
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card_footer">
+                        <div class="last_order">Last Order: 2 days ago</div>
+                        <div class="total_orders">15 Orders</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>

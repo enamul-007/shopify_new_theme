@@ -339,11 +339,194 @@ padding-left: 0 !important;
 /* article comment part */
 
 
-/* customer account part */
+/* Customer Address Card CSS */
+.card_part {
+    width: 300px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 1px solid #e5e7eb;
+    position: relative;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+.card_part:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
 
+/* Card Type Variations */
+.card_part.shipping {
+    border-left: 4px solid #3b82f6;
+}
 
-/* customer account part */
+.card_part.billing {
+    border-left: 4px solid #10b981;
+}
+
+.card_part.home {
+    border-left: 4px solid #f59e0b;
+}
+
+/* Status Badge */
+.status_badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.status_active {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status_inactive {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* Card Header */
+.card_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #f3f4f6;
+    padding-bottom: 12px;
+}
+
+.customer_info {
+    flex-grow: 1;
+}
+
+.customer_name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 4px;
+}
+
+.customer_id {
+    font-size: 12px;
+    color: #6b7280;
+    background: #f3f4f6;
+    padding: 2px 8px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+/* Action Buttons */
+.action_buttons {
+    display: flex;
+    gap: 8px;
+    margin-left: 10px;
+}
+
+.btn_edit, .btn_delete {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.btn_edit {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn_edit:hover {
+    background: #2563eb;
+    transform: scale(1.1);
+}
+
+.btn_delete {
+    background: #ef4444;
+    color: white;
+}
+
+.btn_delete:hover {
+    background: #dc2626;
+    transform: scale(1.1);
+}
+
+.btn_edit:active, .btn_delete:active {
+    transform: scale(0.95);
+}
+
+/* Address Details */
+.address_details {
+    margin-bottom: 16px;
+}
+
+.address_item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 6px;
+    background: #f9fafb;
+}
+
+.address_icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    margin-top: 2px;
+    opacity: 0.7;
+}
+
+.address_text {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+.address_label {
+    font-weight: 500;
+    color: #1f2937;
+}
+
+/* Card Footer */
+.card_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.last_order {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.total_orders {
+    font-size: 12px;
+    background: #f3f4f6;
+    color: #374151;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+/* Customer Address Card CSS */
+
+/* responsive part */
 
 
 @media (max-width: 480px) {
