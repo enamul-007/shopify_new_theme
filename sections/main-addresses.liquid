@@ -13,7 +13,7 @@
                             <div class="customer_id">{{ customer.id }}</div>
                         </div>
                         <div class="action_buttons">
-                            <button class="btn_edit" onclick="editAddress(1)" title="Edit Address" data-toggle="modal" data-target="#exampleModalCenter" >✏️</button>
+                            <button class="btn_edit" onclick="editAddress(1)" title="Edit Address" data-bs-toggle="modal" data-target="#editModal_{{ forloop.index }}" >✏️</button>
                             <button class="btn_delete" onclick="deleteAddress(1)" title="Delete Address">🗑️</button>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                 </div>
                 {% comment %} Edit modal Start {% endcomment %}
 
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                <div class="modal fade" id="#editModal_{{ forloop.index }}" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
