@@ -146,13 +146,28 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group mt-3">
+                                        <input type="text" class="form-control" name="address[zip]"
+                                            value="{{ form.zip }}" placeholder="Zip">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input type="number" class="form-control" name="address[phone]"
+                                            value="{{ form.phone }}" placeholder="Phone">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        {{ form.set_as_default_checkbox }}
+                                        <label for="address_default_{{ form.id }}">Set as default address</label>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
                                 </div>
                                 {% endform %}
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>
