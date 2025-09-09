@@ -177,3 +177,13 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    $(document).ready(function(){
+        $('.slect_country select').each(function( index , country){
+            var selectedCountry = $(this).data('data-default');   
+            $(this).find("option:contains(`${selectedCountry}`)").prop('selected', true);
+        })
+    })
+</script>
