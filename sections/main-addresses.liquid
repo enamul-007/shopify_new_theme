@@ -181,33 +181,46 @@
 
 <script>
     $(document).ready(function () {
-        $('.select_country select').each(function (index, element) {
+        $('.select_country select').each(function () {
             var selectedCountry = $(this).data('default');
+
+            // দেশ select করা
             $(this).find('option').each(function () {
-                var country = $(this).val();
-                if (country == selectedCountry) {
-                    // console.log(country);
+                if ($(this).val() == selectedCountry) {
                     $(this).prop('selected', true);
                 }
             });
-            var provinces = $(this).find('option:selected').data('provinces');
-            // console.log(provinces);
-            if (provinces.length > 0) {
-                var $provinceSelect = $(this).closest('.col').next('.col').find('.select_province ');
+
+            // Province বের করা
+            var provincesData = $(this).find('option:selected').data('provinces');
+            if (provincesData && provincesData.length > 0) {
+                var provinces = JSON.parse(provincesData); // string → object
+
+                var $provinceSelect = $(this)
+                    .closest('.col')
+                    .next('.col')
+                    .find('.select_province');
+
                 var $provinceSelector = $provinceSelect.find('select');
                 var selectedProvince = $provinceSelector.data('default');
+
                 $provinceSelector.empty();
 
                 $.each(provinces, function (index, province) {
-                    $provinceSelector.append($('<option>', {
-                        value: province[0],
-                        text: province[1]
-                    }));
+                    var $opt = $('<option>', {
+                        value: province.code,
+                        text: province.name
+                    });
+                    if (province.name === selectedProvince || province.code === selectedProvince) {
+                        $opt.prop('selected', true);
+                    }
+                    $provinceSelector.append($opt);
                 });
-                $('.select_province').show();
-            }
 
+                $provinceSelect.show();
+            }
         });
     });
+
 
 </script>
