@@ -179,7 +179,7 @@
 </div>
 
 
-<script>
+{% comment %} <script>
     $(document).ready(function () {
         $('.select_country select').each(function (index, element) {
             var selectedCountry = $(this).data('default');
@@ -190,10 +190,10 @@
                     $(this).prop('selected', true);
                 }
             });
-            // var provinces = $(this).find('option:selected').data('provinces');
-            // console.log(provinces);
+            var provinces = $(this).find('option:selected').data('provinces');
+            console.log(provinces);
             
         });
     });
 
-</script>
+</script> {% endcomment %}
