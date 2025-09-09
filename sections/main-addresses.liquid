@@ -186,13 +186,26 @@
             $(this).find('option').each(function () {
                 var country = $(this).val();
                 if (country == selectedCountry) {
-                    console.log(country);
+                    // console.log(country);
                     $(this).prop('selected', true);
                 }
             });
             var provinces = $(this).find('option:selected').data('provinces');
-            console.log(provinces);
-            
+            // console.log(provinces);
+            if (provinces.length > 0) {
+                var $provinceSelect = $(this).closest('.col').next('.col').find('.select_province ');
+                var $provinceSelector = $provinceSelect.find('select');
+                var selectedProvince = $provinceSelector.data('default');
+                $provinceSelector.empty();
+
+                $.each(provinces, function (index, province) {
+                    $provinceSelector.append($('<option>', {
+                        value: province[0],
+                        text: province[1]
+                    }));
+                })
+            }
+
         });
     });
 
