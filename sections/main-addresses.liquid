@@ -52,7 +52,8 @@
                             </div>
 
                         </div>
-                        {% if customer.phone %}
+                        {{customer.phone}}
+                        {% if customer.phone != blank %}
                         <div class="address_item">
                             <span class="address_icon me-2">📱</span>
                             <div class="address_text">
