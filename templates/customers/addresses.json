@@ -8,13 +8,14 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "image_banner": {
-            "type": "image-banner",
-            "settings": {}
-        }
-    },
-    "order":[
-        "image_banner"
-    ]
+  "sections": {
+    "main": {
+      "type": "main-addresses",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
 }

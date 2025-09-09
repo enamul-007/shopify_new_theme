@@ -1,3 +1,4 @@
+
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
@@ -19,9 +20,6 @@
     },
     "header": {
       "type": "header",
-      "custom_css": [
-        "img{padding-bottom: 10px}"
-      ],
       "settings": {
         "menu": "main-menu"
       }
@@ -32,3 +30,4 @@
     "header"
   ]
 }
+
