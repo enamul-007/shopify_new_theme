@@ -45,18 +45,21 @@
                                 {%- endif -%}
 
                                 {%- if address.country != blank -%}
-                                 {{ address.country }}
+                                {{ address.country }}
                                 {%- endif -%}
                             </div>
 
                         </div>
-
+                        {% if customer.phone != blank %}
                         <div class="address_item">
                             <span class="address_icon">📱</span>
                             <div class="address_text">
-                                <span class="address_label">Phone:</span> +880 1712-345678
+
+                                <span class="address_label">Phone:</span> {{ customer.phone }}
                             </div>
                         </div>
+                        {% endif %}
+
 
                         <div class="address_item">
                             <span class="address_icon">✉️</span>
