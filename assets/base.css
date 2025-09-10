@@ -188,15 +188,15 @@ body {
   border-radius: 4px 4px 0 0; 
 }
 
-h1 {
+/* h1 {
   margin-top: 20px;
   padding-left: 30px;
   font-family: 'Merriweather', serif;
   font-size: 24px;
   text-align: left;
-}
+} */
 
-p {
+.article_text {
   text-align: justify;
   
   font-family: 'Open Sans', sans-serif;
