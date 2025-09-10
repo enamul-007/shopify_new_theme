@@ -4,7 +4,7 @@
             <div class="page_heading d-flex justify-content-between align-items-center fw-bold my-4">
                 <h2 class="mb-0">Addresses</h2>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewAddress">
-                     Add New Address
+                    Add New Address
                 </button>
             </div>
 
@@ -70,10 +70,11 @@
 
                             <div class="address_item">
                                 <span class="address_icon me-2">✉️</span>
-                                <div class="address_text">
+                                <div class="address_text text-start">
                                     <span class="address_label">Email:</span> {{ customer.email }}
                                 </div>
                             </div>
+
                         </div>
 
                         <div class="card_footer">
@@ -184,9 +185,94 @@
         </div>
     </div>
 
+    {% comment %} add new address Start {% endcomment %}
+
+    <div class="modal fade" id="addNewAddress" tabindex="-1" role="dialog" aria-labelledby="addNewAddressTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Address</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {% form 'customer_address', customer.new_address %}
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" name="address[first_name]"
+                                    value="{{ form.first_name }}" placeholder="First name">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="address[last_name]"
+                                    value="{{ form.last_name }}" placeholder="Last name">
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" class="form-control" name="address[company]" value="{{ form.company }}"
+                                placeholder="Company">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" class="form-control" name="address[address1]" value="{{ form.address1 }}"
+                                placeholder="Address 1">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" class="form-control" name="address[address2]" value="{{ form.address2 }}"
+                                placeholder="Address 2">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" class="form-control" name="address[city]" value="{{ form.city }}"
+                                placeholder="City">
+                        </div>
+                        <div class="form-group mt-3">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="select_country">
+                                        <label>Country</label>
+                                        <select name="address[country]" class="form-control"
+                                            data-default="{{ form.country }}">
+                                            {{ all_country_option_tags }}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="select_province" style="display: none;">
+                                        <label>Province</label>
+                                        <select name="address[province]" class="form-control"
+                                            data-default="{{ form.province }}"> </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" class="form-control" name="address[zip]" value="{{ form.zip }}"
+                                placeholder="Zip">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="number" class="form-control" name="address[phone]" value="{{ form.phone }}"
+                                placeholder="Phone">
+                        </div>
+                        <div class="form-group mt-3">
+                            {{ form.set_as_default_checkbox }}
+                            <label for="address_default_new">Set as default address</label>
+                        </div>
+                    </div>
+                    <div class="updateAndclose_button mt-4 text-end">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Add Address</button>
+                    </div>
+                    {% endform %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% comment %} add new address End {% endcomment %}
 
 
-    
+
+
+
 
 
     <script>
