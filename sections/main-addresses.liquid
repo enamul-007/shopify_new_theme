@@ -1,231 +1,237 @@
 <div class="address_sections">
     <div class="container">
         <div class="page_heading text-center fw-bold my-4">
-            <h2>Addresses</h2>
-        </div>
-        <div class="row">
-            {% for address in customer.addresses %}
-            <div class="col-md-3">
-                <div class="card_part shipping">
-                    <div class="card_header">
-                        <div class="customer_info">
-                            <div class="customer_name">{{ customer.name }}</div>
-                            <div class="customer_id">{{ customer.id }}</div>
+            <div class="page_heading d-flex justify-content-between align-items-center fw-bold my-4">
+                <h2 class="mb-0">Addresses</h2>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewAddress">
+                    ➕ Add New Address
+                </button>
+            </div>
+
+            <div class="row">
+                {% for address in customer.addresses %}
+                <div class="col-md-3">
+                    <div class="card_part shipping">
+                        <div class="card_header">
+                            <div class="customer_info">
+                                <div class="customer_name">{{ customer.name }}</div>
+                                <div class="customer_id">{{ customer.id }}</div>
+                            </div>
+                            <div class="action_buttons">
+                                <button class="btn_edit" title="Edit Address" data-bs-toggle="modal"
+                                    data-bs-target="#editModal_{{ forloop.index }}">✏️
+                                </button>
+                                <button class="btn_delete" onclick="deleteAddress(1)"
+                                    title="Delete Address">🗑️</button>
+                            </div>
                         </div>
-                        <div class="action_buttons">
-                            <button class="btn_edit" title="Edit Address" data-bs-toggle="modal"
-                                data-bs-target="#editModal_{{ forloop.index }}">✏️
-                            </button>
-                            <button class="btn_delete" onclick="deleteAddress(1)" title="Delete Address">🗑️</button>
+
+                        <div class="address_details">
+                            <div class="address_item">
+                                <span class="address_icon me-2">🏠</span>
+                                <div class="address_text">
+                                    <span class="address_label">Address:</span><br>
+
+                                    {%- if address.address1 != blank -%}
+                                    {{ address.address1 }}
+                                    {%- endif -%}
+
+                                    {%- if address.address2 != blank -%}
+                                    , {{ address.address2 }}
+                                    {%- endif -%}
+
+                                    {%- if address.city != blank -%}
+                                    , {{ address.city }}
+                                    {%- endif -%}
+
+                                    {%- if address.province != blank -%}
+                                    , {{ address.province }}
+                                    {%- endif -%}
+
+                                    {%- if address.zip != blank -%}
+                                    - {{ address.zip }}
+                                    {%- endif -%}
+
+                                    {%- if address.country != blank -%}
+                                    {{ address.country }}
+                                    {%- endif -%}
+                                </div>
+
+                            </div>
+                            {% if address.phone != blank %}
+                            <div class="address_item">
+                                <span class="address_icon me-2">📱</span>
+                                <div class="address_text">
+                                    <span class="address_label">Phone:</span> {{ address.phone }}
+                                </div>
+                            </div>
+                            {% endif %}
+
+
+                            <div class="address_item">
+                                <span class="address_icon me-2">✉️</span>
+                                <div class="address_text">
+                                    <span class="address_label">Email:</span> {{ customer.email }}
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="card_footer">
+                            {% if customer.last_order %}
+                            <div class="last_order">
+                                Last Order: {{ customer.last_order.created_at | date: "%d %b, %Y" }}
+                            </div>
+                            <div class="total_orders">
+                                {{ customer.orders_count }} Orders
+                            </div>
+                            {% else %}
+                            <div class="no_orders">No orders yet</div>
+                            {% endif %}
+                        </div>
+
                     </div>
+                    {% comment %} Edit modal Start {% endcomment %}
 
-                    <div class="address_details">
-                        <div class="address_item">
-                            <span class="address_icon me-2">🏠</span>
-                            <div class="address_text">
-                                <span class="address_label">Address:</span><br>
-
-                                {%- if address.address1 != blank -%}
-                                {{ address.address1 }}
-                                {%- endif -%}
-
-                                {%- if address.address2 != blank -%}
-                                , {{ address.address2 }}
-                                {%- endif -%}
-
-                                {%- if address.city != blank -%}
-                                , {{ address.city }}
-                                {%- endif -%}
-
-                                {%- if address.province != blank -%}
-                                , {{ address.province }}
-                                {%- endif -%}
-
-                                {%- if address.zip != blank -%}
-                                - {{ address.zip }}
-                                {%- endif -%}
-
-                                {%- if address.country != blank -%}
-                                {{ address.country }}
-                                {%- endif -%}
-                            </div>
-
-                        </div>
-                        {% if address.phone != blank %}
-                        <div class="address_item">
-                            <span class="address_icon me-2">📱</span>
-                            <div class="address_text">
-                                <span class="address_label">Phone:</span> {{ address.phone }}
-                            </div>
-                        </div>
-                        {% endif %}
-
-
-                        <div class="address_item">
-                            <span class="address_icon me-2">✉️</span>
-                            <div class="address_text">
-                                <span class="address_label">Email:</span> {{ customer.email }}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card_footer">
-                        {% if customer.last_order %}
-                        <div class="last_order">
-                            Last Order: {{ customer.last_order.created_at | date: "%d %b, %Y" }}
-                        </div>
-                        <div class="total_orders">
-                            {{ customer.orders_count }} Orders
-                        </div>
-                        {% else %}
-                        <div class="no_orders">No orders yet</div>
-                        {% endif %}
-                    </div>
-
-                </div>
-                {% comment %} Edit modal Start {% endcomment %}
-
-                <div class="modal fade" id="editModal_{{ forloop.index }}" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Edit Address</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                {% form 'customer_address' , address %}
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col">
-                                            <input type="text" class="form-control" name="address[first_name]"
-                                                value="{{ form.first_name }}" placeholder="First name">
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" class="form-control" name="address[last_name]"
-                                                value="{{ form.last_name }}" placeholder="Last name">
-                                        </div>
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <input type="text" class="form-control" name="address[company]"
-                                            value="{{ form.company }}" placeholder="Company">
-
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <input type="text" class="form-control" name="address[address1]"
-                                            value="{{ form.address1 }}" placeholder="Address 1">
-
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <input type="text" class="form-control" name="address[address2]"
-                                            value="{{ form.address2 }}" placeholder="Address 2">
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <input type="text" class="form-control" name="address[city]"
-                                            value="{{ form.city }}" placeholder="City">
-                                    </div>
-                                    <div class="form-group mt-3">
+                    <div class="modal fade" id="editModal_{{ forloop.index }}" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Edit Address</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    {% form 'customer_address' , address %}
+                                    <div class="form-group">
                                         <div class="row">
                                             <div class="col">
-                                                <div class="select_country">
-                                                    <label>Selected Country</label>
-                                                    <select name="address[country]" class="form-control"
-                                                        data-default="{{ form.country }}">{{ all_country_option_tags
-                                                        }}</select>
-                                                </div>
+                                                <input type="text" class="form-control" name="address[first_name]"
+                                                    value="{{ form.first_name }}" placeholder="First name">
                                             </div>
                                             <div class="col">
-                                                <div class="select_province" style="display: none;">
-                                                    <label>Selected Province</label>
-                                                    <select name="address[province]" class="form-control"
-                                                        data-default="{{ form.province }}"> </select>
+                                                <input type="text" class="form-control" name="address[last_name]"
+                                                    value="{{ form.last_name }}" placeholder="Last name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <input type="text" class="form-control" name="address[company]"
+                                                value="{{ form.company }}" placeholder="Company">
+
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <input type="text" class="form-control" name="address[address1]"
+                                                value="{{ form.address1 }}" placeholder="Address 1">
+
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <input type="text" class="form-control" name="address[address2]"
+                                                value="{{ form.address2 }}" placeholder="Address 2">
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <input type="text" class="form-control" name="address[city]"
+                                                value="{{ form.city }}" placeholder="City">
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="select_country">
+                                                        <label>Selected Country</label>
+                                                        <select name="address[country]" class="form-control"
+                                                            data-default="{{ form.country }}">{{ all_country_option_tags
+                                                            }}</select>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="select_province" style="display: none;">
+                                                        <label>Selected Province</label>
+                                                        <select name="address[province]" class="form-control"
+                                                            data-default="{{ form.province }}"> </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <input type="text" class="form-control" name="address[zip]"
-                                            value="{{ form.zip }}" placeholder="Zip">
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <input type="number" class="form-control" name="address[phone]"
-                                            value="{{ form.phone }}" placeholder="Phone">
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        {{ form.set_as_default_checkbox }}
-                                        <label for="address_default_{{ form.id }}">Set as default address</label>
-                                    </div>
+                                        <div class="form-group mt-3">
+                                            <input type="text" class="form-control" name="address[zip]"
+                                                value="{{ form.zip }}" placeholder="Zip">
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <input type="number" class="form-control" name="address[phone]"
+                                                value="{{ form.phone }}" placeholder="Phone">
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            {{ form.set_as_default_checkbox }}
+                                            <label for="address_default_{{ form.id }}">Set as default address</label>
+                                        </div>
 
+                                    </div>
+                                    <div class="updateAndclose_button mt-4 text-end">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                    {% endform %}
                                 </div>
-                                <div class="updateAndclose_button mt-4 text-end">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                </div>
-                                {% endform %}
+
                             </div>
-
                         </div>
                     </div>
-                </div>
 
-                {% comment %} Edit modal End {% endcomment %}
+                    {% comment %} Edit modal End {% endcomment %}
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
-</div>
 
 
-<script>
-    $(document).ready(function () {
-        $('.select_country select').each(function (index, element) {
-            var selectedCountry = $(this).data('default');
-            $(this).find('option').each(function () {
-                var country = $(this).val();
-                if (country == selectedCountry) {
-                    // console.log(country);
-                    $(this).prop('selected', true);
-                }
-            });
-            var provinces = $(this).find('option:selected').data('provinces');
-            // console.log(provinces);
-            if (provinces.length > 0) {
-                var $provinceSelect = $(this).closest('.col').next('.col').find('.select_province');
-                var $provinceSelector = $provinceSelect.find('select');
-                var selectedProvince = $provinceSelector.data('default');
-                $provinceSelector.empty();
-
-                $.each(provinces, function (index, province) {
-                    $provinceSelector.append($('<option>', {
-                        value: province[0],
-                        text: province[1]
-                    }));
-                });
-
-                $provinceSelector.find('option').each(function () {
-                    var province = $(this).val();
-                    if (province == selectedProvince) {
+    <script>
+        $(document).ready(function () {
+            $('.select_country select').each(function (index, element) {
+                var selectedCountry = $(this).data('default');
+                $(this).find('option').each(function () {
+                    var country = $(this).val();
+                    if (country == selectedCountry) {
+                        // console.log(country);
                         $(this).prop('selected', true);
-                        return false;
                     }
-                })
-                $('.select_province').show();
-            }
-            else {
-                $('.select_province').hide();
-            }
+                });
+                var provinces = $(this).find('option:selected').data('provinces');
+                // console.log(provinces);
+                if (provinces.length > 0) {
+                    var $provinceSelect = $(this).closest('.col').next('.col').find('.select_province');
+                    var $provinceSelector = $provinceSelect.find('select');
+                    var selectedProvince = $provinceSelector.data('default');
+                    $provinceSelector.empty();
 
-        });
+                    $.each(provinces, function (index, province) {
+                        $provinceSelector.append($('<option>', {
+                            value: province[0],
+                            text: province[1]
+                        }));
+                    });
 
-        //----- On country change  ------//
+                    $provinceSelector.find('option').each(function () {
+                        var province = $(this).val();
+                        if (province == selectedProvince) {
+                            $(this).prop('selected', true);
+                            return false;
+                        }
+                    })
+                    $('.select_province').show();
+                }
+                else {
+                    $('.select_province').hide();
+                }
 
-            $('.select_country select').change(function(){
+            });
+
+            //----- On country change  ------//
+
+            $('.select_country select').change(function () {
                 var selectedCountry = $(this).find('option:selected');
                 var provinces = selectedCountry.data('provinces');
-                if(provinces.length > 0){
+                if (provinces.length > 0) {
                     var $provinceSelect = $(this).closest('.col').next('.col').find('.select_province');
                     var $provinceSelector = $provinceSelect.find('select');
                     $provinceSelector.empty();
@@ -238,11 +244,11 @@
                     });
 
                     $('.select_province').show();
-                } else{
+                } else {
                     $('.select_province').hide();
                 }
             })
-        //----- On country change  ------//
-    });
+            //----- On country change  ------//
+        });
 
-</script>
+    </script>
