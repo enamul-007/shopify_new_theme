@@ -205,17 +205,44 @@
                     }));
                 });
 
-                $provinceSelector.find('option').each(function(){
+                $provinceSelector.find('option').each(function () {
                     var province = $(this).val();
-                    if(province == selectedProvince){
+                    if (province == selectedProvince) {
                         $(this).prop('selected', true);
                         return false;
                     }
                 })
                 $('.select_province').show();
             }
+            else {
+                $('.select_province').hide();
+            }
 
         });
+
+        //----- On country change  ------//
+
+            $('.select_country select').change(function(){
+                var selectedCountry = $(this).find('option:selected');
+                var provinces = selectedCountry.data('provinces');
+                if(provinces.length > 0){
+                    var $provinceSelect = $(this).closest('.col').next('.col').find('.select_province');
+                    var $provinceSelector = $provinceSelect.find('select');
+                    $provinceSelector.empty();
+
+                    $.each(provinces, function (index, province) {
+                        $provinceSelector.append($('<option>', {
+                            value: province[0],
+                            text: province[1]
+                        }));
+                    });
+
+                    $('.select_province').show();
+                } else{
+                    $('.select_province').hide();
+                }
+            })
+        //----- On country change  ------//
     });
 
 </script>
