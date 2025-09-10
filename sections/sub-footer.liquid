@@ -1,6 +1,6 @@
 {% style %}
     .sub-footer{
-        background: {{ section.settings.bg_color }};
+        background: {{ section.settings.bg_color | escape }};
     }
 {% endstyle %}
 
@@ -14,7 +14,7 @@
                     {{ section.settings.rte }}
                 </div>
                 {% endif %}
-                {% form 'customer', id:'newsletterForm' %}
+                {% form 'customer', id: 'newsletterForm' %}
                     <input type="hidden" name="contact[tags]" value="newsletter">
                     <div class="input-group">
                         <input type="email" name="contact[email]" class="form-control" placeholder="Email" required>
@@ -23,34 +23,12 @@
                         </div>
                     </div>
                 {% endform %}
-                <div id="successMessage" style="display: none;">
-                    <p class="text-success">Successfully subscribed!</p>
-                </div>
             </div>
         </div>
     </div>
 </div>
 
-<script>
-    $(document).ready(function(){
-        $('#newsletterForm').on('submit', function(event){
-            event.preventDefault();
-            var form = $(this);
-            $.ajax({
-                type: 'POST',
-                url: form.attr('action'),
-                data: form.serialize(),
-                success: function(){
-                    $('#successMessage').show();
-                    form.trigger('reset');
-                },
-                error: function(){
-                    alert("Something is wrong, please try again!");
-                }
-            })
-        })
-    })
-</script>
+<!-- Removed AJAX script because Shopify's customer form does not support AJAX submissions. -->
 
 {% schema %}
 {
