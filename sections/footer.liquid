@@ -16,72 +16,24 @@
     <div class="footer-main pt-5 pb-3">
         <div class="container">
             <div class="row">
+                <div class="{{- col -}}">
+
+                </div>
                 {% for block in section.blocks %}
                    {% case block.type %}
                     {% when 'brand_info' %}
-                        <div class="{{- col -}}">
-                            <div class="brand-info">
-                                <a href="{{ shop.url }}">
-                                    {% if block.settings.image != blank %}
-                                        {{ block.settings.image |  image_url: width: 200 |  image_tag  }}
-                                    {% else %}
-                                        <span class="h3">{{ shop.name }}</span>
-                                    {% endif %}
-                                </a>
-                                <div class="rte mt-3">
-                                    {{ block.settings.rte }}
-                                </div>
-                            </div>
-                        </div>
+                        
                     {% when 'menu' %}
-                        <div class="{{- col -}}">
-                            <div class="footer-links">
-                                <div class="link-heading mb-3">
-                                    <h4>{{ block.settings.title }}</h4>
-                                </div>
-                                <div class="links">
-                                    {% assign links = block.settings.footer_menu.links %}
-                                    <ul class="list-unstyled">
-                                        {% for link in links %}
-                                            <li>
-                                                <a href="{{ link.url }}">{{ link.title }}</a>
-                                            </li>
-                                        {% else %}
-                                            {% for i in (1..4) %}
-                                                <li>Link {{ forloop.index }}</li>
-                                            {% endfor %}
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                       
                     {% when 'info' %}
-                        <div class="{{- col -}}">
-                            <div class="footer-info">
-                                <div class="link-heading mb-3">
-                                    <h4>{{ block.settings.title }}</h4>
-                                </div>
-                                <div class="info">
-                                    {{ block.settings.html }}
-                                </div>
-                                {% if block.settings.payment_methods != blank %}
-                                    <div class="payment-methods">
-                                        {{ block.settings.payment_methods | image_url: width: 250 |  image_tag }}
-                                    </div>
-                                {% endif %}
-                            </div>   
-                        </div>                             
+                                                 
                     {% endcase %}
                 {% endfor %}
             </div>
         </div>
     </div>
     {% endif %}
-    <div class="footer-bottom py-3">
-       <div class="d-flex justify-content-center align-items-center">
-        <p class="m-0">{{ section.settings.copyright }}</p>
-       </div>
-    </div>
+   
 </div>
 
 {% schema %}
