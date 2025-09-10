@@ -33,10 +33,10 @@
                                     <span class="address_label">Address:</span><br>
 
                                     {%- if address.company != blank -%}
-                                        {{ address.company }}
+                                        {{ address.company }},
                                     {% endif %}
                                     {%- if address.address1 != blank -%}
-                                        ,{{ address.address1 }}
+                                        {{ address.address1 }}
                                     {%- endif -%}
 
                                     {%- if address.address2 != blank -%}
