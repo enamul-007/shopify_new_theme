@@ -2,54 +2,52 @@
     <div class="subfooter_main py-5">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-5 ">
-                    <div class="text-center">
-                        <h3>
-                            Subscribe to our Email
-                        </h3>
-                        <p>Get 10% off your first order when you sign up for emails.</p>
-                    </div>
+                <div class="col-md-5 text-center">
+                    <h3>Subscribe to our Email</h3>
+                    <p>Get 10% off your first order when you sign up for emails.</p>
+
                     {% form 'customer', id:"newsletterForm" %}
                     <div class="input-group">
                         <input type="hidden" name="contact[tags]" value="newsletter">
                         <input type="email" name="contact[email]" class="form-control" placeholder="Enter your email"
                             required>
-                        <div class="input-group-append">
-                            <button class="btn btn-dark input-group-text" type="submit">Subscribe</button>
-                        </div>
+                        <button class="btn btn-dark" type="submit">Subscribe</button>
                     </div>
                     {% endform %}
-                    <div id="successMessage" style="display: none;">
+
+                    <div id="successMessage" class="mt-2" style="display: none;">
                         <p class="text-success">Successfully subscribed!</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
 
-
 <script>
     $(document).ready(function () {
         $('#newsletterForm').on('submit', function (event) {
-            event.preventDefault();
+            event.preventDefault(); // page reload বন্ধ করবে
             var form = $(this);
+
             $.ajax({
                 type: 'POST',
-                url: form.attr('action'),
+                url: '/contact',
                 data: form.serialize(),
-                success: function () {
-                    $('#successMessage').show();
+                dataType: 'json',
+                success: function (response) {
+                    // response.success বা Shopify redirect response handle করা
+                    $('#successMessage').fadeIn();
                     form.trigger('reset');
                 },
-                error: function () {
-                    alert("Something is wrong, please try again!");
+                error: function (xhr, status, error) {
+                    alert("Something went wrong, please try again!");
                 }
-            })
-        })
-    })
+            });
+        });
+    });
 </script>
+
 
 {% schema %}
 
