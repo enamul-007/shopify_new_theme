@@ -1,3 +1,4 @@
+
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
@@ -20,8 +21,7 @@
     "header": {
       "type": "header",
       "settings": {
-        "menu": "main-menu",
-        "show_mega_menu": false
+        "menu": "main-menu"
       }
     }
   },
@@ -30,3 +30,4 @@
     "header"
   ]
 }
+

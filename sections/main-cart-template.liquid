@@ -1,11 +1,97 @@
-<div>
-    this is main cart template
+<div class="main_card_part">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="mb-4">Shopping Cart</h3>
+
+        {% if cart.item_count == 0 %}
+          <p class="text-center">Your cart is currently empty.</p>
+        {% else %}
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Product</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Total</th>
+                  <th scope="col">Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in cart.items %}
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        {% if item.image %}
+                          <img 
+                            src="{{ item.image | image_url: width: 100, height: 100 }}" 
+                            alt="{{ item.title }}" 
+                            class="me-3"
+                            style="width: 50px; height: 50px; object-fit: cover;"
+                            width="50"
+                            height="50"
+                          >
+                        {% endif %}
+                        <div>
+                          <a href="{{ item.url }}" class="text-decoration-none">
+                            {{ item.product.title }}
+                          </a>
+                          {% if item.variant.title != 'Default Title' %}
+                            <p class="mb-0 text-muted">{{ item.variant.title }}</p>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </td>
+                    <td>{{ item.price | money }}</td>
+                    <td>
+                      <form method="post" action="/cart/change">
+                        <input type="hidden" name="id" value="{{ item.key }}">
+                        <input 
+                          type="number" 
+                          name="quantity" 
+                          value="{{ item.quantity }}" 
+                          min="1"
+                          class="form-control" 
+                          style="width: 70px;" 
+                          onchange="this.form.submit()"
+                        >
+                      </form>
+                    </td>
+                    <td>{{ item.line_price | money }}</td>
+                    <td>
+                      <form method="post" action="/cart/change">
+                        <input type="hidden" name="id" value="{{ item.key }}">
+                        <input type="hidden" name="quantity" value="0">
+                        <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                      </form>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="d-flex justify-content-end">
+            <h4>Total: {{ cart.total_price | money }}</h4>
+          </div>
+
+          <div class="d-flex justify-content-end mt-3">
+            <a href="{{ routes.checkout_url }}" class="btn btn-primary btn-lg">
+              Proceed to Checkout
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
 </div>
+
 {% schema %}
+
 {
-    "name": "Main cart template",
-    "settings": [
-        
-        ]
+  "name": "Main cart template",
+  "settings": []
 }
+
 {% endschema %}
