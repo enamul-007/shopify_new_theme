@@ -30,9 +30,13 @@
               <div class="mega_submenu">
                 <div class="container mega_container py-4">
                   <div class="row">
-                    <div class="col-md-4">1</div>
-                    <div class="col-md-4">2</div>
-                    <div class="col-md-4">3 </div>
+                    {% for child  in link.links %}
+                      <div class="col-md-4">
+                        <h4 class="mega_heading">
+                          <a href="{{ child.url }}">{{ child.title }}</a>
+                        </h4>
+                      </div>
+                    {% endfor %}
                   </div>
                 </div>
               </div>
