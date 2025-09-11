@@ -20,22 +20,52 @@ endif
                 <div class="{{- col -}}">
                     {% case block.type %}
                     {% when 'brand_info' %}
-                        <div class="brand_info">
-                            {% if block.settings.image != blank %}
-                            <div class="footer-logo mb-3">
-                                <img src="{{ block.settings.image | image_url: width: 200 }}" alt="{{ shop.name }}">
+                    <div class="brand_info">
+                        {% if block.settings.image != blank %}
+                        <div class="footer-logo mb-3">
+                            <img src="{{ block.settings.image | image_url: width: 200 }}" alt="{{ shop.name }}"
+                                 width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
+                        </div>
+                        {% else %}
+                        <h3 class="footer-logo mb-3">{{ shop.name }}</h3>
+                        {% endif %}
+                        {% if block.settings.rte != blank %}
+                        <div class="brand-text">
+                            {{ block.settings.rte }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% when 'menu' %}
+                    <div class="footer_links">
+                        <div class="link_heading mb-3">
+                            <h4>{{ block.settings.title }}</h4>
+                        </div>
+                        <div class="link_lists">
+                            {% assign links = block.settings.footer_menu.links %}
+                            <ul class="list-unstyled m-0 p-0">
+                                {% for link in links %}
+                                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                                {% else %}
+                                {% for i in (1..4) %}
+                                <li>
+                                    <a href="#">Sample Link {{ forloop.index }}</a>
+                                </li>
+                                {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% when 'info' %}
+                        <div class="footer_info">
+                            <div class="link_heading">
+                                <h4>{{ block.settings.title }}</h4>
                             </div>
-                            {% endif %}
-                            {% if block.settings.rte != blank %}
-                            <div class="brand-text">
-                                {{ block.settings.rte }}
-                             </div>
+                            {% if block.settings.payment_methods %}
+                                <div class="payment_method">
+                                    <img src="{{ block.settings.payment_methods | image_url: width: 300 }}" alt="Payment Methods" width="{{ block.settings.payment_methods.width }}" height="{{ block.settings.payment_methods.height }}">
+                                </div>
                             {% endif %}
                         </div>
-                    {% when 'menu' %}
-
-                    {% when 'info' %}
-
                     {% endcase %}
                 </div>
                 {% endfor %}
