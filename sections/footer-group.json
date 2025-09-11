@@ -1,4 +1,3 @@
-
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
@@ -14,13 +13,74 @@
   "sections": {
     "sub-footer": {
       "type": "sub-footer",
-      "settings": {}
+      "settings": {
+        "title": "Subscribe to our emails",
+        "rte": "",
+        "bg_color": "#dddddd"
+      }
     },
     "footer": {
       "type": "footer",
-      "settings": {}
+      "blocks": {
+        "brand_info_BejY7D": {
+          "type": "brand_info",
+          "settings": {
+            "image": "shopify://shop_images/download_7c52782e-da5f-4429-bdb8-7f0788e03e36.png",
+            "rte": "<p>A details about your brand!</p>"
+          }
+        },
+        "menu_ndiKb4": {
+          "type": "menu",
+          "settings": {
+            "title": "Footer Menu",
+            "footer_menu": ""
+          }
+        },
+        "menu_rYNK3p": {
+          "type": "menu",
+          "settings": {
+            "title": "Footer Menu",
+            "footer_menu": ""
+          }
+        },
+        "menu_kGdYPj": {
+          "type": "menu",
+          "settings": {
+            "title": "Footer Menu",
+            "footer_menu": ""
+          }
+        },
+        "menu_dBPKcB": {
+          "type": "menu",
+          "settings": {
+            "title": "Footer Menu",
+            "footer_menu": ""
+          }
+        },
+        "info_D7tnzk": {
+          "type": "info",
+          "settings": {
+            "title": "Footer Menu",
+            "html": "You can write your text here. This field also support html"
+          }
+        }
+      },
+      "block_order": [
+        "brand_info_BejY7D",
+        "menu_ndiKb4",
+        "menu_rYNK3p",
+        "menu_kGdYPj",
+        "menu_dBPKcB",
+        "info_D7tnzk"
+      ],
+      "settings": {
+        "column": "6",
+        "copyright": "&copy; {{ shop.name }} | All rights reserved!"
+      }
     }
   },
-  "order": ["sub-footer", "footer"]
+  "order": [
+    "sub-footer",
+    "footer"
+  ]
 }
-
