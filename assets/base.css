@@ -20,6 +20,30 @@ p.announce-text.text-center {
 .search_icon{
   cursor: pointer;
 }
+
+/* mega menu style  */
+
+.mega_submenu{
+    width: 100%;
+    position: fixed;
+    top: auto;
+    z-index: 999;
+    background: white;
+    left: 0;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: none;
+}
+
+.mega_menu_items:hover + .mega_submenu,
+.mega_submenu:hover {
+    display: block;
+    transition: all linear 0.5s ease-in-out;
+}
+
+/* mega menu style  */
+
+
 /* header style end */
 
 /* predictive-search */
