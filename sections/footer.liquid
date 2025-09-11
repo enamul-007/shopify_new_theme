@@ -73,7 +73,21 @@ endif
         </div>
     </div>
     {% endif %}
-
+    <div class="footer-copyright py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="copyright-text">
+                        {% if section.settings.copyright != blank %}
+                        {{ section.settings.copyright }}
+                        {% else %}
+                        &copy; {{ shop.name }} | All rights reserved!
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% schema %}
