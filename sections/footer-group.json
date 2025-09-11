@@ -1,3 +1,4 @@
+
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
@@ -13,50 +14,13 @@
   "sections": {
     "sub-footer": {
       "type": "sub-footer",
-      "settings": {
-        "title": "Subscribe to our emails",
-        "rte": "",
-        "bg_color": "#dddddd"
-      }
+      "settings": {}
     },
     "footer": {
       "type": "footer",
-      "blocks": {
-        "brand_info_AVg8PH": {
-          "type": "brand_info",
-          "settings": {
-            "image": "shopify://shop_images/download_7c52782e-da5f-4429-bdb8-7f0788e03e36.png",
-            "rte": "<p>A details about your brand!</p>"
-          }
-        },
-        "menu_XdCity": {
-          "type": "menu",
-          "settings": {
-            "title": "Footer Menu",
-            "footer_menu": "main-menu"
-          }
-        },
-        "info_CbzdYp": {
-          "type": "info",
-          "settings": {
-            "title": "Footer Menu",
-            "html": "You can write your text here. This field also support html"
-          }
-        }
-      },
-      "block_order": [
-        "brand_info_AVg8PH",
-        "menu_XdCity",
-        "info_CbzdYp"
-      ],
-      "settings": {
-        "column": "3",
-        "copyright": "&copy; {{ shop.name }} | All rights reserved!"
-      }
+      "settings": {}
     }
   },
-  "order": [
-    "sub-footer",
-    "footer"
-  ]
+  "order": ["sub-footer", "footer"]
 }
+
