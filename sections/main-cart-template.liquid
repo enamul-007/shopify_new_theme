@@ -45,7 +45,7 @@
                     </td>
                     <td>{{ item.price | money }}</td>
                     <td>
-                      <form method="post" action="/cart/change">
+                      <form method="post" action="{{ routes.cart_change_url }}">
                         <input type="hidden" name="id" value="{{ item.key }}">
                         <input 
                           type="number" 

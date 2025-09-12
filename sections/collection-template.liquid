@@ -4,8 +4,8 @@
     <div class="collection-template">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3">
-                    <form id="collection-filter-form">
+                <div class="col-md-3 collection_filters_part">
+                    <form id="collection-filter-form" class="collection_fiter_form">
                         {% for filter in collection.filters %}
                         <div class="filter-area">
                             <p class="filter-lable">
@@ -53,7 +53,7 @@
                                 {% endfor %}
                             </ul>
                             {% when 'price_range' %}
-                            <div class="row g-3 align-items-end">
+                            <div class=" ">
                                 <!-- From -->
                                 <div class="col-md-6">
                                     <label for="Filter-{{ filter.min_value.param_name }}"
