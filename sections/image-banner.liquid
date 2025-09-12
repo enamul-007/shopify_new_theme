@@ -23,7 +23,7 @@ max-width: 100%;
         {% endif %}
 
         <div class="container banner-container">
-            <div class="banner-content {{ section.settings.text_alignment }}">
+            <div class="banner-content text-{{ section.settings.text_alignment }}">
                 <h1>{{ section.settings.heading }}</h1>
                 {% if section.settings.sub_heading != blank %}
                 <p>{{ section.settings.sub_heading }}</p>
