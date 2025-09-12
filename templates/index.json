@@ -31,10 +31,48 @@
         "sub_heading": "",
         "collection": "best-selling"
       }
+    },
+    "multicolumn_mJw4np": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_6QnQDe": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/download_42d7acaa-dd01-4dae-b9ef-3e4c43393505.png",
+            "title": "column title",
+            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
+          }
+        },
+        "column_LikciD": {
+          "type": "column",
+          "settings": {
+            "title": "column title",
+            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
+          }
+        },
+        "column_mqapyF": {
+          "type": "column",
+          "settings": {
+            "title": "column title",
+            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "column_6QnQDe",
+        "column_LikciD",
+        "column_mqapyF"
+      ],
+      "name": "Multicolumn",
+      "settings": {
+        "heading": "Multicolumn",
+        "sub_heading": ""
+      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection_pQMhQa"
+    "featured_collection_pQMhQa",
+    "multicolumn_mJw4np"
   ]
 }
