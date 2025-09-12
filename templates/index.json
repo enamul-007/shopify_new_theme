@@ -8,13 +8,22 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "image_banner": {
-            "type": "image-banner",
-            "settings": {}
-        }
-    },
-    "order":[
-        "image_banner"
-    ]
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "custom_css": [
+        ".cta-action{display: none}"
+      ],
+      "settings": {
+        "content_width": 60,
+        "heading": "",
+        "sub_heading": "",
+        "label_1": "",
+        "url_1": ""
+      }
+    }
+  },
+  "order": [
+    "image_banner"
+  ]
 }
