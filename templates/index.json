@@ -22,9 +22,19 @@
         "label_1": "",
         "url_1": ""
       }
+    },
+    "featured_collection_pQMhQa": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "Featured collection",
+        "sub_heading": "",
+        "collection": "best-selling"
+      }
     }
   },
   "order": [
-    "image_banner"
+    "image_banner",
+    "featured_collection_pQMhQa"
   ]
 }
