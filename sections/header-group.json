@@ -24,7 +24,7 @@
       ],
       "settings": {
         "menu": "main-menu",
-        "show_mega_menu": false
+        "show_mega_menu": true
       }
     }
   },
