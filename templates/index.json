@@ -46,6 +46,7 @@
         "column_LikciD": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/download_8.png",
             "title": "column title",
             "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
           }
@@ -53,6 +54,7 @@
         "column_mqapyF": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/download_9.png",
             "title": "column title",
             "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
           }
