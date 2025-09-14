@@ -1,3 +1,4 @@
+
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
@@ -14,17 +15,13 @@
     "announcementbar": {
       "type": "announcementbar",
       "settings": {
-        "message": "30% OFF!"
+        "message": "25% OFF!"
       }
     },
     "header": {
       "type": "header",
-      "custom_css": [
-        "img {padding-bottom: 5px;}"
-      ],
       "settings": {
-        "menu": "main-menu",
-        "show_mega_menu": true
+        "menu": "main-menu"
       }
     }
   },
@@ -33,3 +30,4 @@
     "header"
   ]
 }
+

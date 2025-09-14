@@ -22,7 +22,7 @@
             {{ 'hero-apparel-1' |  placeholder_svg_tag: 'placeholder-svg' }}
         {% endif %}
         <div class="container banner-container">
-            <div class="banner-content">
+            <div class="banner-content text-{{ section.settings.content_alignment }}">
                 <h1>{{ section.settings.heading }}</h1>
                 {% if section.settings.sub_heading != blank %}
                 <p>{{ section.settings.sub_heading }}</p>
@@ -80,7 +80,26 @@
             "type": "url",
             "id": "url_1",
             "label": "Button Link"
-        }
+        },
+       {
+        "type": "select",
+        "id": "content_alignment",
+        "label": "Content Alignment",
+        "options": [
+            {
+                "value": "left",
+                "label": "Left"
+            },
+            {
+                "value": "center",
+                "label": "Center"
+            },
+            {
+                "value": "right",
+                "label": "Right"
+            }
+        ]
+       } 
     ],
     "presets": [
         {
