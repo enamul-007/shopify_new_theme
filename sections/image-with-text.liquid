@@ -1,3 +1,59 @@
+<div class="image-with-text-section {% if section.settings.overlap %}overlap-enabled{% endif %}">
+  <div class="container">
+    <div class="row {% if section.settings.layout == 'right' %}flex-row-reverse{% endif %}">
+      <div class="col-md-6 position-relative">
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | image_url: width: 600 }}"
+               alt="{{ section.settings.heading | escape }}"
+               class="img-fluid rounded"
+               width="{{ section.settings.image.width | default: 600 }}"
+               height="{{ section.settings.image.height | default: 400 }}">
+        {% endif %}
+
+        {% if section.settings.overlap %}
+          <div class="overlap-content">
+            {% if section.settings.heading != blank %}
+              <h1>{{ section.settings.heading }}</h1>
+            {% endif %}
+            {% if section.settings.text != blank %}
+              <p>{{ section.settings.text }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+      {% unless section.settings.overlap %}
+        <div class="col-md-6 d-flex flex-column justify-content-center">
+          {% if section.settings.heading != blank %}
+            <h1>{{ section.settings.heading }}</h1>
+          {% endif %}
+          {% if section.settings.text != blank %}
+            <p>{{ section.settings.text }}</p>
+          {% endif %}
+        </div>
+      {% endunless %}
+    </div>
+  </div>
+</div>
+
+<style>
+.image-with-text-section {
+  padding: 50px 0;
+}
+.image-with-text-section.overlap-enabled .overlap-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.5); /* semi-transparent background for text visibility */
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  max-width: 80%;
+  text-align: center;
+}
+</style>
+
 {% schema %}
 {
   "name": "Image with Text",
@@ -17,7 +73,13 @@
       "type": "textarea",
       "id": "text",
       "label": "Text Content",
-      "default": "This is a description text for the section. You can edit it from the theme editor."
+      "default": "This is a description text for the section."
+    },
+    {
+      "type": "checkbox",
+      "id": "overlap",
+      "label": "Enable Content Overlap",
+      "default": false
     },
     {
       "type": "select",
@@ -38,37 +100,3 @@
   ]
 }
 {% endschema %}
-
-<div class="image-with-text-section">
-  <div class="container">
-    <div class="row {% if section.settings.layout == 'right' %}flex-row-reverse{% endif %}">
-      <div class="col-md-6">
-        {% if section.settings.image != blank %}
-          <img 
-            src="{{ section.settings.image | image_url: width: 600 }}" 
-            alt="{{ section.settings.heading | escape }}" 
-            class="img-fluid rounded"
-          >
-        {% endif %}
-      </div>
-      <div class="col-md-6 d-flex flex-column justify-content-center">
-        {% if section.settings.heading != blank %}
-          <h2>{{ section.settings.heading }}</h2>
-        {% endif %}
-        {% if section.settings.text != blank %}
-          <p>{{ section.settings.text }}</p>
-        {% endif %}
-      </div>
-    </div>
-  </div>
-</div>
-
-<style>
-.image-with-text-section {
-  padding: 50px 0;
-}
-.image-with-text-section img {
-  max-width: 100%;
-  height: auto;
-}
-</style>
