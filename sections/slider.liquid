@@ -1,38 +1,55 @@
 <div class="slider_section">
-  <div class="slider_main">
-    <div id="carouselExampleControls" class="carousel slide" 
-         {% if section.blocks.size > 1 %}data-ride="carousel" data-interval="3000"{% endif %}>
-      <div class="carousel-inner">
-        {% for block in section.blocks %}
-          <div class="carousel-item {% if forloop.first %}active{% endif %}">
-            {% if block.settings.image != blank %}
-              <img class="d-block w-100" 
-                   src="{{ block.settings.image | image_url: width: 1200 }}" 
-                   alt="Slide {{ forloop.index }}" 
-                   width="1200" height="600">
+  <div id="customCarousel" class="carousel slide" 
+       {% if section.blocks.size > 1 %}data-bs-ride="carousel" data-bs-interval="3000"{% endif %}>
+    <div class="carousel-inner">
+      {% for block in section.blocks %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | image_url: width: 1200 }}" 
+                 class="d-block w-100" alt="Slide {{ forloop.index }}" width="1200" height="600">
+          {% endif %}
+          {% if block.settings.heading != blank or block.settings.text != blank %}
+          <div class="carousel-caption d-none d-md-block">
+            {% if block.settings.heading != blank %}
+              <h5>{{ block.settings.heading }}</h5>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <p>{{ block.settings.text }}</p>
             {% endif %}
           </div>
-        {% endfor %}
-      </div>
-
-      {% if section.blocks.size > 1 %}
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-      {% endif %}
+          {% endif %}
+        </div>
+      {% endfor %}
     </div>
+
+    {% if section.blocks.size > 1 %}
+    <button class="carousel-control-prev" type="button" data-bs-target="#customCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#customCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    {% endif %}
   </div>
 </div>
 
+<style>
+.carousel-item img {
+  max-height: 600px;
+  object-fit: cover;
+}
+.carousel-caption h5, .carousel-caption p {
+  background: rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+</style>
 
 {% schema %}
 {
-  "name": "Slider",
+  "name": "Dynamic Slider",
   "blocks": [
     {
       "type": "slide",
@@ -42,6 +59,16 @@
           "type": "image_picker",
           "id": "image",
           "label": "Slide Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
         }
       ]
     }
@@ -49,7 +76,7 @@
   "max_blocks": 10,
   "presets": [
     {
-      "name": "Slider",
+      "name": "Dynamic Slider",
       "category": "Sliders"
     }
   ]
