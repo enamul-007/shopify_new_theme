@@ -108,8 +108,9 @@ div#predictive_search_result {
 
 .card-body img, .card-body svg {
   width: 100%;
-  height: 300;
+  height: 400;
   display: block;
+  object-fit: cover;
 }
 
 /*  */
