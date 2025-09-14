@@ -1,21 +1,42 @@
 <div class="collection_card_section-{{ section.id }}">
-<div class="container">
-
-</div>
+    <div class="container">
+        <div>
+            <h3 class="collection_card_heading">
+                {{ section.settings.collection_card_heading }}
+            </h3>
+            <p class="text-center collection_card_subheading">
+                Collection
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="card_collection">
+                    <img src="{{ 'collection-apparel-1.png' | asset_url }}"
+                        alt="Collection Image" class="card-img-top" width="100%" height="200"
+                        style="object-fit:cover;">
+                
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% schema %}
+{
+"name": "Collection Card",
+"settings": [
     {
-        "name": "Collection Card",
-        "settings": [
-
-        ],
-        "presets": [
-            {
-                "name": "Collection Card",
-                "category": "collection"
-            }
-        ]
-
+        "type": "text",
+        "id": "collection_card_heading",
+        "label": "Heading",
+        "default": "Collection Title"
     }
+],
+"presets": [
+{
+"name": "Collection Card",
+"category": "collection"
+}
+]
+}
 {% endschema %}
