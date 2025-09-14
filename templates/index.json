@@ -8,28 +8,13 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "settings": {
-        "content_width": 60,
-        "heading": "Our Best collection",
-        "sub_heading": "",
-        "label_1": "Buy Now",
-        "url_1": "",
-        "content_alignment": "left"
-      }
+    "sections": {
+        "image_banner": {
+            "type": "image-banner",
+            "settings": {}
+        }
     },
-    "image_with_text_kDErDk": {
-      "type": "image-with-text",
-      "name": "Image with text",
-      "settings": {
-        "image": "shopify://shop_images/download_6.png"
-      }
-    }
-  },
-  "order": [
-    "image_banner",
-    "image_with_text_kDErDk"
-  ]
+    "order":[
+        "image_banner"
+    ]
 }
