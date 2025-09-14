@@ -8,13 +8,31 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "image_banner": {
-            "type": "image-banner",
-            "settings": {}
-        }
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "content_width": 60,
+        "heading": "Our Best collection",
+        "sub_heading": "",
+        "label_1": "Buy Now",
+        "url_1": "",
+        "content_alignment": "left"
+      }
     },
-    "order":[
-        "image_banner"
-    ]
+    "image_with_text_xzD6h7": {
+      "type": "image-with-text",
+      "name": "Image with Text",
+      "settings": {
+        "image": "shopify://shop_images/download_3_2becc670-214d-4db4-a31e-89842a1476ec.png",
+        "heading": "Your Heading Here",
+        "text": "This is a description text for the section. You can edit it from the theme editor.",
+        "layout": "left"
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "image_with_text_xzD6h7"
+  ]
 }
