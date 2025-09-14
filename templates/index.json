@@ -8,13 +8,51 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "image_banner": {
-            "type": "image-banner",
-            "settings": {}
-        }
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "content_width": 60,
+        "heading": "Our Best collection",
+        "sub_heading": "",
+        "label_1": "Buy Now",
+        "url_1": "",
+        "content_alignment": "left"
+      }
     },
-    "order":[
-        "image_banner"
-    ]
+    "slider_TpkAGy": {
+      "type": "slider",
+      "blocks": {
+        "slide_wDiAwe": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/download_2237e406-ed9e-4b15-8af2-2e5d2bb9fadd.png"
+          }
+        },
+        "slide_LdqfKi": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/woman-gossiping-with-colleagues-found-out-shocking-revelation-speechless-concerned-young-redhead_1258-127734.avif"
+          }
+        },
+        "slide_TCFMbP": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/download_2237e406-ed9e-4b15-8af2-2e5d2bb9fadd.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_wDiAwe",
+        "slide_LdqfKi",
+        "slide_TCFMbP"
+      ],
+      "name": "Slider",
+      "settings": {}
+    }
+  },
+  "order": [
+    "image_banner",
+    "slider_TpkAGy"
+  ]
 }
