@@ -9,17 +9,6 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "settings": {
-        "content_width": 60,
-        "heading": "Our Best collection",
-        "sub_heading": "",
-        "label_1": "Buy Now",
-        "url_1": "",
-        "content_alignment": "left"
-      }
-    },
     "slider_GjGcKc": {
       "type": "slider",
       "blocks": {
@@ -55,10 +44,21 @@
       ],
       "name": "Dynamic Slider",
       "settings": {}
+    },
+    "image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "content_width": 60,
+        "heading": "Our Best collection",
+        "sub_heading": "",
+        "label_1": "Buy Now",
+        "url_1": "",
+        "content_alignment": "left"
+      }
     }
   },
   "order": [
-    "image_banner",
-    "slider_GjGcKc"
+    "slider_GjGcKc",
+    "image_banner"
   ]
 }
