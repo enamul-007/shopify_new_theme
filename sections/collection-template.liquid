@@ -118,12 +118,11 @@
 
                     </div>
                     <div class="collection-products">
-                        <div class="col-md-3">
-                            <div class="row">
-                                {% for product in collection.products %}
-                                {% render 'card-product', product:product%}
-                                {% endfor %}
-                            </div>
+                        <div class="row">
+                            
+                            {% for product in collection.products %}
+                            {% render 'card-product', product:product%}
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
