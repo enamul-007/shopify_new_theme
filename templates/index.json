@@ -12,12 +12,13 @@
     "image_banner": {
       "type": "image-banner",
       "settings": {
+        "image": "shopify://shop_images/download_2237e406-ed9e-4b15-8af2-2e5d2bb9fadd.png",
         "content_width": 60,
         "heading": "Our Best collection",
         "sub_heading": "",
         "label_1": "Buy Now",
         "url_1": "",
-        "content_alignment": "left"
+        "content_alignment": "right"
       }
     },
     "multicolumn_yNziLf": {
