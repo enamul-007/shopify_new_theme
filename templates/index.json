@@ -8,13 +8,119 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "image_banner": {
-            "type": "image-banner",
-            "settings": {}
-        }
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "disabled": true,
+      "settings": {
+        "content_width": 60,
+        "heading": "Our Best collection",
+        "sub_heading": "",
+        "label_1": "Buy Now",
+        "url_1": "",
+        "content_alignment": "left"
+      }
     },
-    "order":[
-        "image_banner"
-    ]
+    "slider_w8kAQH": {
+      "type": "slider",
+      "blocks": {
+        "slide_BDQKGm": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/download_2237e406-ed9e-4b15-8af2-2e5d2bb9fadd.png",
+            "heading": "",
+            "text": ""
+          }
+        },
+        "slide_aVHPDx": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/download_10.png",
+            "heading": "",
+            "text": ""
+          }
+        },
+        "slide_YKqyTA": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/download_2_dd10ea86-264b-43ab-8a7d-5e3daa4cd16f.png",
+            "heading": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_BDQKGm",
+        "slide_aVHPDx",
+        "slide_YKqyTA"
+      ],
+      "name": "Dynamic Slider",
+      "settings": {}
+    },
+    "featured_collection_PNxWDA": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "Best selling",
+        "sub_heading": "",
+        "collection": "best-selling"
+      }
+    },
+    "multicolumn_RL9mTM": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_QnTYWt": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/download_9.png",
+            "title": "column title",
+            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
+          }
+        },
+        "column_G83r4R": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/download_8.png",
+            "title": "column title",
+            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
+          }
+        },
+        "column_RhpULj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/download_42d7acaa-dd01-4dae-b9ef-3e4c43393505.png",
+            "title": "column title",
+            "rte": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nam.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "column_QnTYWt",
+        "column_G83r4R",
+        "column_RhpULj"
+      ],
+      "name": "Multicolumn",
+      "settings": {
+        "heading": "Multicolumn",
+        "sub_heading": ""
+      }
+    },
+    "image_with_text_UWKGfq": {
+      "type": "image-with-text",
+      "name": "Image with Text",
+      "settings": {
+        "image": "shopify://shop_images/download_6.png",
+        "heading": "Your Heading Here",
+        "text": "This is a description text for the section. You can edit it from the theme editor.",
+        "layout": "left"
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "slider_w8kAQH",
+    "featured_collection_PNxWDA",
+    "multicolumn_RL9mTM",
+    "image_with_text_UWKGfq"
+  ]
 }
