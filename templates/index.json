@@ -8,57 +8,13 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "slider_GjGcKc": {
-      "type": "slider",
-      "blocks": {
-        "slide_ezYdNa": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/download_2237e406-ed9e-4b15-8af2-2e5d2bb9fadd.png",
-            "heading": "",
-            "text": ""
-          }
-        },
-        "slide_JCpqMi": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/download_10.png",
-            "heading": "",
-            "text": ""
-          }
-        },
-        "slide_qarMVT": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/download_2_dd10ea86-264b-43ab-8a7d-5e3daa4cd16f.png",
-            "heading": "",
-            "text": ""
-          }
+    "sections": {
+        "image_banner": {
+            "type": "image-banner",
+            "settings": {}
         }
-      },
-      "block_order": [
-        "slide_ezYdNa",
-        "slide_JCpqMi",
-        "slide_qarMVT"
-      ],
-      "name": "Dynamic Slider",
-      "settings": {}
     },
-    "image_banner": {
-      "type": "image-banner",
-      "settings": {
-        "content_width": 60,
-        "heading": "Our Best collection",
-        "sub_heading": "",
-        "label_1": "Buy Now",
-        "url_1": "",
-        "content_alignment": "left"
-      }
-    }
-  },
-  "order": [
-    "slider_GjGcKc",
-    "image_banner"
-  ]
+    "order":[
+        "image_banner"
+    ]
 }
