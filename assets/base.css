@@ -157,6 +157,11 @@ body {
     margin: 10px ;
 }
 
+.featurd_count{
+    max-width: 350px;
+    margin: 10px auto ; 
+}
+
 .product-card {
     background-color: var(--card-background);
     border-radius: 20px;
